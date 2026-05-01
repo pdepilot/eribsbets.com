@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERIBSBETS - Sports Betting</title>
+  <meta name="description" content="Fast, modern sports betting on football, basketball, tennis and more.">
+  <meta name="theme-color" content="#22C55E">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- SportyBet Header Container -->
+  <div class="sporty-header-wrapper">
+    
+    <!-- 1. Top Login Bar -->
+    <header class="sporty-topbar">
+      <div class="topbar-right">
+        <div class="auth-form">
+          <div class="input-col">
+            <div class="input-wrapper">
+              <span class="country-code">+234</span>
+              <input type="text" placeholder="Mobile Number">
+            </div>
+          </div>
+          <div class="input-col">
+            <div class="input-wrapper">
+              <input type="password" placeholder="Password">
+            </div>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          <div class="auth-buttons">
+            <button class="btn btn-login">Login</button>
+            <button class="btn btn-register">Register</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Main Categories Navbar -->
+    <nav class="sporty-main-nav">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo" class="site-logo">
+      </div>
+      <ul class="main-nav-links">
+        <li><a href="#"><span class="icon">🏠</span><span class="text">home</span></a></li>
+        <li class="active"><a href="#"><span class="icon">⚽</span><span class="text">sport</span></a></li>
+        <li><a href="#"><span class="icon">⏱️</span><span class="text">live</span></a></li>
+        <li><a href="#"><span class="icon">🎰</span><span class="text">casino</span></a></li>
+      </ul>
+      <div class="nav-right-actions">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="theme-toggle-btn">🌙</button>
+        <div class="nav-dropdown-container">
+          <button class="nav-dropdown-btn" onclick="toggleNavDropdown()" id="navDropdownBtn">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+      </div>
+      <!-- Dropdown Panel under navbar -->
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <div class="mega-menu-grid">
+          <a href="#"><span class="icon">✈️</span><span class="text">aviator</span></a>
+          <a href="#"><span class="icon">🎲</span><span class="text">live casino</span></a>
+          <a href="#"><span class="icon">🎱</span><span class="text">lucky numbers</span></a>
+          <a href="#"><span class="icon">🃏</span><span class="text">betgames</span></a>
+          <a href="#"><span class="icon">🎮</span><span class="text">esports</span></a>
+          <a href="#"><span class="icon">💻</span><span class="text">virtuals</span></a>
+          <a href="#"><span class="icon">🎁</span><span class="text">promotions</span></a>
+          <a href="#"><span class="icon">⚽</span><span class="text">football</span></a>
+          <a href="#"><span class="icon">🏀</span><span class="text">basketball</span></a>
+          <a href="#"><span class="icon">🎾</span><span class="text">tennis</span></a>
+          <a href="#"><span class="icon">🏓</span><span class="text">table tennis</span></a>
+          <a href="#"><span class="icon">🏒</span><span class="text">ice hockey</span></a>
+          <a href="#"><span class="icon">🏐</span><span class="text">volleyball</span></a>
+          <a href="#"><span class="icon">➕</span><span class="text">more sports</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 3. Sports Sub-Navbar -->
+    <nav class="sporty-sub-nav">
+      <ul class="sub-nav-links">
+        <li class="active"><a href="#">Football</a></li>
+        <li><a href="#">Basketball</a></li>
+        <li><a href="#">Tennis</a></li>
+        <li><a href="#">Table Tennis</a></li>
+        <li><a href="#">Ice Hockey</a></li>
+        <li><a href="#">Volleyball</a></li>
+        <li><a href="#">More Sports</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <!-- Main Layout -->
+  <main class="main-container">
+    
+    <!-- Left Sidebar (Sports Categories) -->
+    <aside class="sidebar-left">
+      <div class="sidebar-section">
+        <h3>Popular</h3>
+        <ul class="sidebar-list">
+          <li><span class="icon">⚽</span> Premier League</li>
+          <li><span class="icon">⚽</span> La Liga</li>
+          <li><span class="icon">⚽</span> Serie A</li>
+          <li><span class="icon">⚽</span> Bundesliga</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>All Sports</h3>
+        <ul class="sidebar-list">
+          <li><span class="icon">⚽</span> Soccer</li>
+          <li><span class="icon">🎾</span> Tennis</li>
+          <li><span class="icon">🏀</span> Basketball</li>
+          <li><span class="icon">🏓</span> Table Tennis</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Center Content (Betway Style Main Area) -->
+    <section class="content-center">
+      
+      <!-- 1. Booking Code Bar -->
+      <div class="booking-code-bar">
+        <input type="text" placeholder="Enter Booking Code" class="booking-input">
+        <button class="booking-submit">></button>
+        <button class="all-codes-btn">All Codes ></button>
+      </div>
+
+      <!-- DATE FILTERS -->
+      <div class="date-filters-row">
+        <button class="date-filter-btn active" id="date-all" onclick="filterByDate('all')">All</button>
+        <button class="date-filter-btn" id="date-today" onclick="filterByDate('today')">Today</button>
+        <button class="date-filter-btn" id="date-tomorrow" onclick="filterByDate('tomorrow')">Tomorrow</button>
+        <button class="date-filter-btn" id="date-weekend" onclick="filterByDate('weekend')">Weekend</button>
+      </div>
+
+      <!-- SEARCH & FILTER BAR -->
+      <div class="search-filter-container">
+        <div class="match-search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="match-search" placeholder="Search teams or competitions..." oninput="filterMatches(this.value)">
+          <button class="search-clear" id="search-clear" onclick="clearSearch()" style="display:none">✕</button>
+        </div>
+        <div class="advanced-filter">
+          <div class="multi-select-wrapper" id="league-multi-select">
+            <button class="multi-select-trigger" onclick="toggleMultiSelect()">
+              <span id="selected-leagues-text">All Leagues</span>
+              <span class="chevron">▼</span>
+            </button>
+            <div class="multi-select-dropdown" id="league-options">
+              <div class="league-group">
+                <div class="group-label">🌍 International</div>
+                <label class="multi-option"><input type="checkbox" value="europa league" onchange="applyFilters()"> Europa League <span class="count">(0)</span></label>
+                <label class="multi-option"><input type="checkbox" value="champions league" onchange="applyFilters()"> Champions League <span class="count">(0)</span></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🏴 England</div>
+                <label class="multi-option"><input type="checkbox" value="premier league" onchange="applyFilters()"> Premier League <span class="count">(0)</span></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇮🇹 Italy</div>
+                <label class="multi-option"><input type="checkbox" value="serie a" onchange="applyFilters()"> Serie A <span class="count">(0)</span></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇫🇷 France</div>
+                <label class="multi-option"><input type="checkbox" value="ligue 1" onchange="applyFilters()"> Ligue 1 <span class="count">(0)</span></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇩🇪 Germany</div>
+                <label class="multi-option"><input type="checkbox" value="bundesliga" onchange="applyFilters()"> Bundesliga <span class="count">(0)</span></label>
+              </div>
+              <div class="multi-select-actions">
+                <button class="select-all-btn" onclick="selectAllLeagues(true)">Select All</button>
+                <button class="clear-all-btn" onclick="selectAllLeagues(false)">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Sports Categories Scroll -->
+      <div class="sports-scroll-nav">
+        <button class="sport-badge"><span class="icon">A/Z</span><span class="text">All Sports</span></button>
+        <button class="sport-badge">
+          <span class="live-dot">Live 43</span>
+          <span class="icon">⚽</span>
+          <span class="text">Soccer</span>
+        </button>
+        <button class="sport-badge"><span class="icon">🔗</span><span class="text">Codes</span></button>
+        <button class="sport-badge">
+          <span class="live-dot">Live 20</span>
+          <span class="icon">🎾</span>
+          <span class="text">Tennis</span>
+        </button>
+        <button class="sport-badge"><span class="icon">👆</span><span class="text">Swipe Bet</span></button>
+        <button class="sport-badge">
+          <span class="live-dot">Live 1</span>
+          <span class="icon">🏏</span>
+          <span class="text">Cricket</span>
+        </button>
+        <button class="sport-badge">
+          <span class="live-dot">Live 1</span>
+          <span class="icon">🏀</span>
+          <span class="text">Basketball</span>
+        </button>
+      </div>
+
+      <!-- 3. Top Leagues -->
+      <div class="top-leagues-section">
+        <div class="top-leagues-header">Top Leagues</div>
+        <div class="leagues-scroll">
+          <div class="league-card">
+            <span class="league-title">Premier League</span>
+            <span class="league-country">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span>
+          </div>
+          <div class="league-card">
+            <span class="league-title">UEFA Champions League</span>
+            <span class="league-country">🌍 Int. Clubs</span>
+          </div>
+          <div class="league-card">
+            <span class="league-title">Serie A</span>
+            <span class="league-country">🇮🇹 Italy</span>
+          </div>
+          <div class="league-card">
+            <span class="league-title">Ligue 1</span>
+            <span class="league-country">🇫🇷 France</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Filter Tabs -->
+      <div class="filter-tabs-row">
+        <button class="filter-tab" id="tab-live" onclick="switchFilter('live')"><span class="glow-dot"></span> Live</button>
+        <button class="filter-tab active" id="tab-highlights" onclick="switchFilter('highlights')">Highlights</button>
+        <button class="filter-tab" id="tab-upcoming" onclick="switchFilter('upcoming')">Upcoming</button>
+        <button class="filter-tab" id="tab-outrights" onclick="switchFilter('outrights')">Outrights</button>
+      </div>
+
+      <!-- 5. Market Types Nav -->
+      <div class="market-types-nav">
+        <button class="market-tab active" onclick="switchMarket('1x2', this)">1X2</button>
+        <button class="market-tab" onclick="switchMarket('dc', this)">Double Chance</button>
+        <button class="market-tab" onclick="switchMarket('ou', this)">Over/Under 2.5</button>
+        <button class="market-tab" onclick="switchMarket('gg', this)">Both Teams Score</button>
+      </div>
+
+      <!-- 6. Match List Header -->
+      <div class="match-list-header">
+        <div class="left-actions">
+          <button class="leagues-btn">Leagues 🏆</button>
+          <button class="filter-up-btn">⚡ UP ▼</button>
+        </div>
+        <div class="odds-headers" id="market-headers">
+          <span>1</span>
+          <span>X</span>
+          <span>2</span>
+        </div>
+      </div>
+
+      <!-- 7. Match Cards -->
+      <div class="matches-section">
+        <!-- ======= HIGHLIGHTS MATCHES ======= -->
+        <div data-filter="highlights">
+          <!-- Match 1 -->
+          <div class="betway-match-card" data-date="today" data-league="europa league" 
+               data-m1x2="2.24,2.95,3.40" data-mdc="1.30,1.38,1.65" data-mou="1.85,1.95" data-mgg="1.70,2.10">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🌍</span><span class="comp-name">UEFA Europa League, International Clubs</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">SC Braga</div><div class="team">SC Freiburg</div></div>
+              <div class="odds-col market-odds-row">
+                <button class="odd-btn" data-match-id="h1" data-match-name="SC Braga vs SC Freiburg" data-outcome="1" data-price="2.24">2.24</button>
+                <button class="odd-btn" data-match-id="h1" data-match-name="SC Braga vs SC Freiburg" data-outcome="X" data-price="2.95">2.95</button>
+                <button class="odd-btn" data-match-id="h1" data-match-name="SC Braga vs SC Freiburg" data-outcome="2" data-price="3.40">3.40</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Today 20:00</span><span class="more-bets">More Bets ></span></div>
+          </div>
+          <!-- Match 2 -->
+          <div class="betway-match-card" data-date="today" data-league="premier league"
+               data-m1x2="2.85,3.10,2.47" data-mdc="1.50,1.35,1.40" data-mou="2.10,1.75" data-mgg="1.65,2.20">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="comp-name">Premier League, England</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">Nottingham Forest</div><div class="team">Aston Villa</div></div>
+              <div class="odds-col market-odds-row">
+                <button class="odd-btn" data-match-id="h2" data-match-name="N. Forest vs A. Villa" data-outcome="1" data-price="2.85">2.85</button>
+                <button class="odd-btn" data-match-id="h2" data-match-name="N. Forest vs A. Villa" data-outcome="X" data-price="3.10">3.10</button>
+                <button class="odd-btn" data-match-id="h2" data-match-name="N. Forest vs A. Villa" data-outcome="2" data-price="2.47">2.47</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Today 21:00</span><span class="more-bets">More Bets ></span></div>
+          </div>
+          <!-- Match 3 -->
+          <div class="betway-match-card" data-date="tomorrow" data-league="la liga">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🇪🇸</span><span class="comp-name">La Liga, Spain</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">Real Madrid</div><div class="team">Barcelona</div></div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="h3" data-match-name="Real Madrid vs Barcelona" data-outcome="1" data-price="2.10">2.10</button>
+                <button class="odd-btn" data-match-id="h3" data-match-name="Real Madrid vs Barcelona" data-outcome="X" data-price="3.50">3.50</button>
+                <button class="odd-btn" data-match-id="h3" data-match-name="Real Madrid vs Barcelona" data-outcome="2" data-price="3.20">3.20</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Tomorrow 20:00</span><span class="more-bets">More Bets ></span></div>
+          </div>
+        </div>
+
+        <!-- ======= LIVE MATCHES ======= -->
+        <div data-filter="live" style="display:none">
+          <div class="live-banner"><span class="glow-dot"></span> 43 Live Events Now</div>
+          <!-- Live Match 1 -->
+          <div class="betway-match-card live-card">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🇩🇪</span><span class="comp-name">Bundesliga, Germany</span></div>
+              <div class="card-header-actions"><span class="live-score-badge">LIVE 55'</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col">
+                <div class="team">Bayern Munich <span class="score">2</span></div>
+                <div class="team">Borussia Dortmund <span class="score">1</span></div>
+              </div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="l1" data-match-name="Bayern vs B. Dortmund" data-outcome="1" data-price="1.45">1.45</button>
+                <button class="odd-btn" data-match-id="l1" data-match-name="Bayern vs B. Dortmund" data-outcome="X" data-price="4.20">4.20</button>
+                <button class="odd-btn" data-match-id="l1" data-match-name="Bayern vs B. Dortmund" data-outcome="2" data-price="6.50">6.50</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time live-time">🔴 In-Play</span><span class="more-bets">More Bets ></span></div>
+          </div>
+          <!-- Live Match 2 -->
+          <div class="betway-match-card live-card">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🇮🇹</span><span class="comp-name">Serie A, Italy</span></div>
+              <div class="card-header-actions"><span class="live-score-badge">LIVE 72'</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col">
+                <div class="team">AC Milan <span class="score">1</span></div>
+                <div class="team">Juventus <span class="score">1</span></div>
+              </div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="l2" data-match-name="AC Milan vs Juventus" data-outcome="1" data-price="2.30">2.30</button>
+                <button class="odd-btn" data-match-id="l2" data-match-name="AC Milan vs Juventus" data-outcome="X" data-price="2.90">2.90</button>
+                <button class="odd-btn" data-match-id="l2" data-match-name="AC Milan vs Juventus" data-outcome="2" data-price="3.10">3.10</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time live-time">🔴 In-Play</span><span class="more-bets">More Bets ></span></div>
+          </div>
+        </div>
+
+        <!-- ======= UPCOMING MATCHES ======= -->
+        <div data-filter="upcoming" style="display:none">
+          <div class="upcoming-label">Matches in the next 24 hours</div>
+          <!-- Upcoming Match 1 -->
+          <div class="betway-match-card">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🇫🇷</span><span class="comp-name">Ligue 1, France</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">PSG</div><div class="team">Marseille</div></div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="u1" data-match-name="PSG vs Marseille" data-outcome="1" data-price="1.60">1.60</button>
+                <button class="odd-btn" data-match-id="u1" data-match-name="PSG vs Marseille" data-outcome="X" data-price="3.80">3.80</button>
+                <button class="odd-btn" data-match-id="u1" data-match-name="PSG vs Marseille" data-outcome="2" data-price="5.50">5.50</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Today 22:00</span><span class="more-bets">More Bets ></span></div>
+          </div>
+          <!-- Upcoming Match 2 -->
+          <div class="betway-match-card">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🌍</span><span class="comp-name">UEFA Champions League</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">Manchester City</div><div class="team">Inter Milan</div></div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="u2" data-match-name="Man City vs Inter Milan" data-outcome="1" data-price="1.75">1.75</button>
+                <button class="odd-btn" data-match-id="u2" data-match-name="Man City vs Inter Milan" data-outcome="X" data-price="3.60">3.60</button>
+                <button class="odd-btn" data-match-id="u2" data-match-name="Man City vs Inter Milan" data-outcome="2" data-price="4.80">4.80</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Tomorrow 19:45</span><span class="more-bets">More Bets ></span></div>
+          </div>
+          <!-- Upcoming Match 3 -->
+          <div class="betway-match-card">
+            <div class="card-header">
+              <div class="comp-info"><span class="comp-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="comp-name">Premier League, England</span></div>
+              <div class="card-header-actions"><span class="stats-icon">📊</span><span class="chevron">▼</span></div>
+            </div>
+            <div class="card-body">
+              <div class="teams-col"><div class="team">Arsenal</div><div class="team">Chelsea</div></div>
+              <div class="odds-col">
+                <button class="odd-btn" data-match-id="u3" data-match-name="Arsenal vs Chelsea" data-outcome="1" data-price="2.05">2.05</button>
+                <button class="odd-btn" data-match-id="u3" data-match-name="Arsenal vs Chelsea" data-outcome="X" data-price="3.40">3.40</button>
+                <button class="odd-btn" data-match-id="u3" data-match-name="Arsenal vs Chelsea" data-outcome="2" data-price="3.30">3.30</button>
+              </div>
+            </div>
+            <div class="card-footer"><span class="match-time">🕒 Tomorrow 17:30</span><span class="more-bets">More Bets ></span></div>
+          </div>
+        </div>
+
+        <!-- ======= OUTRIGHTS ======= -->
+        <div data-filter="outrights" style="display:none">
+          <div class="upcoming-label">Season Winner Markets</div>
+          <div class="outright-card">
+            <div class="outright-header">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League — Winner 2024/25</div>
+            <div class="outright-list">
+              <div class="outright-item">
+                <span class="outright-team">Man City</span>
+                <button class="odd-btn outright-btn" data-match-id="o1" data-match-name="EPL Winner" data-outcome="Man City" data-price="2.50">2.50</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">Arsenal</span>
+                <button class="odd-btn outright-btn" data-match-id="o1" data-match-name="EPL Winner" data-outcome="Arsenal" data-price="3.10">3.10</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">Liverpool</span>
+                <button class="odd-btn outright-btn" data-match-id="o1" data-match-name="EPL Winner" data-outcome="Liverpool" data-price="4.00">4.00</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">Chelsea</span>
+                <button class="odd-btn outright-btn" data-match-id="o1" data-match-name="EPL Winner" data-outcome="Chelsea" data-price="8.50">8.50</button>
+              </div>
+            </div>
+          </div>
+          <div class="outright-card">
+            <div class="outright-header">🌍 UEFA Champions League — Winner 2024/25</div>
+            <div class="outright-list">
+              <div class="outright-item">
+                <span class="outright-team">Real Madrid</span>
+                <button class="odd-btn outright-btn" data-match-id="o2" data-match-name="UCL Winner" data-outcome="Real Madrid" data-price="3.25">3.25</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">Man City</span>
+                <button class="odd-btn outright-btn" data-match-id="o2" data-match-name="UCL Winner" data-outcome="Man City" data-price="4.50">4.50</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">Bayern Munich</span>
+                <button class="odd-btn outright-btn" data-match-id="o2" data-match-name="UCL Winner" data-outcome="Bayern Munich" data-price="5.00">5.00</button>
+              </div>
+              <div class="outright-item">
+                <span class="outright-team">PSG</span>
+                <button class="odd-btn outright-btn" data-match-id="o2" data-match-name="UCL Winner" data-outcome="PSG" data-price="7.00">7.00</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Sidebar (Betslip + History) -->
+    <aside class="sidebar-right">
+      <div class="betslip-container">
+        <!-- Sidebar Tabs -->
+        <div class="sidebar-tabs">
+          <button class="sidebar-tab active" id="tab-betslip" onclick="switchSidebarTab('betslip')">Betslip <span class="badge" id="desktop-badge">0</span></button>
+          <button class="sidebar-tab" id="tab-history" onclick="switchSidebarTab('history')">History</button>
+        </div>
+
+        <!-- Betslip Panel -->
+        <div id="panel-betslip">
+          <div class="betslip-body" id="betslip-body">
+            <div class="empty-state">
+              <p>Your betslip is empty</p>
+              <p class="hint">Please make a selection to place a bet.</p>
+            </div>
+          </div>
+          <div class="betslip-footer" id="betslip-footer" style="display:none">
+            <div class="stake-presets">
+              <button class="stake-preset" onclick="setStake(100)">₦100</button>
+              <button class="stake-preset" onclick="setStake(500)">₦500</button>
+              <button class="stake-preset" onclick="setStake(1000)">₦1K</button>
+              <button class="stake-preset" onclick="setStake(5000)">₦5K</button>
+            </div>
+            <div class="betslip-total">
+              <span>Total Odds:</span>
+              <span id="total-odds">0.00</span>
+            </div>
+            <div class="betslip-stake">
+              <input type="number" id="stake-input" placeholder="Stake Amount" value="100">
+            </div>
+            <div class="betslip-return">
+              <span>Potential Return:</span>
+              <span id="potential-return">₦0.00</span>
+            </div>
+            <button class="btn btn-place-bet" id="place-bet-btn">Place Bet</button>
+          </div>
+        </div>
+
+        <!-- History Panel -->
+        <div id="panel-history" style="display:none">
+          <div style="padding: 10px 15px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:13px; font-weight:bold;">Recent Bets</span>
+            <button onclick="clearBetHistory()" style="background:transparent; border:none; color:var(--text-muted); font-size:12px; cursor:pointer;">Clear All</button>
+          </div>
+          <div id="bet-history-list" style="padding:0 10px 10px;"></div>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="age-warning">18+</div>
+        <p>Please play responsibly.</p>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">How to Play</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="#" class="nav-item active">
+      <span class="icon">🏠</span>
+      <span class="label">Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">⚽</span>
+      <span class="label">Sports</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">▶️</span>
+      <span class="label">Live</span>
+    </a>
+    <a href="#" class="nav-item" id="mobile-betslip-trigger">
+      <span class="icon">📄<span class="badge" id="mobile-badge">0</span></span>
+      <span class="label">Betslip</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="icon">☰</span>
+      <span class="label">Menu</span>
+    </a>
+  </nav>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- 7. Place Bet Confirmation Modal -->
+  <div class="bet-modal-overlay" id="bet-modal-overlay">
+    <div class="bet-modal">
+      <div class="bet-modal-icon">✅</div>
+      <h2 class="bet-modal-title">Bet Placed!</h2>
+      <p class="bet-modal-msg">Your bet has been successfully placed. Good luck!</p>
+      <div class="bet-modal-details" id="bet-modal-details"></div>
+      <div class="booking-code-section">
+        <span class="booking-label">Booking Code:</span>
+        <div class="booking-code-box">
+          <strong id="booking-code-val">ER-7A2B9</strong>
+          <button class="copy-btn" onclick="copyBookingCode()">Copy</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="closeBetModal()">Done</button>
+    </div>
+  </div>
+
+  <script>
+    // Filter Tabs logic
+    function switchFilter(filter) {
+      // Update active tab styling
+      const tabs = ['live', 'highlights', 'upcoming', 'outrights'];
+      tabs.forEach(t => {
+        const el = document.getElementById('tab-' + t);
+        if (el) el.classList.remove('active');
+      });
+      document.getElementById('tab-' + filter).classList.add('active');
+
+      // Show/hide the matching data-filter sections
+      const sections = document.querySelectorAll('[data-filter]');
+      sections.forEach(sec => {
+        sec.style.display = sec.dataset.filter === filter ? 'block' : 'none';
+      });
+
+      // Show/hide market types nav (not relevant for outrights)
+      const marketNav = document.querySelector('.market-types-nav');
+      const matchListHeader = document.querySelector('.match-list-header');
+      if (filter === 'outrights') {
+        marketNav.style.display = 'none';
+        matchListHeader.style.display = 'none';
+      } else {
+        marketNav.style.display = 'flex';
+        matchListHeader.style.display = 'flex';
+      }
+    }
+
+    function toggleNavDropdown() {
+      const menu = document.getElementById("navDropdownMenu");
+      const btn = document.getElementById("navDropdownBtn");
+      menu.classList.toggle("show");
+      btn.classList.toggle("open");
+    }
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+      if (!event.target.closest('.nav-dropdown-btn') && !event.target.closest('.nav-dropdown-menu')) {
+        var dropdowns = document.getElementsByClassName("nav-dropdown-menu");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            document.getElementById("navDropdownBtn").classList.remove('open');
+          }
+        }
+      }
+    }
+  </script>
+  <script src="js/betslip.js"></script>
+</body>
+</html>

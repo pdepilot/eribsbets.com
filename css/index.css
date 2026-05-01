@@ -1,0 +1,2093 @@
+:root {
+  --bg-color: #0F172A;
+  --header-bg: #0B1121;
+  --nav-bg: #1E293B;
+  --accent-color: #22C55E;
+  --secondary-color: #3B82F6;
+  --highlight-color: #F59E0B;
+  --text-light: #F8FAFC;
+  --text-muted: #94A3B8;
+  --card-bg: #1E293B;
+  --border-color: #334155;
+  --hover-bg: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-light);
+}
+
+/* SPORTYBET 3-TIER HEADER STYLE */
+.sporty-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 2500;
+}
+
+/* 1. TOPBAR */
+.sporty-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px 20px; /* Reduced from 10px */
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.topbar-right .auth-form {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.input-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.country-code {
+  padding: 8px 10px;
+  background-color: var(--hover-bg);
+  color: var(--text-muted);
+  font-size: 13px;
+  border-right: 1px solid var(--border-color);
+}
+
+.input-wrapper input {
+  background-color: transparent;
+  border: none;
+  color: var(--text-light);
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  width: 140px;
+}
+
+.input-wrapper input:focus {
+  background-color: var(--hover-bg);
+}
+
+.forgot-link {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-align: right;
+  height: 14px;
+}
+.forgot-link:hover {
+  text-decoration: underline;
+  color: var(--text-light);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 8px;
+  height: 35px; /* match input height roughly */
+}
+
+.auth-buttons .btn {
+  padding: 0 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.btn-login {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+}
+.btn-login:hover {
+  background-color: #2563EB;
+}
+
+.btn-register {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+}
+.btn-register:hover {
+  border-color: var(--text-light);
+}
+
+:root {
+  --nav-height: 48px;
+  --topbar-height: 40px;
+}
+
+/* 2. MAIN NAV */
+.sporty-main-nav {
+  background-color: var(--nav-bg);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: var(--nav-height);
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+  justify-content: space-between;
+}
+
+.sporty-main-nav .logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.sporty-main-nav .logo .site-logo {
+  height: 32px;
+  width: auto;
+}
+
+.main-nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.main-nav-links li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 11px;
+  height: var(--nav-height);
+}
+
+.main-nav-links li a .icon {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.main-nav-links li.active a {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.main-nav-links li:not(.active) a:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+.nav-right-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-light);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.theme-toggle-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.nav-dropdown-container {
+  display: none; /* Desktop default */
+}
+
+.nav-dropdown-btn {
+  background: transparent;
+  color: var(--text-light);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.chevron-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes attention-blink {
+  0%, 100% { opacity: 1; color: var(--accent-color); }
+  50% { opacity: 0.4; color: var(--text-light); }
+}
+
+.nav-dropdown-btn:not(.open) .chevron-icon {
+  animation: attention-blink 2s infinite ease-in-out;
+}
+
+.nav-dropdown-btn.open .chevron-icon {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: var(--nav-bg);
+  z-index: 3000;
+  box-sizing: border-box;
+  padding: 0;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+.nav-dropdown-menu.show {
+  display: block;
+}
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  padding: 10px 0;
+}
+.mega-menu-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 11px;
+  height: 60px;
+}
+.mega-menu-grid a .icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.mega-menu-grid a:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* 3. SUB NAV */
+.sporty-sub-nav {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sub-nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0 20px;
+  overflow-x: auto;
+}
+
+.sub-nav-links li {
+  margin: 0 10px;
+}
+
+.sub-nav-links li a {
+  display: block;
+  padding: 12px 10px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.sub-nav-links li.active a {
+  color: var(--text-light);
+  border-bottom-color: var(--accent-color);
+}
+
+.sub-nav-links li:not(.active) a:hover {
+  color: var(--text-light);
+}
+
+/* MAIN LAYOUT */
+.main-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* SIDEBAR LEFT */
+.sidebar-left {
+  position: sticky;
+  top: 10px;
+  align-self: start;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar-left::-webkit-scrollbar {
+  display: none;
+}
+
+/* SIDEBAR LEFT */
+.sidebar-section {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.sidebar-section h3 {
+  padding: 12px 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: rgba(0,0,0,0.2);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-list li {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-list li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-list li:hover {
+  background-color: var(--hover-bg);
+}
+
+/* CENTER CONTENT (BETWAY STYLE) */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 1. Booking Code Bar */
+.booking-code-bar {
+  display: flex;
+  gap: 8px;
+  background-color: var(--card-bg);
+  padding: 10px;
+  border-radius: 6px;
+  align-items: center;
+}
+.booking-input {
+  flex: 1;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+}
+.booking-submit {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0 15px;
+  height: 38px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.all-codes-btn {
+  background-color: transparent;
+  color: var(--text-light);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 2. Sports Categories Scroll */
+.sports-scroll-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 5px;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.sports-scroll-nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Safari/Chrome */
+}
+.sport-badge {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.sport-badge .icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.sport-badge .text {
+  font-size: 11px;
+  font-weight: 500;
+}
+.live-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 9px;
+  padding: 2px 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* 3. Top Leagues */
+.top-leagues-section {
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.top-leagues-header {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+}
+.leagues-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 15px;
+  scrollbar-width: none;
+}
+.leagues-scroll::-webkit-scrollbar {
+  display: none;
+}
+.league-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 140px;
+}
+.league-title {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.league-country {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* 4. Filter Tabs */
+.filter-tabs-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+.filter-tab {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-tab.active {
+  background-color: var(--card-bg);
+  border-color: var(--card-bg);
+}
+.glow-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--accent-color);
+}
+
+/* 5. Market Types Nav */
+.market-types-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border-color);
+  scrollbar-width: none;
+}
+.market-types-nav::-webkit-scrollbar {
+  display: none;
+}
+.market-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.market-tab.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* 6. Match List Header */
+.match-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.left-actions {
+  display: flex;
+  gap: 10px;
+}
+.leagues-btn, .filter-up-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-up-btn {
+  color: var(--accent-color);
+}
+.odds-headers {
+  display: flex;
+  gap: 5px;
+}
+.odds-headers span {
+  width: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+/* 7. Betway Match Card */
+.betway-match-card {
+  background-color: #111; /* Darker than var(--card-bg) */
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.card-header {
+  background-color: #222;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+.comp-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.comp-name {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text-light);
+}
+.card-header-actions {
+  display: flex;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.card-body {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.teams-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.teams-col .team {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-light);
+}
+.odds-col {
+  display: flex;
+  gap: 5px;
+}
+.odd-btn {
+  background-color: #222;
+  border: 1px solid #444;
+  color: var(--text-light);
+  width: 60px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.odd-btn.selected {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+.card-footer {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid #222;
+}
+.more-bets {
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+/* LIVE TAB STYLES */
+.live-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+.live-card {
+  border-left: 3px solid #ef4444;
+}
+.live-score-badge {
+  background-color: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.score {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 20px;
+  margin-left: 6px;
+}
+.live-time {
+  color: #ef4444 !important;
+  font-weight: bold;
+}
+
+/* UPCOMING LABEL */
+.upcoming-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 0 8px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px;
+}
+
+/* OUTRIGHTS */
+.outright-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.outright-header {
+  background-color: #222;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+}
+.outright-list {
+  padding: 5px 0;
+}
+.outright-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #222;
+}
+.outright-item:last-child {
+  border-bottom: none;
+}
+.outright-team {
+  font-size: 13px;
+  font-weight: 500;
+}
+.outright-btn {
+  width: 70px !important;
+}
+
+/* SIDEBAR RIGHT (BETSLIP) */
+.sidebar-right {
+  position: sticky;
+  top: 10px;
+  align-self: start;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar-right::-webkit-scrollbar {
+  display: none;
+}
+.betslip-container {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* SIDEBAR TABS (Betslip / History) */
+.sidebar-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--nav-bg);
+}
+.sidebar-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 13px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+.sidebar-tab.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+.sidebar-tab .badge {
+  background-color: var(--accent-color);
+}
+
+/* SEARCH & FILTER BAR */
+.search-filter-container {
+  display: flex;
+  align-items: stretch; /* Make children same height */
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.search-filter-container .match-search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 44px; /* Fixed height for consistency */
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+.match-search-bar:focus-within {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.15);
+}
+.search-icon { font-size: 16px; flex-shrink: 0; }
+.match-search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-light);
+  font-size: 14px;
+}
+.match-search-bar input::placeholder { color: var(--text-muted); }
+.search-clear {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1;
+}
+.search-clear:hover { color: var(--text-light); }
+
+/* MULTI-SELECT DROPDOWN */
+.multi-select-wrapper {
+  position: relative;
+  width: 200px; /* Increased width for better text fit */
+}
+.multi-select-trigger {
+  width: 100%;
+  height: 44px; /* Matches search bar */
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-light);
+  padding: 0 12px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: none;
+}
+.multi-select-trigger:focus {
+  border-color: var(--accent-color);
+}
+.multi-select-trigger .chevron {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+.multi-select-wrapper.open .chevron {
+  transform: rotate(180deg);
+}
+
+.multi-select-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 220px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  z-index: 2000;
+  padding: 10px;
+  display: none;
+  animation: fadeInUp 0.2s ease-out;
+}
+.multi-select-wrapper.open .multi-select-dropdown {
+  display: block;
+}
+
+.multi-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 5px;
+  color: var(--text-light);
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.multi-option:hover {
+  background-color: var(--hover-bg);
+}
+.multi-option input[type="checkbox"] {
+  accent-color: var(--accent-color);
+}
+.multi-option .count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.multi-select-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+.multi-select-actions button {
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.multi-select-actions button:hover {
+  text-decoration: underline;
+}
+
+/* SEARCH HIGHLIGHTING */
+.search-highlight {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* IMPROVED NO RESULTS MESSAGE */
+.no-results-msg {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.no-results-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+.no-results-text {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+.no-results-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* DATE FILTERS ROW */
+.date-filters-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  scrollbar-width: none;
+}
+.date-filters-row::-webkit-scrollbar { display: none; }
+
+.date-filter-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.date-filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--text-light);
+}
+.date-filter-btn.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+/* LEAGUE GROUPING IN MULTI-SELECT */
+.league-group {
+  margin-bottom: 12px;
+}
+.league-group:last-child {
+  margin-bottom: 0;
+}
+.group-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 5px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 5px;
+}
+
+/* LIVE ODDS PULSE ANIMATION */
+@keyframes pulse-odds {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); background-color: var(--accent-color); color: #fff; }
+  100% { transform: scale(1); }
+}
+/* BOOKING CODE SECTION */
+.booking-code-section {
+  background-color: var(--nav-bg);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 15px 0;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+.booking-label {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.booking-code-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.booking-code-box strong {
+  font-size: 20px;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+}
+.copy-btn {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.copy-btn:hover { background-color: #334155; }
+
+/* ODDS MOVEMENT INDICATORS */
+.odd-indicator {
+  font-size: 10px;
+  margin-left: 2px;
+  font-weight: bold;
+}
+.indicator-up { color: #ef4444; } /* Red for odds up (Bad for bettor) */
+.indicator-down { color: var(--accent-color); } /* Green for odds down (Good for bettor) */
+
+/* MARKET HEADERS LABELS */
+#market-headers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.betslip-header {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.betslip-header h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.badge {
+  background-color: rgba(255,255,255,0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.betslip-body {
+  padding: 15px;
+}
+.empty-state {
+  text-align: center;
+  padding: 20px 0;
+}
+.empty-state p {
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.empty-state .hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.betslip-item {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.betslip-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.betslip-match {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--text-light);
+}
+.betslip-remove {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+.betslip-remove:hover {
+  color: #ef4444;
+}
+.betslip-item-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.betslip-pick {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.betslip-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.betslip-footer {
+  padding: 15px;
+  background-color: var(--hover-bg);
+  border-top: 1px solid var(--border-color);
+}
+.betslip-total, .betslip-return {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.betslip-total span:last-child, .betslip-return span:last-child {
+  font-weight: bold;
+}
+.betslip-return span:last-child {
+  color: var(--accent-color);
+  font-size: 16px;
+}
+.betslip-stake input {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 14px;
+}
+.betslip-stake input:focus {
+  border-color: var(--accent-color);
+}
+.btn-place-bet {
+  width: 100%;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-place-bet:hover {
+  background-color: #16A34A;
+}
+
+/* FOOTER */
+.main-footer {
+  background-color: var(--header-bg);
+  padding: 40px 20px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.age-warning {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--highlight-color);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-weight: bold;
+  color: var(--highlight-color);
+  margin-bottom: 10px;
+}
+
+.footer-section h4 {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* MOBILE BOTTOM NAVIGATION */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--header-bg);
+  border-top: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+.mobile-bottom-nav .nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.mobile-bottom-nav .nav-item .icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.mobile-bottom-nav .nav-item.active {
+  color: var(--accent-color);
+}
+
+.mobile-bottom-nav .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: var(--highlight-color);
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 200px 1fr;
+  }
+  .sidebar-right {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 60px; /* Space for bottom nav */
+  }
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar-left {
+    display: none;
+  }
+  .input-col {
+    display: none; /* Hide text inputs on mobile header */
+  }
+  .sporty-topbar {
+    padding: 4px 12px;
+    height: var(--topbar-height);
+  }
+  .sporty-main-nav {
+    padding: 0 10px;
+    height: var(--nav-height);
+    justify-content: flex-start; /* Ensure stable positioning on mobile */
+  }
+  .sporty-main-nav .logo .site-logo {
+    height: 28px;
+  }
+  .main-nav-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex: 1;
+    margin-left: 0; /* Reset desktop margin */
+  }
+  .main-nav-links li a {
+    height: var(--nav-height);
+    padding: 0;
+    font-size: 10px;
+  }
+  .mobile-bottom-nav {
+    display: flex; /* Show bottom nav on mobile */
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+  .nav-right-actions {
+    margin-left: 5px;
+    gap: 8px;
+  }
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .nav-dropdown-container {
+    display: block;
+  }
+}
+  
+  /* SEARCH AREA MOBILE FIX */
+  .search-filter-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .search-filter-container .match-search-bar {
+    width: 100%;
+    height: 44px; /* Better tap target */
+  }
+  .multi-select-wrapper {
+    width: 100% !important;
+  }
+  .multi-select-trigger {
+    height: 44px;
+  }
+  .multi-select-dropdown {
+    width: 100%;
+  }
+
+  /* DATE FILTERS MOBILE TWEAK */
+  .date-filter-btn {
+    padding: 8px 18px;
+    min-width: 85px;
+    text-align: center;
+  }
+}
+
+/* =============================================
+   FEATURE 1: ANIMATED ODDS FLASH (yellow blink)
+   ============================================= */
+@keyframes odds-flash {
+  0%   { background-color: #F59E0B; color: #000; transform: scale(1.1); }
+  50%  { background-color: #FCD34D; color: #000; }
+  100% { background-color: #222; color: var(--text-light); transform: scale(1); }
+}
+.odd-btn.flash {
+  animation: odds-flash 0.5s ease-out forwards;
+}
+
+/* =============================================
+   FEATURE 2: MOBILE BETSLIP SLIDE-UP DRAWER
+   ============================================= */
+.mobile-betslip-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 4000;
+}
+.mobile-betslip-overlay.show { display: block; }
+
+.mobile-betslip-drawer {
+  position: fixed;
+  bottom: 60px; /* sits above bottom nav */
+  left: 0;
+  width: 100%;
+  max-height: 80vh;
+  background-color: var(--nav-bg);
+  border-radius: 16px 16px 0 0;
+  z-index: 4001;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-betslip-drawer.open {
+  transform: translateY(0);
+}
+.drawer-handle {
+  width: 40px;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+/* =============================================
+   FEATURE 3: SKELETON LOADING SHIMMER
+   ============================================= */
+@keyframes shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+.skeleton-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.skeleton-line {
+  height: 12px;
+  margin-bottom: 8px;
+}
+.skeleton-line.short { width: 40%; }
+.skeleton-line.medium { width: 65%; }
+.skeleton-line.full { width: 100%; }
+.skeleton-odds {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.skeleton-odd-btn {
+  height: 40px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+/* =============================================
+   FEATURE 5: FILTER TAB FADE-IN ANIMATION
+   ============================================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+[data-filter] {
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* =============================================
+   FEATURE 6: TABLET RESPONSIVE (768-1024px)
+   ============================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 1fr 280px;
+    padding: 15px;
+    gap: 15px;
+  }
+  .sidebar-left {
+    display: none;
+  }
+  .sidebar-right {
+    display: block;
+  }
+  .main-nav-links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =============================================
+   FEATURE 7: PLACE BET CONFIRMATION MODAL
+   ============================================= */
+.bet-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+.bet-modal-overlay.show {
+  display: flex;
+}
+.bet-modal {
+  background-color: var(--nav-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px 25px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+  animation: fadeInUp 0.3s ease-out;
+}
+.bet-modal-icon {
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+.bet-modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+}
+.bet-modal-msg {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.bet-modal-details {
+  background-color: var(--bg-color);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 18px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+.bet-modal-details strong {
+  color: var(--accent-color);
+}
+
+/* =============================================
+   FEATURE 8: STAKE QUICK-SELECT BUTTONS
+   ============================================= */
+.stake-presets {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.stake-preset {
+  flex: 1;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 7px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.stake-preset:hover,
+.stake-preset.active-preset {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+/* The betslip-footer now wraps everything */
+.betslip-footer {
+  padding: 15px;
+  background-color: var(--hover-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* =============================================
+   TOAST NOTIFICATIONS
+   ============================================= */
+.toast-container {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background-color: #1E293B;
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast.toast-success { border-left: 3px solid var(--accent-color); }
+.toast.toast-info    { border-left: 3px solid var(--secondary-color); }
+.toast.toast-error   { border-left: 3px solid #ef4444; }
+
+/* =============================================
+   THEME TOGGLE BUTTON
+   ============================================= */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--accent-color);
+}
+
+/* =============================================
+   BET HISTORY PANEL
+   ============================================= */
+.history-entry {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+.history-date {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+.history-selections {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.history-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-top: 5px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* =============================================
+   LIGHT THEME OVERRIDES
+   ============================================= */
+body.light-theme {
+  --bg-color: #F1F5F9;
+  --header-bg: #FFFFFF;
+  --nav-bg: #E2E8F0;
+  --accent-color: #16A34A;
+  --secondary-color: #2563EB;
+  --highlight-color: #D97706;
+  --text-light: #0F172A;
+  --text-muted: #64748B;
+  --card-bg: #FFFFFF;
+  --border-color: #CBD5E1;
+  --hover-bg: #E2E8F0;
+}
+body.light-theme .betway-match-card {
+  background-color: #fff;
+  border-color: #CBD5E1;
+}
+body.light-theme .card-header {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+body.light-theme .odd-btn {
+  background-color: #F1F5F9;
+  border-color: #CBD5E1;
+}
+body.light-theme .booking-code-bar {
+  background-color: #fff;
+}
+body.light-theme .sport-badge {
+  background-color: #fff;
+}
+body.light-theme .outright-header,
+body.light-theme .card-header {
+  background-color: #F1F5F9;
+}
+body.light-theme .main-nav-links li.active a {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+body.light-theme .betslip-header {
+  background-color: var(--secondary-color);
+}
+body.light-theme .skeleton {
+  background: linear-gradient(90deg, #E2E8F0 25%, #CBD5E1 50%, #E2E8F0 75%);
+  background-size: 800px 100%;
+}
+body.light-theme .toast {
+  background-color: #fff;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+/* =============================================
+   ULTRA-RESPONSIVE FIXES FOR ALL SCREENS
+   ============================================= */
+
+/* 1. Base fluid typography & spacing */
+html {
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  html { font-size: 14px; }
+}
+@media (max-width: 480px) {
+  html { font-size: 13px; }
+}
+
+/* 2. Main container - full width on small screens */
+.main-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .main-container {
+    grid-template-columns: 220px 1fr 280px;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 1401px) {
+  .main-container {
+    grid-template-columns: 260px 1fr 320px;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+/* 3. Fix sticky sidebars on tablet+ */
+.sidebar-left, .sidebar-right {
+  position: sticky;
+  top: calc(var(--topbar-height, 40px) + var(--nav-height, 48px) + 1rem);
+  max-height: calc(100vh - (var(--topbar-height, 40px) + var(--nav-height, 48px) + 2rem));
+  overflow-y: auto;
+}
+@media (max-width: 1024px) {
+  .sidebar-left, .sidebar-right {
+    position: static;
+    max-height: none;
+  }
+}
+
+/* 4. Mobile header adjustments */
+@media (max-width: 768px) {
+  .sporty-topbar {
+    padding: 4px 8px;
+  }
+  .auth-buttons .btn {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  .sporty-main-nav {
+    padding: 0 8px;
+  }
+  .main-nav-links li a .text {
+    font-size: 9px;
+  }
+  .main-nav-links li a .icon {
+    font-size: 16px;
+  }
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
+  }
+  .nav-dropdown-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* 5. Fix mega-menu grid on small phones */
+@media (max-width: 480px) {
+  .mega-menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .mega-menu-grid a .icon {
+    font-size: 16px;
+  }
+  .mega-menu-grid a .text {
+    font-size: 9px;
+  }
+}
+
+/* 6. Sub-nav scrollable with better touch */
+.sporty-sub-nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.sub-nav-links {
+  display: flex;
+  width: max-content;
+  padding: 0 8px;
+}
+.sub-nav-links li {
+  margin: 0 4px;
+}
+.sub-nav-links li a {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .sub-nav-links li a {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+/* 7. Betway match card – responsive odds buttons */
+.betway-match-card .card-body {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+@media (min-width: 480px) {
+  .betway-match-card .card-body {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.teams-col {
+  width: 100%;
+}
+.odds-col {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 8px;
+}
+.odd-btn {
+  flex: 1;
+  min-width: 50px;
+  height: 44px; /* larger touch target */
+  font-size: 14px;
+}
+@media (max-width: 380px) {
+  .odd-btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .card-header {
+    flex-wrap: wrap;
+  }
+}
+
+/* 8. Search & filter bar – full width stacking */
+.search-filter-container {
+  flex-direction: column;
+}
+@media (min-width: 640px) {
+  .search-filter-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.multi-select-wrapper {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .multi-select-wrapper {
+    width: 220px;
+  }
+}
+.match-search-bar {
+  width: 100%;
+}
+
+/* 9. Date filters wrap nicely */
+.date-filters-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.date-filter-btn {
+  flex: 0 0 auto;
+  margin-bottom: 5px;
+  padding: 8px 14px;
+}
+
+/* 10. Sports scroll nav – better touch */
+.sports-scroll-nav {
+  gap: 8px;
+  padding-bottom: 8px;
+}
+.sport-badge {
+  min-width: 65px;
+  padding: 8px 6px;
+}
+.sport-badge .icon {
+  font-size: 20px;
+}
+.sport-badge .text {
+  font-size: 10px;
+}
+
+/* 11. Leagues scroll */
+.leagues-scroll {
+  gap: 8px;
+  padding: 10px;
+}
+.league-card {
+  min-width: 120px;
+}
+
+/* 12. Mobile bottom nav – larger tap area */
+.mobile-bottom-nav .nav-item {
+  padding: 8px 0;
+}
+.mobile-bottom-nav .icon {
+  font-size: 22px;
+}
+.mobile-bottom-nav .badge {
+  top: -8px;
+  right: -12px;
+  font-size: 9px;
+  padding: 2px 5px;
+}
+
+/* 13. Footer – stack on mobile */
+.footer-content {
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+.footer-section {
+  min-width: auto;
+}
+
+/* 14. Fix modal on small screens */
+.bet-modal {
+  width: 90%;
+  max-width: 340px;
+  padding: 20px 15px;
+}
+.bet-modal-details {
+  font-size: 12px;
+}
+.bet-modal-title {
+  font-size: 20px;
+}
+
+/* 15. Improve toast on mobile */
+.toast {
+  white-space: normal;
+  text-align: center;
+  max-width: 90vw;
+  font-size: 12px;
+  padding: 8px 16px;
+}
+
+/* 16. Ensure no horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+img, svg, .site-logo {
+  max-width: 100%;
+  height: auto;
+}
