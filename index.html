@@ -390,73 +390,6 @@
         }
       }
 
-      /* ========== MOBILE BETSLIP DRAWER ========== */
-      .mobile-betslip-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 10000;
-        backdrop-filter: blur(3px);
-      }
-      .mobile-betslip-drawer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        max-height: 85vh;
-        background-color: var(--card-bg);
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        z-index: 10001;
-        transform: translateY(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
-      }
-      .mobile-betslip-drawer.open {
-        transform: translateY(0);
-      }
-      .drawer-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        border-bottom: 1px solid var(--border-color);
-        background-color: var(--nav-bg);
-        border-radius: 20px 20px 0 0;
-      }
-      .drawer-header h3 {
-        font-size: 18px;
-        font-weight: bold;
-      }
-      .close-drawer {
-        background: transparent;
-        border: none;
-        color: var(--text-light);
-        font-size: 24px;
-        cursor: pointer;
-        line-height: 1;
-      }
-      .drawer-content {
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px;
-      }
-      .mobile-betslip-footer {
-        padding: 16px;
-        border-top: 1px solid var(--border-color);
-        background-color: var(--hover-bg);
-      }
-      @media (min-width: 769px) {
-        .mobile-betslip-overlay,
-        .mobile-betslip-drawer {
-          display: none !important;
-        }
-      }
-
-      /* ========== REST OF STYLES (MATCH CARDS, BETSLIP, ETC) ========== */
       .sidebar-section {
         background-color: var(--card-bg);
         border-radius: 8px;
@@ -708,6 +641,14 @@
         flex-shrink: 0;
         min-width: 140px;
       }
+      .league-title {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .league-country {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
 
       .filter-tabs-row {
         display: flex;
@@ -765,6 +706,20 @@
         align-items: center;
         padding: 5px 0;
       }
+      .left-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .leagues-btn,
+      .filter-up-btn {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-light);
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+      }
       .odds-headers {
         display: flex;
         gap: 5px;
@@ -791,6 +746,15 @@
         justify-content: space-between;
         border-bottom: 1px solid #333;
       }
+      .comp-info {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .comp-name {
+        font-size: 11px;
+        font-weight: bold;
+      }
       .card-body {
         padding: 12px;
         display: flex;
@@ -810,6 +774,17 @@
         font-size: 14px;
         font-weight: bold;
         margin: 4px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .score {
+        background-color: var(--accent-color);
+        color: #fff;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 2px 5px;
+        border-radius: 3px;
       }
       .odds-col {
         display: flex;
@@ -846,6 +821,10 @@
         color: var(--text-muted);
         border-top: 1px solid #222;
       }
+      .more-bets {
+        color: var(--text-light);
+        cursor: pointer;
+      }
 
       /* BETSLIP (desktop) */
       .betslip-container {
@@ -879,6 +858,14 @@
         padding: 2px 6px;
         font-size: 11px;
         margin-left: 5px;
+        display: inline-block;
+      }
+      .betslip-body {
+        padding: 15px;
+      }
+      .empty-state {
+        text-align: center;
+        padding: 20px 0;
       }
       .betslip-item {
         background-color: var(--bg-color);
@@ -890,6 +877,10 @@
       .betslip-item-header {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 5px;
+      }
+      .betslip-match {
+        font-weight: bold;
       }
       .betslip-remove {
         background: transparent;
@@ -898,10 +889,31 @@
         font-size: 18px;
         cursor: pointer;
       }
+      .betslip-footer {
+        padding: 15px;
+        background-color: var(--hover-bg);
+        border-top: 1px solid var(--border-color);
+      }
+      .betslip-total,
+      .betslip-return {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .betslip-stake input {
+        width: 100%;
+        padding: 10px;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-light);
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
       .stake-presets {
         display: flex;
         gap: 6px;
         margin-bottom: 12px;
+        flex-wrap: wrap;
       }
       .stake-preset {
         flex: 1;
@@ -912,6 +924,7 @@
         border-radius: 4px;
         font-size: 12px;
         cursor: pointer;
+        text-align: center;
       }
       .stake-preset.active-preset,
       .stake-preset:hover {
@@ -950,6 +963,35 @@
         width: 90%;
         text-align: center;
       }
+      .bet-modal-details {
+        background-color: var(--bg-color);
+        border-radius: 6px;
+        padding: 12px;
+        margin: 15px 0;
+        text-align: left;
+        font-size: 13px;
+      }
+      .booking-code-section {
+        background-color: var(--nav-bg);
+        border-radius: 8px;
+        padding: 12px;
+        margin: 15px 0;
+        text-align: center;
+      }
+      .booking-code-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .copy-btn {
+        background-color: var(--secondary-color);
+        color: #fff;
+        border: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
       .back-to-top {
         position: fixed;
         bottom: 80px;
@@ -985,10 +1027,17 @@
         opacity: 0;
         transform: translateY(10px);
         transition: all 0.3s;
+        color: var(--text-light);
       }
       .toast.show {
         opacity: 1;
         transform: translateY(0);
+      }
+      .toast-success {
+        border-left: 3px solid var(--accent-color);
+      }
+      .toast-error {
+        border-left: 3px solid #ef4444;
       }
 
       /* LIGHT THEME */
@@ -1009,9 +1058,13 @@
       }
       body.light-theme .odd-btn {
         background-color: #f1f5f9;
+        border-color: #cbd5e1;
+      }
+      body.light-theme .card-header {
+        background-color: #f8fafc;
       }
 
-      /* MOBILE BOTTOM NAV */
+      /* MOBILE BOTTOM NAV & DRAWER */
       @media (max-width: 768px) {
         body {
           padding-bottom: 60px;
@@ -1039,6 +1092,10 @@
         .mobile-bottom-nav .nav-item.active {
           color: var(--accent-color);
         }
+        .mobile-bottom-nav .icon {
+          font-size: 20px;
+          position: relative;
+        }
         .mobile-bottom-nav .badge {
           position: absolute;
           top: -5px;
@@ -1065,7 +1122,65 @@
         }
       }
 
-      /* Stake slider */
+      /* Mobile betslip drawer */
+      .mobile-betslip-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        backdrop-filter: blur(3px);
+      }
+      .mobile-betslip-drawer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-height: 85vh;
+        background-color: var(--card-bg);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        z-index: 10001;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+      }
+      .mobile-betslip-drawer.open {
+        transform: translateY(0);
+      }
+      .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--nav-bg);
+        border-radius: 20px 20px 0 0;
+      }
+      .drawer-header h3 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .close-drawer {
+        background: transparent;
+        border: none;
+        color: var(--text-light);
+        font-size: 24px;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .drawer-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+      }
+      .mobile-betslip-footer {
+        padding: 16px;
+        border-top: 1px solid var(--border-color);
+        background-color: var(--hover-bg);
+      }
       .stake-controls {
         margin-top: 8px;
         margin-bottom: 12px;
@@ -1094,6 +1209,101 @@
         background: var(--accent-color);
         cursor: pointer;
       }
+      @media (min-width: 769px) {
+        .mobile-betslip-overlay,
+        .mobile-betslip-drawer {
+          display: none !important;
+        }
+      }
+
+      /* Outrights */
+      .outright-card {
+        background-color: var(--card-bg);
+        border-radius: 6px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .outright-header {
+        background-color: #222;
+        padding: 10px 14px;
+        font-weight: bold;
+      }
+      .outright-list {
+        padding: 5px 0;
+      }
+      .outright-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        border-bottom: 1px solid #222;
+      }
+      .outright-item:last-child {
+        border-bottom: none;
+      }
+      .outright-btn {
+        width: 70px !important;
+      }
+      .upcoming-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 0 8px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 10px;
+      }
+      .history-entry {
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+      }
+      .history-date {
+        font-size: 10px;
+        color: var(--text-muted);
+        margin-bottom: 5px;
+      }
+      .history-selections {
+        font-size: 12px;
+        margin-bottom: 6px;
+        line-height: 1.6;
+      }
+      .history-summary {
+        font-size: 12px;
+        color: var(--text-muted);
+        padding-top: 5px;
+        border-top: 1px solid var(--border-color);
+      }
+      .live-card {
+        border-left: 3px solid #ef4444;
+      }
+      .live-banner {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background-color: rgba(34, 197, 94, 0.1);
+        border: 1px solid var(--accent-color);
+        border-radius: 6px;
+        padding: 10px 14px;
+        margin-bottom: 10px;
+      }
+      .live-time {
+        color: #ef4444 !important;
+        font-weight: bold;
+      }
+      .search-highlight {
+        background-color: rgba(34, 197, 94, 0.3);
+        border-radius: 2px;
+      }
+      .no-results-msg {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        border: 1px dashed var(--border-color);
+      }
     </style>
   </head>
   <body>
@@ -1105,7 +1315,6 @@
         <p>You must be 18+ to enter this site. Please confirm your age.</p>
         <button
           id="confirm-age"
-          class="btn btn-primary"
           style="
             background: var(--accent-color);
             color: #fff;
@@ -1113,6 +1322,7 @@
             padding: 10px 20px;
             border-radius: 8px;
             margin-top: 15px;
+            cursor: pointer;
           "
         >
           I am 18 or older
@@ -1120,36 +1330,456 @@
       </div>
     </div>
 
-    <!-- HEADER (unchanged) -->
+    <!-- HEADER -->
     <div class="sporty-header-wrapper">
-      <header class="sporty-topbar">...</header>
-      <nav class="sporty-main-nav">...</nav>
-      <nav class="sporty-sub-nav">...</nav>
+      <header class="sporty-topbar">
+        <div class="topbar-right">
+          <div class="auth-form">
+            <div class="input-col">
+              <div class="input-wrapper">
+                <span class="country-code">+234</span
+                ><input
+                  type="text"
+                  placeholder="Mobile Number"
+                  aria-label="Mobile Number"
+                />
+              </div>
+            </div>
+            <div class="input-col">
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  aria-label="Password"
+                />
+              </div>
+              <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+            <div class="auth-buttons">
+              <button class="btn btn-login">Login</button
+              ><button class="btn btn-register">Register</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="sporty-main-nav">
+        <div class="logo">
+          <img
+            src="images/logo.png"
+            alt="ERIBSBETS Logo"
+            class="site-logo"
+            loading="lazy"
+          />
+        </div>
+        <ul class="main-nav-links">
+          <li>
+            <a href="#"
+              ><span class="icon">🏠</span><span class="text">home</span></a
+            >
+          </li>
+          <li class="active">
+            <a href="#"
+              ><span class="icon">⚽</span><span class="text">sport</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon">⏱️</span><span class="text">live</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon">🎰</span><span class="text">casino</span></a
+            >
+          </li>
+        </ul>
+        <div class="nav-right-actions">
+          <button
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Toggle theme"
+          >
+            🌙
+          </button>
+          <div class="nav-dropdown-container">
+            <button
+              class="nav-dropdown-btn"
+              id="navDropdownBtn"
+              aria-label="More"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                class="chevron-icon"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <div class="mega-menu-grid">
+            <a href="#"
+              ><span class="icon">✈️</span><span class="text">aviator</span></a
+            >
+            <a href="#"
+              ><span class="icon">🎲</span
+              ><span class="text">live casino</span></a
+            >
+            <a href="#"
+              ><span class="icon">🎱</span
+              ><span class="text">lucky numbers</span></a
+            >
+            <a href="#"
+              ><span class="icon">🃏</span><span class="text">betgames</span></a
+            >
+            <a href="#"
+              ><span class="icon">🎮</span><span class="text">esports</span></a
+            >
+            <a href="#"
+              ><span class="icon">💻</span><span class="text">virtuals</span></a
+            >
+            <a href="#"
+              ><span class="icon">🎁</span
+              ><span class="text">promotions</span></a
+            >
+            <a href="#"
+              ><span class="icon">⚽</span><span class="text">football</span></a
+            >
+            <a href="#"
+              ><span class="icon">🏀</span
+              ><span class="text">basketball</span></a
+            >
+            <a href="#"
+              ><span class="icon">🎾</span><span class="text">tennis</span></a
+            >
+            <a href="#"
+              ><span class="icon">🏓</span
+              ><span class="text">table tennis</span></a
+            >
+            <a href="#"
+              ><span class="icon">🏒</span
+              ><span class="text">ice hockey</span></a
+            >
+            <a href="#"
+              ><span class="icon">🏐</span
+              ><span class="text">volleyball</span></a
+            >
+            <a href="#"
+              ><span class="icon">➕</span
+              ><span class="text">more sports</span></a
+            >
+          </div>
+        </div>
+      </nav>
+      <nav class="sporty-sub-nav">
+        <ul class="sub-nav-links">
+          <li class="active"><a href="#">Football</a></li>
+          <li><a href="#">Basketball</a></li>
+          <li><a href="#">Tennis</a></li>
+          <li><a href="#">Table Tennis</a></li>
+          <li><a href="#">Ice Hockey</a></li>
+          <li><a href="#">Volleyball</a></li>
+          <li><a href="#">More Sports</a></li>
+        </ul>
+      </nav>
     </div>
 
     <main class="main-container">
-      <aside class="sidebar-left">...</aside>
+      <aside class="sidebar-left">
+        <div class="sidebar-section">
+          <h3>Popular</h3>
+          <ul class="sidebar-list">
+            <li><span class="icon">⚽</span> Premier League</li>
+            <li><span class="icon">⚽</span> La Liga</li>
+            <li><span class="icon">⚽</span> Serie A</li>
+            <li><span class="icon">⚽</span> Bundesliga</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h3>All Sports</h3>
+          <ul class="sidebar-list">
+            <li><span class="icon">⚽</span> Soccer</li>
+            <li><span class="icon">🎾</span> Tennis</li>
+            <li><span class="icon">🏀</span> Basketball</li>
+            <li><span class="icon">🏓</span> Table Tennis</li>
+          </ul>
+        </div>
+      </aside>
+
       <section class="content-center">
-        <!-- Same content as before -->
-        <div class="booking-code-bar">...</div>
-        <div class="date-filters-row">...</div>
-        <div class="search-filter-container">...</div>
-        <div class="sports-scroll-nav">...</div>
-        <div class="top-leagues-section">...</div>
-        <div class="filter-tabs-row">...</div>
-        <div class="market-types-nav">...</div>
-        <div class="match-list-header">...</div>
+        <div class="booking-code-bar">
+          <input
+            type="text"
+            placeholder="Enter Booking Code"
+            class="booking-input"
+          /><button class="booking-submit">></button
+          ><button class="all-codes-btn">All Codes ></button>
+        </div>
+        <div class="date-filters-row">
+          <button class="date-filter-btn active" data-date="all">All</button
+          ><button class="date-filter-btn" data-date="today">Today</button
+          ><button class="date-filter-btn" data-date="tomorrow">Tomorrow</button
+          ><button class="date-filter-btn" data-date="weekend">Weekend</button>
+        </div>
+        <div class="search-filter-container">
+          <div class="match-search-bar">
+            <span class="search-icon">🔍</span
+            ><input
+              type="text"
+              id="match-search"
+              placeholder="Search teams or competitions..."
+              aria-label="Search"
+            /><button
+              class="search-clear"
+              id="search-clear"
+              style="display: none"
+            >
+              ✕
+            </button>
+          </div>
+          <div class="multi-select-wrapper" id="league-multi-select">
+            <button class="multi-select-trigger">
+              <span id="selected-leagues-text">All Leagues</span
+              ><span class="chevron">▼</span>
+            </button>
+            <div class="multi-select-dropdown" id="league-options">
+              <div class="league-group">
+                <div class="group-label">🌍 International</div>
+                <label class="multi-option"
+                  ><input type="checkbox" value="europa league" /> Europa League
+                  <span class="count"></span></label
+                ><label class="multi-option"
+                  ><input type="checkbox" value="champions league" /> Champions
+                  League <span class="count"></span
+                ></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🏴 England</div>
+                <label class="multi-option"
+                  ><input type="checkbox" value="premier league" /> Premier
+                  League <span class="count"></span
+                ></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇮🇹 Italy</div>
+                <label class="multi-option"
+                  ><input type="checkbox" value="serie a" /> Serie A
+                  <span class="count"></span
+                ></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇫🇷 France</div>
+                <label class="multi-option"
+                  ><input type="checkbox" value="ligue 1" /> Ligue 1
+                  <span class="count"></span
+                ></label>
+              </div>
+              <div class="league-group">
+                <div class="group-label">🇩🇪 Germany</div>
+                <label class="multi-option"
+                  ><input type="checkbox" value="bundesliga" /> Bundesliga
+                  <span class="count"></span
+                ></label>
+              </div>
+              <div class="multi-select-actions">
+                <button class="select-all-btn">Select All</button
+                ><button class="clear-all-btn">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sports-scroll-nav">
+          <button class="sport-badge">
+            <span class="icon">A/Z</span><span class="text">All Sports</span>
+          </button>
+          <button class="sport-badge">
+            <span class="live-dot">Live 43</span><span class="icon">⚽</span
+            ><span class="text">Soccer</span>
+          </button>
+          <button class="sport-badge">
+            <span class="icon">🔗</span><span class="text">Codes</span>
+          </button>
+          <button class="sport-badge">
+            <span class="live-dot">Live 20</span><span class="icon">🎾</span
+            ><span class="text">Tennis</span>
+          </button>
+          <button class="sport-badge">
+            <span class="icon">👆</span><span class="text">Swipe Bet</span>
+          </button>
+          <button class="sport-badge">
+            <span class="live-dot">Live 1</span><span class="icon">🏏</span
+            ><span class="text">Cricket</span>
+          </button>
+          <button class="sport-badge">
+            <span class="live-dot">Live 1</span><span class="icon">🏀</span
+            ><span class="text">Basketball</span>
+          </button>
+        </div>
+        <div class="top-leagues-section">
+          <div class="top-leagues-header">Top Leagues</div>
+          <div class="leagues-scroll">
+            <div class="league-card">
+              <span class="league-title">Premier League</span
+              ><span class="league-country">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span>
+            </div>
+            <div class="league-card">
+              <span class="league-title">UEFA Champions League</span
+              ><span class="league-country">🌍 Int. Clubs</span>
+            </div>
+            <div class="league-card">
+              <span class="league-title">Serie A</span
+              ><span class="league-country">🇮🇹 Italy</span>
+            </div>
+            <div class="league-card">
+              <span class="league-title">Ligue 1</span
+              ><span class="league-country">🇫🇷 France</span>
+            </div>
+          </div>
+        </div>
+        <div class="filter-tabs-row">
+          <button class="filter-tab" data-filter="live">
+            <span class="glow-dot"></span> Live</button
+          ><button class="filter-tab active" data-filter="highlights">
+            Highlights</button
+          ><button class="filter-tab" data-filter="upcoming">Upcoming</button
+          ><button class="filter-tab" data-filter="outrights">Outrights</button>
+        </div>
+        <div class="market-types-nav">
+          <button class="market-tab active" data-market="1x2">1X2</button
+          ><button class="market-tab" data-market="dc">Double Chance</button
+          ><button class="market-tab" data-market="ou">Over/Under 2.5</button
+          ><button class="market-tab" data-market="gg">Both Teams Score</button>
+        </div>
+        <div class="match-list-header">
+          <div class="left-actions">
+            <button class="leagues-btn">Leagues 🏆</button
+            ><button class="filter-up-btn">⚡ UP ▼</button>
+          </div>
+          <div class="odds-headers" id="market-headers">
+            <span>1</span><span>X</span><span>2</span>
+          </div>
+        </div>
         <div class="matches-section" id="matches-section"></div>
       </section>
+
       <aside class="sidebar-right">
-        <!-- Desktop betslip (unchanged) -->
-        <div class="betslip-container">...</div>
+        <div class="betslip-container">
+          <div class="sidebar-tabs">
+            <button class="sidebar-tab active" data-tab="betslip">
+              Betslip <span class="badge" id="desktop-badge">0</span></button
+            ><button class="sidebar-tab" data-tab="history">History</button>
+          </div>
+          <div id="panel-betslip">
+            <div class="betslip-body" id="betslip-body">
+              <div class="empty-state">
+                <p>Your betslip is empty</p>
+                <p class="hint">Please make a selection to place a bet.</p>
+              </div>
+            </div>
+            <div
+              class="betslip-footer"
+              id="betslip-footer"
+              style="display: none"
+            >
+              <div class="stake-presets">
+                <button class="stake-preset" data-stake="100">₦100</button
+                ><button class="stake-preset" data-stake="500">₦500</button
+                ><button class="stake-preset" data-stake="1000">₦1K</button
+                ><button class="stake-preset" data-stake="5000">₦5K</button>
+              </div>
+              <div class="stake-controls">
+                <label
+                  >Stake:
+                  <span id="stake-amount-display" class="stake-amount-display"
+                    >₦100</span
+                  ></label
+                ><input
+                  type="range"
+                  id="stake-slider"
+                  min="0"
+                  max="50000"
+                  step="100"
+                  value="100"
+                />
+              </div>
+              <div class="betslip-total">
+                <span>Total Odds:</span><span id="total-odds">0.00</span>
+              </div>
+              <div class="betslip-stake">
+                <input
+                  type="number"
+                  id="stake-input"
+                  placeholder="Stake Amount"
+                  value="100"
+                  aria-label="Stake"
+                />
+              </div>
+              <div class="betslip-return">
+                <span>Potential Return:</span
+                ><span id="potential-return">₦0.00</span>
+              </div>
+              <button class="btn btn-place-bet" id="place-bet-btn">
+                Place Bet
+              </button>
+            </div>
+          </div>
+          <div id="panel-history" style="display: none">
+            <div
+              style="
+                padding: 10px 15px;
+                display: flex;
+                justify-content: space-between;
+              "
+            >
+              <span>Recent Bets</span
+              ><button
+                id="clear-history-btn"
+                style="
+                  background: transparent;
+                  border: none;
+                  color: var(--text-muted);
+                  cursor: pointer;
+                "
+              >
+                Clear All
+              </button>
+            </div>
+            <div id="bet-history-list"></div>
+          </div>
+        </div>
       </aside>
     </main>
 
-    <footer class="main-footer">...</footer>
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="age-warning">18+</div>
+          <p>Please play responsibly.</p>
+        </div>
+        <div class="footer-section">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">How to Play</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
-    <!-- Mobile Bottom Navigation (with betslip trigger) -->
     <nav class="mobile-bottom-nav">
       <a href="#" class="nav-item active"
         ><span class="icon">🏠</span><span class="label">Home</span></a
@@ -1160,18 +1790,17 @@
       <a href="#" class="nav-item"
         ><span class="icon">▶️</span><span class="label">Live</span></a
       >
-      <a href="#" class="nav-item" id="mobile-betslip-trigger">
-        <span class="icon"
+      <a href="#" class="nav-item" id="mobile-betslip-trigger"
+        ><span class="icon"
           >📄<span class="badge" id="mobile-badge">0</span></span
-        >
-        <span class="label">Betslip</span>
-      </a>
+        ><span class="label">Betslip</span></a
+      >
       <a href="#" class="nav-item"
         ><span class="icon">☰</span><span class="label">Menu</span></a
       >
     </nav>
 
-    <!-- MOBILE BETSLIP DRAWER (new) -->
+    <!-- MOBILE BETSLIP DRAWER -->
     <div id="mobile-betslip-overlay" class="mobile-betslip-overlay"></div>
     <div id="mobile-betslip-drawer" class="mobile-betslip-drawer">
       <div class="drawer-header">
@@ -1179,7 +1808,6 @@
         <button class="close-drawer" id="close-drawer-btn">&times;</button>
       </div>
       <div class="drawer-content" id="mobile-betslip-content">
-        <!-- Dynamic content will be injected here -->
         <div class="empty-state">
           <p>Your betslip is empty</p>
           <p class="hint">Tap on odds to add selections.</p>
@@ -1191,25 +1819,24 @@
         style="display: none"
       >
         <div class="stake-presets">
-          <button class="stake-preset" data-stake="100">₦100</button>
-          <button class="stake-preset" data-stake="500">₦500</button>
-          <button class="stake-preset" data-stake="1000">₦1K</button>
-          <button class="stake-preset" data-stake="5000">₦5K</button>
+          <button class="stake-preset" data-stake="100">₦100</button
+          ><button class="stake-preset" data-stake="500">₦500</button
+          ><button class="stake-preset" data-stake="1000">₦1K</button
+          ><button class="stake-preset" data-stake="5000">₦5K</button>
         </div>
         <div class="stake-controls">
           <label
             >Stake:
             <span id="mobile-stake-amount" class="stake-amount-display"
-              >₦0</span
+              >₦100</span
             ></label
-          >
-          <input
+          ><input
             type="range"
             id="mobile-stake-slider"
             min="0"
             max="50000"
             step="100"
-            value="0"
+            value="100"
           />
         </div>
         <div class="betslip-total">
@@ -1227,7 +1854,39 @@
 
     <button id="back-to-top" class="back-to-top">⬆️</button>
     <div id="toast-container" class="toast-container"></div>
-    <div class="bet-modal-overlay" id="bet-modal-overlay">...</div>
+
+    <div class="bet-modal-overlay" id="bet-modal-overlay">
+      <div class="bet-modal">
+        <div class="bet-modal-icon">✅</div>
+        <h2>Bet Placed!</h2>
+        <p class="bet-modal-msg">
+          Your bet has been successfully placed. Good luck!
+        </p>
+        <div id="bet-modal-details" class="bet-modal-details"></div>
+        <div class="booking-code-section">
+          <span class="booking-label">Booking Code:</span>
+          <div class="booking-code-box">
+            <strong id="booking-code-val">ER-7A2B9</strong
+            ><button class="copy-btn" id="copy-booking-code">Copy</button>
+          </div>
+        </div>
+        <button
+          id="close-modal-btn"
+          style="
+            width: 100%;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+          "
+        >
+          Done
+        </button>
+      </div>
+    </div>
 
     <script>
       // ====================== FULL JAVASCRIPT ======================
@@ -1387,24 +2046,39 @@
             );
             return;
           }
-          if (filtered.length === 0) {
+          if (state.currentFilter === "live") {
+            container.innerHTML =
+              `<div class="live-banner"><span class="glow-dot"></span> Live Events Now</div>` +
+              filtered.map((m) => generateMatchCard(m)).join("");
+          } else if (filtered.length === 0) {
             container.innerHTML =
               '<div class="no-results-msg">No matches found</div>';
             return;
+          } else {
+            container.innerHTML = filtered
+              .map((m) => generateMatchCard(m))
+              .join("");
           }
-          container.innerHTML = filtered
-            .map(
-              (m) => `
-        <div class="betway-match-card" data-match-id="${m.id}" data-league="${m.league}" data-date="${m.date}">
-          <div class="card-header"><div class="comp-info"><span>${m.country}</span><span class="comp-name">${m.leagueName}</span></div><div class="card-header-actions">📊 ▼</div></div>
-          <div class="card-body"><div class="teams-col">${m.teams.map((t) => `<div class="team">${t}${m.scores ? `<span class="score">${m.scores[m.teams.indexOf(t)]}</span>` : ""}</div>`).join("")}</div><div class="odds-col">${m.odds[state.currentMarket].map((odd, idx) => `<button class="odd-btn" data-outcome="${getOutcomeLabel(state.currentMarket, idx)}" data-price="${odd}">${odd}</button>`).join("")}</div></div>
-          <div class="card-footer"><span class="match-time">${m.time}</span><span class="more-bets">More Bets ></span></div>
-        </div>
-      `,
-            )
-            .join("");
           attachOddsEvents();
         }
+
+        function generateMatchCard(m) {
+          let liveClass = m.live ? "live-card" : "";
+          let scoresHtml = m.scores
+            ? `<span class="score">${m.scores[0]}</span>`
+            : "";
+          let scoresHtml2 = m.scores
+            ? `<span class="score">${m.scores[1]}</span>`
+            : "";
+          let timeClass = m.live ? "live-time" : "";
+          return `
+        <div class="betway-match-card ${liveClass}" data-match-id="${m.id}" data-league="${m.league}" data-date="${m.date}">
+          <div class="card-header"><div class="comp-info"><span>${m.country}</span><span class="comp-name">${m.leagueName}</span></div><div class="card-header-actions">📊 ▼</div></div>
+          <div class="card-body"><div class="teams-col"><div class="team">${m.teams[0]} ${scoresHtml}</div><div class="team">${m.teams[1]} ${scoresHtml2}</div></div><div class="odds-col">${m.odds[state.currentMarket].map((odd, idx) => `<button class="odd-btn" data-outcome="${getOutcomeLabel(state.currentMarket, idx)}" data-price="${odd}">${odd}</button>`).join("")}</div></div>
+          <div class="card-footer"><span class="match-time ${timeClass}">${m.time}</span><span class="more-bets">More Bets ></span></div>
+        </div>`;
+        }
+
         function getOutcomeLabel(market, idx) {
           if (market === "1x2") return ["1", "X", "2"][idx];
           if (market === "dc") return ["1X", "12", "X2"][idx];
@@ -1412,6 +2086,7 @@
           if (market === "gg") return ["Yes", "No"][idx];
           return "";
         }
+
         function addOutrightSelection(btn) {
           showToast(
             `Outright added: ${btn.dataset.team} @ ${btn.dataset.price}`,
@@ -1424,12 +2099,14 @@
             id: "outright" + Date.now(),
           });
         }
+
         function attachOddsEvents() {
           document.querySelectorAll(".odd-btn").forEach((btn) => {
             btn.removeEventListener("click", oddsHandler);
             btn.addEventListener("click", oddsHandler);
           });
         }
+
         function oddsHandler(e) {
           let btn = e.currentTarget;
           let matchCard = btn.closest(".betway-match-card");
@@ -1467,7 +2144,7 @@
           if (desktopBadge) desktopBadge.textContent = count;
           if (mobileBadge) mobileBadge.textContent = count;
 
-          // Update desktop betslip
+          // Desktop betslip
           let body = document.getElementById("betslip-body");
           let footer = document.getElementById("betslip-footer");
           if (count === 0) {
@@ -1480,7 +2157,7 @@
             )
               .map(
                 (s) =>
-                  `<div class="betslip-item"><div class="betslip-item-header"><span>${s.matchName}</span><button class="betslip-remove" data-id="${s.matchId}">×</button></div><div class="betslip-item-body"><span>${s.outcome}</span><span>${s.price.toFixed(2)}</span></div></div>`,
+                  `<div class="betslip-item"><div class="betslip-item-header"><span class="betslip-match">${s.matchName}</span><button class="betslip-remove" data-id="${s.matchId}">×</button></div><div class="betslip-item-body"><span class="betslip-pick">${s.outcome}</span><span class="betslip-price">${s.price.toFixed(2)}</span></div></div>`,
               )
               .join("")}</div>`;
             footer.style.display = "block";
@@ -1493,7 +2170,7 @@
             );
           }
 
-          // Update mobile drawer content
+          // Mobile drawer content
           if (mobileBetslipContent) {
             if (count === 0) {
               mobileBetslipContent.innerHTML =
@@ -1505,7 +2182,7 @@
               )
                 .map(
                   (s) =>
-                    `<div class="betslip-item"><div class="betslip-item-header"><span>${s.matchName}</span><button class="mobile-betslip-remove" data-id="${s.matchId}">×</button></div><div class="betslip-item-body"><span>${s.outcome}</span><span>${s.price.toFixed(2)}</span></div></div>`,
+                    `<div class="betslip-item"><div class="betslip-item-header"><span class="betslip-match">${s.matchName}</span><button class="mobile-betslip-remove" data-id="${s.matchId}">×</button></div><div class="betslip-item-body"><span class="betslip-pick">${s.outcome}</span><span class="betslip-price">${s.price.toFixed(2)}</span></div></div>`,
                 )
                 .join("")}</div>`;
               mobileFooter.style.display = "block";
@@ -1572,7 +2249,6 @@
           }, 3000);
         }
 
-        // Place bet (desktop & mobile share same logic)
         function placeBet() {
           if (Object.keys(state.selections).length === 0) {
             showToast("Add selections first", "error");
@@ -1592,7 +2268,7 @@
             )
             .join(
               "",
-            )}<div>Stake: ₦${state.stake}<br>Odds: ${total.toFixed(2)}<br>Return: ₦${(total * state.stake).toLocaleString()}</div>`;
+            )}<div style="margin-top:8px;padding-top:8px;border-top:1px solid #334155;">Stake: ₦${state.stake}<br>Total Odds: ${total.toFixed(2)}<br>Potential Return: <strong style="color:var(--accent-color)">₦${(total * state.stake).toLocaleString()}</strong></div>`;
           document.getElementById("bet-modal-overlay").classList.add("show");
           let history = JSON.parse(
             localStorage.getItem("eribsbets_history") || "[]",
@@ -1602,7 +2278,11 @@
             date: new Date().toLocaleString(),
             stake: state.stake,
             totalOdds: total,
-            selections: Object.values(state.selections),
+            selections: Object.values(state.selections).map((s) => ({
+              matchName: s.matchName,
+              outcome: s.outcome,
+              price: s.price,
+            })),
           });
           localStorage.setItem(
             "eribsbets_history",
@@ -1611,7 +2291,6 @@
           state.selections = {};
           updateBetslip();
           renderBetHistory();
-          // Close mobile drawer if open
           if (drawer.classList.contains("open")) closeDrawer();
         }
 
@@ -1629,7 +2308,7 @@
           if (!container) return;
           if (!history.length)
             container.innerHTML =
-              '<p class="hint" style="text-align:center">No bets placed yet.</p>';
+              '<p class="hint" style="text-align:center; padding:15px;">No bets placed yet.</p>';
           else
             container.innerHTML = history
               .map(
@@ -1654,8 +2333,15 @@
               .classList.remove("show");
             renderBetHistory();
           });
+        document
+          .getElementById("copy-booking-code")
+          ?.addEventListener("click", () => {
+            let code = document.getElementById("booking-code-val").innerText;
+            navigator.clipboard.writeText(code);
+            showToast(`Copied: ${code}`, "success");
+          });
 
-        // Event listeners for filters
+        // Filters
         document.querySelectorAll(".filter-tab").forEach((btn) =>
           btn.addEventListener("click", () => {
             document
@@ -1731,7 +2417,7 @@
           }),
         );
 
-        // Stake controls (desktop)
+        // Stake controls
         if (slider)
           slider.addEventListener("input", (e) =>
             updateStake(parseInt(e.target.value, 10)),
@@ -1750,16 +2436,8 @@
           mobileStakeSlider.addEventListener("input", (e) =>
             updateStake(parseInt(e.target.value, 10)),
           );
-        document
-          .querySelectorAll("#mobile-betslip-footer .stake-preset")
-          .forEach((btn) =>
-            btn.addEventListener("click", () => {
-              let val = parseInt(btn.dataset.stake);
-              if (!isNaN(val)) updateStake(val);
-            }),
-          );
 
-        // Theme toggle
+        // Theme
         document
           .getElementById("theme-toggle-btn")
           ?.addEventListener("click", () => {
@@ -1794,7 +2472,7 @@
           window.scrollTo({ top: 0, behavior: "smooth" }),
         );
 
-        // Mobile drawer logic
+        // Mobile drawer
         function openDrawer() {
           drawerOverlay.style.display = "block";
           drawer.classList.add("open");
@@ -1814,7 +2492,7 @@
           closeDrawerBtn.addEventListener("click", closeDrawer);
         if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
 
-        // Toggle nav dropdown
+        // Nav dropdown
         document
           .getElementById("navDropdownBtn")
           ?.addEventListener("click", () => {
@@ -1830,35 +2508,49 @@
               ?.classList.remove("show");
         });
 
+        // Toggle sidebar tabs
+        document.querySelectorAll(".sidebar-tab").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            let target = tab.dataset.tab;
+            document
+              .querySelectorAll(".sidebar-tab")
+              .forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            if (target === "betslip") {
+              document.getElementById("panel-betslip").style.display = "block";
+              document.getElementById("panel-history").style.display = "none";
+            } else {
+              document.getElementById("panel-betslip").style.display = "none";
+              document.getElementById("panel-history").style.display = "block";
+              renderBetHistory();
+            }
+          });
+        });
+
         // Initial render
         renderMatches();
         updateBetslip();
         renderBetHistory();
         updateStake(100);
 
-        // Live score simulation
+        // Live score polling simulation
         setInterval(() => {
           if (state.currentFilter === "live") {
-            const liveCards = document.querySelectorAll('[data-match-id="l1"]');
-            liveCards.forEach((card) => {
-              const homeScoreSpan = card.querySelector(
-                ".team:first-child .score",
-              );
-              const awayScoreSpan = card.querySelector(
-                ".team:last-child .score",
-              );
-              if (homeScoreSpan && awayScoreSpan && Math.random() < 0.3) {
-                let newHome =
-                  parseInt(homeScoreSpan.textContent) +
-                  (Math.random() < 0.1 ? 1 : 0);
-                let newAway =
-                  parseInt(awayScoreSpan.textContent) +
-                  (Math.random() < 0.1 ? 1 : 0);
-                homeScoreSpan.textContent = newHome;
-                awayScoreSpan.textContent = newAway;
+            const liveMatch = matchesData.find((m) => m.id === "l1");
+            if (liveMatch && liveMatch.scores) {
+              let newHome =
+                parseInt(liveMatch.scores[0]) + (Math.random() < 0.15 ? 1 : 0);
+              let newAway =
+                parseInt(liveMatch.scores[1]) + (Math.random() < 0.1 ? 1 : 0);
+              if (
+                newHome !== parseInt(liveMatch.scores[0]) ||
+                newAway !== parseInt(liveMatch.scores[1])
+              ) {
+                liveMatch.scores = [newHome.toString(), newAway.toString()];
+                renderMatches(); // re-render to update scores
                 showToast(`Score update: ${newHome} - ${newAway}`, "info");
               }
-            });
+            }
           }
         }, 15000);
       })();
