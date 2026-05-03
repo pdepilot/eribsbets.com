@@ -3113,6 +3113,256 @@
         padding: 1px 4px;
         border-radius: 99px;
       }
+      /* ============================================================
+   MOBILE OVERFLOW FIXES - Only affects screens under 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Fix topbar overflow */
+  .topbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  
+  .topbar-brand {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  
+  /* Hide ticker on mobile - already has display:none at 900px, ensure it's hidden */
+  .topbar-ticker {
+    display: none !important;
+  }
+  
+  /* Fix main nav overflow */
+  .main-nav {
+    padding: 0 8px;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .logo-placeholder {
+    flex-shrink: 0;
+  }
+  
+  .nav-links {
+    flex-shrink: 0;
+  }
+  
+  /* Hide hot-bet-float completely on mobile (it's already hidden via existing display:none at 1100px, but ensure) */
+  .hot-bet-float {
+    display: none !important;
+  }
+  
+  /* Fix search row overflow */
+  .search-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .search-bar {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  
+  .multisel-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  
+  .multisel-trigger {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* Fix odds headers overflow */
+  .odds-hdrs {
+    flex-shrink: 0;
+  }
+  
+  /* Fix match card odds column */
+  .match-card .card-body {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .match-card .teams-col {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  
+  .match-card .odds-col {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .odd-btn {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* Fix mega menu on mobile */
+  .mega-menu {
+    position: fixed;
+    top: auto;
+    bottom: 60px;
+    right: 8px;
+    left: auto;
+    width: calc(100% - 16px);
+    max-width: 320px;
+  }
+  
+  .mega-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Fix footer grid overflow */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 20px;
+  }
+  
+  .footer-brand-col {
+    min-width: 0;
+  }
+  
+  .footer-desc {
+    max-width: 100%;
+  }
+  
+  /* Fix promo carousel */
+  .promo-carousel > div {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    max-width: 100%;
+  }
+  
+  .promo-card {
+    flex-shrink: 0;
+    min-width: 260px;
+  }
+  
+  /* Fix footer bottom */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .footer-bottom-right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Fix RG banner */
+  .rg-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .rg-badge-set {
+    justify-content: center;
+  }
+  
+  /* Fix main container */
+  .main-container {
+    padding: 12px;
+  }
+  
+  /* Fix content center */
+  .content-center {
+    min-width: 0;
+    max-width: 100%;
+  }
+  
+  /* Fix betslip drawer */
+  .drawer {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .bs-tabs {
+    flex-shrink: 0;
+  }
+  
+  /* Fix all media elements */
+  img, 
+  video, 
+  iframe,
+  svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Ensure no global overflow-x hidden is needed, each element fixed individually */
+}
+
+@media (max-width: 480px) {
+  /* Additional fixes for very small screens */
+  .match-list-hdr {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .hdr-actions {
+    flex: 1;
+  }
+  
+  .odds-hdrs {
+    flex-shrink: 0;
+  }
+  
+  .stake-presets {
+    justify-content: space-between;
+  }
+  
+  .preset-btn {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+  }
+  
+  .drawer-hdr h3 {
+    font-size: 16px;
+  }
+  
+  .booking-bar {
+    flex-wrap: wrap;
+  }
+  
+  .booking-bar input {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  
+  .booking-submit {
+    flex: 1 1 auto;
+  }
+  
+  .date-row {
+    gap: 4px;
+  }
+  
+  .date-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .filter-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
     </style>
   </head>
   <body>
