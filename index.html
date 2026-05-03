@@ -253,7 +253,6 @@
         }
       }
 
-      /* Preserve all existing styles below - keeping original styling intact */
       *,
       *::before,
       *::after {
@@ -283,10 +282,6 @@
         background: var(--border-2);
         border-radius: 99px;
       }
-
-      /* ... (keeping all original CSS from here) ... */
-      /* I'll preserve all the existing CSS from your original file */
-      /* The styles above are additions, below is the original content preserved */
     </style>
     <style>
       /* ===== TOKENS ===== */
@@ -353,7 +348,6 @@
         min-height: 100vh;
       }
 
-      /* ===== SCROLLBAR ===== */
       ::-webkit-scrollbar {
         width: 4px;
         height: 4px;
@@ -839,9 +833,7 @@
         color: var(--text-2);
       }
 
-      /* ============================================================
-       HEADER WRAPPER
-    ============================================================ */
+      /* ===== HEADER WRAPPER ===== */
       .header-wrapper {
         position: sticky;
         top: 0;
@@ -862,7 +854,6 @@
         gap: 12px;
       }
 
-      /* Animated logo */
       .topbar-brand {
         font-family: var(--font-head);
         font-size: 22px;
@@ -921,7 +912,6 @@
         }
       }
 
-      /* Live ticker in topbar */
       .topbar-ticker {
         flex: 1;
         overflow: hidden;
@@ -985,7 +975,6 @@
         border-radius: 3px;
       }
 
-      /* Desktop auth row */
       .auth-row {
         display: flex;
         align-items: center;
@@ -1162,7 +1151,6 @@
         background: var(--surface-3);
       }
 
-      /* Dropdown */
       .dropdown-wrap {
         position: relative;
       }
@@ -1270,9 +1258,31 @@
         .main-container {
           grid-template-columns: 1fr;
         }
-        .sidebar-left,
-        .sidebar-right {
+        .sidebar-left {
           display: none;
+        }
+        /* Mobile Wallet Fix: Show sidebar-right only for wallet */
+        .sidebar-right {
+          display: block !important;
+          position: relative;
+          width: 100%;
+          margin-bottom: 16px;
+          top: auto;
+          max-height: none;
+          overflow-y: visible;
+        }
+        .sidebar-right .betslip-container,
+        .sidebar-right .cashout-widget {
+          display: none;
+        }
+        .sidebar-right .wallet-widget {
+          margin-bottom: 0;
+        }
+        .wallet-widget {
+          width: 100%;
+        }
+        .wallet-widget > div {
+          width: 100%;
         }
       }
       @media (min-width: 1101px) and (max-width: 1380px) {
@@ -1340,7 +1350,6 @@
         min-width: 0;
       }
 
-      /* Booking code bar */
       .booking-bar {
         display: flex;
         gap: 8px;
@@ -1385,7 +1394,6 @@
         background: var(--accent-dim);
       }
 
-      /* Date filters */
       .date-row {
         display: flex;
         gap: 6px;
@@ -1415,7 +1423,6 @@
         font-weight: 700;
       }
 
-      /* Search */
       .search-row {
         display: flex;
         gap: 8px;
@@ -1464,7 +1471,6 @@
         color: var(--red);
       }
 
-      /* League filter */
       .multisel-wrap {
         position: relative;
         min-width: 200px;
@@ -1561,7 +1567,6 @@
         color: #000;
       }
 
-      /* Sports scroll */
       .sports-scroll {
         display: flex;
         gap: 8px;
@@ -1613,7 +1618,6 @@
         font-family: var(--font-body);
       }
 
-      /* Top leagues */
       .leagues-section {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -1668,7 +1672,6 @@
         color: var(--text-2);
       }
 
-      /* Filter tabs */
       .filter-row {
         display: flex;
         gap: 6px;
@@ -1718,7 +1721,6 @@
         }
       }
 
-      /* Market tabs */
       .market-nav {
         display: flex;
         border-bottom: 1px solid var(--border);
@@ -1749,7 +1751,6 @@
         border-bottom-color: var(--accent);
       }
 
-      /* Match list header */
       .match-list-hdr {
         display: flex;
         justify-content: space-between;
@@ -1790,7 +1791,6 @@
         letter-spacing: 0.5px;
       }
 
-      /* ===== MATCH CARD ===== */
       .match-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -1956,7 +1956,6 @@
         opacity: 0;
       }
 
-      /* Odds flash animation */
       .odd-btn.odds-changed {
         animation: oddsFlash 0.5s ease;
       }
@@ -1989,7 +1988,6 @@
         color: var(--text);
       }
 
-      /* Empty state */
       .empty-state {
         text-align: center;
         padding: 40px 20px;
@@ -2009,7 +2007,6 @@
         margin-top: 4px;
       }
 
-      /* Live banner */
       .live-banner {
         display: flex;
         align-items: center;
@@ -2024,7 +2021,6 @@
         color: var(--red);
       }
 
-      /* ===== BETSLIP ===== */
       .betslip-container {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -2242,7 +2238,6 @@
         transform: none;
       }
 
-      /* Responsible gambling note */
       .rg-note {
         margin-top: 10px;
         font-size: 10px;
@@ -2251,7 +2246,6 @@
         line-height: 1.4;
       }
 
-      /* ===== HISTORY ===== */
       .history-hdr {
         display: flex;
         justify-content: space-between;
@@ -2325,7 +2319,6 @@
         font-weight: 700;
       }
 
-      /* ===== OUTRIGHTS ===== */
       .outright-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -2353,7 +2346,6 @@
         border-bottom: none;
       }
 
-      /* ===== MODALS ===== */
       .modal-overlay {
         display: none;
         position: fixed;
@@ -2484,7 +2476,6 @@
         background: var(--blue-dim);
       }
 
-      /* Auth modal */
       .auth-modal-fields {
         display: flex;
         flex-direction: column;
@@ -2528,7 +2519,6 @@
         font-size: 14px;
       }
 
-      /* ===== TOAST ===== */
       .toast-container {
         position: fixed;
         bottom: 72px;
@@ -2569,7 +2559,6 @@
         border-color: var(--blue);
       }
 
-      /* ===== BACK TO TOP ===== */
       .back-top {
         position: fixed;
         bottom: 72px;
@@ -2594,7 +2583,6 @@
         box-shadow: var(--shadow-glow-strong);
       }
 
-      /* ===== MOBILE NAV ===== */
       @media (max-width: 1100px) {
         body {
           padding-bottom: 64px;
@@ -2663,7 +2651,6 @@
         font-weight: 800;
       }
 
-      /* ===== MOBILE BETSLIP DRAWER ===== */
       .drawer-overlay {
         display: none;
         position: fixed;
@@ -2731,9 +2718,6 @@
         }
       }
 
-      /* ============================================================
-       WORLD-CLASS FOOTER
-    ============================================================ */
       footer {
         background: var(--surface);
         border-top: 1px solid var(--border);
@@ -2756,7 +2740,6 @@
         );
       }
 
-      /* Big scoreline decoration */
       .footer-hero {
         background: var(--surface-2);
         border-bottom: 1px solid var(--border);
@@ -2821,7 +2804,6 @@
         box-shadow: 0 8px 20px var(--accent-glow);
       }
 
-      /* Live odds ticker in footer */
       .footer-odds-ticker {
         background: var(--bg);
         border-bottom: 1px solid var(--border);
@@ -2855,7 +2837,6 @@
         color: var(--text-3);
       }
 
-      /* Main footer grid */
       .footer-grid {
         max-width: 1400px;
         margin: 0 auto;
@@ -2897,7 +2878,6 @@
         max-width: 280px;
       }
 
-      /* Age + payment badges */
       .footer-badges {
         display: flex;
         flex-wrap: wrap;
@@ -2950,7 +2930,6 @@
         padding-left: 4px;
       }
 
-      /* Hotline card */
       .footer-hotline {
         background: rgba(0, 230, 118, 0.06);
         border: 1px solid rgba(0, 230, 118, 0.2);
@@ -2978,7 +2957,6 @@
         margin-top: 2px;
       }
 
-      /* Footer bottom */
       .footer-bottom {
         border-top: 1px solid var(--border);
         padding: 20px 24px;
@@ -3008,7 +2986,6 @@
         color: var(--accent);
       }
 
-      /* Responsible gambling banner at very bottom */
       .rg-banner {
         background: var(--bg);
         border-top: 1px solid var(--border);
@@ -3042,10 +3019,6 @@
         white-space: nowrap;
       }
 
-      /* ============================================================
-       UNIQUE FEATURE: Quick Bet Pulse
-       A small floating "hot bet" chip that occasionally pulses
-    ============================================================ */
       .hot-bet-float {
         position: fixed;
         right: 16px;
@@ -3113,261 +3086,199 @@
         padding: 1px 4px;
         border-radius: 99px;
       }
+
       /* ============================================================
-   MOBILE OVERFLOW FIXES - Only affects screens under 768px
-   ============================================================ */
+         MOBILE OVERFLOW FIXES - Only affects screens under 768px
+         ============================================================ */
+      @media (max-width: 768px) {
+        .topbar {
+          padding: 0 12px;
+          gap: 8px;
+        }
+        .topbar-brand {
+          font-size: 18px;
+          flex-shrink: 0;
+        }
+        .topbar-ticker {
+          display: none !important;
+        }
+        .main-nav {
+          padding: 0 8px;
+          gap: 0;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .main-nav::-webkit-scrollbar {
+          display: none;
+        }
+        .logo-placeholder {
+          flex-shrink: 0;
+        }
+        .nav-links {
+          flex-shrink: 0;
+        }
+        .hot-bet-float {
+          display: none !important;
+        }
+        .search-row {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .search-bar {
+          flex: 1 1 100%;
+          min-width: 0;
+        }
+        .multisel-wrap {
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+        .multisel-trigger {
+          width: 100%;
+          min-width: 0;
+        }
+        .odds-hdrs {
+          flex-shrink: 0;
+        }
+        .match-card .card-body {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .match-card .teams-col {
+          flex: 1 1 100%;
+          min-width: 0;
+        }
+        .match-card .odds-col {
+          flex: 1 1 auto;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .odd-btn {
+          flex: 1;
+          min-width: 0;
+        }
+        .mega-menu {
+          position: fixed;
+          top: auto;
+          bottom: 60px;
+          right: 8px;
+          left: auto;
+          width: calc(100% - 16px);
+          max-width: 320px;
+        }
+        .mega-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 32px 20px;
+        }
+        .footer-brand-col {
+          min-width: 0;
+        }
+        .footer-desc {
+          max-width: 100%;
+        }
+        .promo-carousel > div {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+          max-width: 100%;
+        }
+        .promo-card {
+          flex-shrink: 0;
+          min-width: 260px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+          padding: 16px;
+        }
+        .footer-bottom-right {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .rg-banner {
+          flex-direction: column;
+          text-align: center;
+          padding: 16px;
+        }
+        .rg-badge-set {
+          justify-content: center;
+        }
+        .main-container {
+          padding: 12px;
+        }
+        .content-center {
+          min-width: 0;
+          max-width: 100%;
+        }
+        .drawer {
+          width: 100%;
+          max-width: 100%;
+        }
+        .bs-tabs {
+          flex-shrink: 0;
+        }
+        img,
+        video,
+        iframe,
+        svg {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
 
-@media (max-width: 768px) {
-  /* Fix topbar overflow */
-  .topbar {
-    padding: 0 12px;
-    gap: 8px;
-  }
-  
-  .topbar-brand {
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  
-  /* Hide ticker on mobile - already has display:none at 900px, ensure it's hidden */
-  .topbar-ticker {
-    display: none !important;
-  }
-  
-  /* Fix main nav overflow */
-  .main-nav {
-    padding: 0 8px;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .main-nav::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .logo-placeholder {
-    flex-shrink: 0;
-  }
-  
-  .nav-links {
-    flex-shrink: 0;
-  }
-  
-  /* Hide hot-bet-float completely on mobile (it's already hidden via existing display:none at 1100px, but ensure) */
-  .hot-bet-float {
-    display: none !important;
-  }
-  
-  /* Fix search row overflow */
-  .search-row {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .search-bar {
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-  
-  .multisel-wrap {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-  
-  .multisel-trigger {
-    width: 100%;
-    min-width: 0;
-  }
-  
-  /* Fix odds headers overflow */
-  .odds-hdrs {
-    flex-shrink: 0;
-  }
-  
-  /* Fix match card odds column */
-  .match-card .card-body {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  .match-card .teams-col {
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-  
-  .match-card .odds-col {
-    flex: 1 1 auto;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .odd-btn {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  /* Fix mega menu on mobile */
-  .mega-menu {
-    position: fixed;
-    top: auto;
-    bottom: 60px;
-    right: 8px;
-    left: auto;
-    width: calc(100% - 16px);
-    max-width: 320px;
-  }
-  
-  .mega-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  /* Fix footer grid overflow */
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 32px 20px;
-  }
-  
-  .footer-brand-col {
-    min-width: 0;
-  }
-  
-  .footer-desc {
-    max-width: 100%;
-  }
-  
-  /* Fix promo carousel */
-  .promo-carousel > div {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    max-width: 100%;
-  }
-  
-  .promo-card {
-    flex-shrink: 0;
-    min-width: 260px;
-  }
-  
-  /* Fix footer bottom */
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    padding: 16px;
-  }
-  
-  .footer-bottom-right {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  /* Fix RG banner */
-  .rg-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 16px;
-  }
-  
-  .rg-badge-set {
-    justify-content: center;
-  }
-  
-  /* Fix main container */
-  .main-container {
-    padding: 12px;
-  }
-  
-  /* Fix content center */
-  .content-center {
-    min-width: 0;
-    max-width: 100%;
-  }
-  
-  /* Fix betslip drawer */
-  .drawer {
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .bs-tabs {
-    flex-shrink: 0;
-  }
-  
-  /* Fix all media elements */
-  img, 
-  video, 
-  iframe,
-  svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Ensure no global overflow-x hidden is needed, each element fixed individually */
-}
-
-@media (max-width: 480px) {
-  /* Additional fixes for very small screens */
-  .match-list-hdr {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .hdr-actions {
-    flex: 1;
-  }
-  
-  .odds-hdrs {
-    flex-shrink: 0;
-  }
-  
-  .stake-presets {
-    justify-content: space-between;
-  }
-  
-  .preset-btn {
-    flex: 1;
-    text-align: center;
-    min-width: 0;
-  }
-  
-  .drawer-hdr h3 {
-    font-size: 16px;
-  }
-  
-  .booking-bar {
-    flex-wrap: wrap;
-  }
-  
-  .booking-bar input {
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-  
-  .booking-submit {
-    flex: 1 1 auto;
-  }
-  
-  .date-row {
-    gap: 4px;
-  }
-  
-  .date-btn {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-  
-  .filter-tab {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-}
+      @media (max-width: 480px) {
+        .match-list-hdr {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .hdr-actions {
+          flex: 1;
+        }
+        .odds-hdrs {
+          flex-shrink: 0;
+        }
+        .stake-presets {
+          justify-content: space-between;
+        }
+        .preset-btn {
+          flex: 1;
+          text-align: center;
+          min-width: 0;
+        }
+        .drawer-hdr h3 {
+          font-size: 16px;
+        }
+        .booking-bar {
+          flex-wrap: wrap;
+        }
+        .booking-bar input {
+          flex: 1 1 100%;
+          min-width: 0;
+        }
+        .booking-submit {
+          flex: 1 1 auto;
+        }
+        .date-row {
+          gap: 4px;
+        }
+        .date-btn {
+          padding: 6px 10px;
+          font-size: 11px;
+        }
+        .filter-tab {
+          padding: 6px 12px;
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- ============================================================
-       PRELOADER (Preserved)
+       PRELOADER
   ============================================================ -->
     <div id="preloader">
       <div class="preloader-logo">ERIBS<span>BETS</span></div>
@@ -3389,7 +3300,7 @@
     </div>
 
     <!-- ============================================================
-       AGE VERIFICATION (Preserved)
+       AGE VERIFICATION
   ============================================================ -->
     <div id="age-modal">
       <div class="age-box">
@@ -3458,7 +3369,7 @@
     </div>
 
     <!-- ============================================================
-       COOKIE CONSENT (Preserved)
+       COOKIE CONSENT
   ============================================================ -->
     <div id="cookie-bar">
       <div class="cookie-icon">🍪</div>
@@ -3503,7 +3414,7 @@
     <!-- ADDED: Rate Limit Indicator -->
     <div id="rate-limit-indicator" class="rate-limit-indicator"></div>
 
-    <!-- AUTH MODAL (Preserved) -->
+    <!-- AUTH MODAL -->
     <div
       id="auth-modal"
       class="modal-overlay"
@@ -3558,7 +3469,7 @@
       </div>
     </div>
 
-    <!-- BET PLACED MODAL (Preserved) -->
+    <!-- BET PLACED MODAL -->
     <div
       id="bet-modal"
       class="modal-overlay"
@@ -3582,7 +3493,7 @@
       </div>
     </div>
 
-    <!-- HEADER (Preserved structure) -->
+    <!-- HEADER -->
     <div class="header-wrapper">
       <header class="topbar">
         <a href="#" class="topbar-brand">
@@ -3590,7 +3501,6 @@
           ><span class="brand-bets">BETS</span>
         </a>
 
-        <!-- Session Timer Display -->
         <div class="session-timer" id="session-timer" style="display: none">
           <span>⏱️</span>
           <span id="session-time">00:00</span>
@@ -3763,7 +3673,7 @@
 
     <!-- MAIN -->
     <main class="main-container">
-      <!-- LEFT SIDEBAR (Preserved) -->
+      <!-- LEFT SIDEBAR -->
       <aside class="sidebar-left" aria-label="Sport categories">
         <div class="sidebar-card">
           <h3>Popular</h3>
@@ -3788,7 +3698,7 @@
         </div>
       </aside>
 
-      <!-- CENTER CONTENT (Preserved with enhancements) -->
+      <!-- CENTER CONTENT -->
       <section class="content-center" aria-label="Match listings">
         <div class="booking-bar">
           <input
@@ -3935,7 +3845,7 @@
           </div>
         </div>
 
-        <!-- ADDED: Live Insights Widget -->
+        <!-- LIVE INSIGHTS Widget -->
         <div class="leagues-section live-insights-widget" id="live-insights">
           <div class="leagues-header">
             📊 LIVE INSIGHTS
@@ -4054,9 +3964,9 @@
         ></div>
       </section>
 
-      <!-- RIGHT SIDEBAR — BETSLIP with ADDED WIDGETS -->
+      <!-- RIGHT SIDEBAR — Wallet + Betslip -->
       <aside class="sidebar-right" aria-label="Betslip">
-        <!-- ADDED: Wallet Widget -->
+        <!-- Wallet Widget -->
         <div class="sidebar-card wallet-widget" id="wallet-widget">
           <h3>💰 My Wallet</h3>
           <div style="padding: 16px">
@@ -4187,7 +4097,7 @@
           </div>
         </div>
 
-        <!-- ADDED: Cash Out Widget -->
+        <!-- Cash Out Widget -->
         <div
           class="sidebar-card cashout-widget"
           id="cashout-widget"
@@ -4205,7 +4115,7 @@
       </aside>
     </main>
 
-    <!-- ADDED: Promotions Carousel -->
+    <!-- Promotions Carousel -->
     <section
       class="promo-carousel"
       style="max-width: 1400px; margin: 32px auto 16px; padding: 0 16px"
@@ -4336,9 +4246,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-       WORLD-CLASS FOOTER (Preserved)
-  ============================================================ -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-hero">
         <div class="footer-hero-content">
@@ -4614,7 +4522,6 @@
       (function () {
         "use strict";
 
-        // ===== ENHANCED STATE MANAGEMENT =====
         const AppState = {
           selections: {},
           stake: 100,
@@ -4630,7 +4537,6 @@
           cashoutBets: [],
         };
 
-        // ===== RATE LIMITING =====
         const RATE_LIMIT = {
           maxBetsPerMinute: 10,
           betHistory: [],
@@ -4654,132 +4560,6 @@
           },
         };
 
-        // ===== SESSION MANAGEMENT =====
-        let sessionInterval;
-        let realityCheckInterval;
-        let sessionTimeout;
-
-        function startSessionManagement() {
-          let sessionMinutes = 0;
-          sessionInterval = setInterval(() => {
-            sessionMinutes++;
-            const mins = Math.floor(sessionMinutes);
-            const secs = (sessionMinutes % 1) * 60;
-            const timerEl = document.getElementById("session-time");
-            if (timerEl && AppState.user.loggedIn) {
-              timerEl.textContent = `${Math.floor(mins / 60)}:${String(mins % 60).padStart(2, "0")}:${String(Math.floor(secs)).padStart(2, "0")}`;
-              document.getElementById("session-timer").style.display = "flex";
-            }
-          }, 60000); // Update every minute
-
-          // Reality check every 30 minutes
-          realityCheckInterval = setInterval(() => {
-            if (AppState.user.loggedIn && sessionMinutes >= 30) {
-              showRealityCheck();
-            }
-          }, 1800000);
-
-          // Auto logout after 2 hours
-          sessionTimeout = setTimeout(() => {
-            if (AppState.user.loggedIn) {
-              logoutUser();
-              showToast("Session expired. Please login again.", "info");
-            }
-          }, 7200000);
-        }
-
-        function showRealityCheck() {
-          const rc = document.getElementById("reality-check");
-          const text = document.getElementById("reality-check-text");
-          const minutes = Math.floor(
-            (Date.now() - AppState.sessionStart) / 60000,
-          );
-          text.textContent = `You've been betting for ${minutes} minutes. Please play responsibly.`;
-          rc.classList.add("show");
-        }
-
-        function logoutUser() {
-          AppState.user.loggedIn = false;
-          AppState.user.phone = null;
-          localStorage.removeItem("session_token");
-          showToast("Logged out successfully", "info");
-          updateWalletDisplay();
-        }
-
-        document
-          .getElementById("reality-continue")
-          ?.addEventListener("click", () => {
-            document.getElementById("reality-check").classList.remove("show");
-          });
-
-        document
-          .getElementById("reality-logout")
-          ?.addEventListener("click", () => {
-            logoutUser();
-            document.getElementById("reality-check").classList.remove("show");
-          });
-
-        // ===== DEBOUNCE UTILITY =====
-        function debounce(func, wait) {
-          let timeout;
-          return function executedFunction(...args) {
-            const later = () => {
-              clearTimeout(timeout);
-              func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-          };
-        }
-
-        // ===== VIRTUAL SCROLLING =====
-        class VirtualScroll {
-          constructor(container, items, itemHeight, renderCallback) {
-            this.container = container;
-            this.items = items;
-            this.itemHeight = itemHeight;
-            this.renderCallback = renderCallback;
-            this.scrollTop = 0;
-            this.containerHeight = 0;
-            this.setupListeners();
-          }
-
-          setupListeners() {
-            this.container.addEventListener(
-              "scroll",
-              debounce(() => {
-                this.scrollTop = this.container.scrollTop;
-                this.render();
-              }, 16),
-            );
-            window.addEventListener(
-              "resize",
-              debounce(() => this.updateContainerHeight(), 100),
-            );
-            this.updateContainerHeight();
-            this.render();
-          }
-
-          updateContainerHeight() {
-            this.containerHeight = this.container.clientHeight;
-            this.render();
-          }
-
-          render() {
-            const startIndex = Math.floor(this.scrollTop / this.itemHeight);
-            const endIndex = Math.min(
-              startIndex +
-                Math.ceil(this.containerHeight / this.itemHeight) +
-                5,
-              this.items.length,
-            );
-            const visibleItems = this.items.slice(startIndex, endIndex);
-            const offsetY = startIndex * this.itemHeight;
-            this.renderCallback(visibleItems, startIndex, offsetY);
-          }
-        }
-
-        // ===== TOAST FUNCTION (Enhanced) =====
         function showToast(msg, type = "info") {
           const cont = document.getElementById("toast-container");
           const t = document.createElement("div");
@@ -4796,7 +4576,6 @@
           }, 3000);
         }
 
-        // ===== WALLET MANAGEMENT =====
         function updateWalletDisplay() {
           const balanceEl = document.getElementById("wallet-balance");
           if (balanceEl) {
@@ -4809,7 +4588,6 @@
             "Deposit feature coming soon. Please use bank transfer.",
             "info",
           );
-          // In production, integrate with payment gateway like Paystack, Flutterwave
         }
 
         function handleWithdraw() {
@@ -4823,7 +4601,6 @@
           .getElementById("withdraw-btn")
           ?.addEventListener("click", handleWithdraw);
 
-        // ===== ENHANCED BET PLACEMENT with Rate Limiting =====
         async function placeBet() {
           const sels = Object.values(AppState.selections);
           if (!sels.length) {
@@ -4842,11 +4619,7 @@
             return;
           }
 
-          // Rate limiting check
           if (!RATE_LIMIT.checkLimit()) return;
-
-          // Simulate API call with Promise
-          const placingToast = showToast("Processing your bet...", "info");
 
           setTimeout(() => {
             const total = sels.reduce((a, s) => a * s.price, 1);
@@ -4858,23 +4631,20 @@
             document.getElementById("bet-details-content").innerHTML = `
           ${sels.map((s) => `<div class="detail-line"><span>${s.matchName}</span><span>${s.outcome} @ <strong>${s.price.toFixed(2)}</strong></span></div>`).join("")}
           <div class="detail-line" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
-            <span>Stake</span><span><strong>${fmtStake(AppState.stake)}</strong></span>
+            <span>Stake</span><span><strong>₦${AppState.stake.toLocaleString("en-NG")}</strong></span>
           </div>
           <div class="detail-line"><span>Total Odds</span><span><strong>${total.toFixed(2)}</strong></span></div>
           <div class="detail-line"><span>Potential Return</span><span style="color:var(--accent)"><strong>₦${potential.toLocaleString("en-NG", { minimumFractionDigits: 2 })}</strong></span></div>`;
 
-            // Deduct from balance if logged in
             if (AppState.user.loggedIn) {
               AppState.user.balance -= AppState.stake;
               updateWalletDisplay();
             }
 
-            // Add to rate limit history
             RATE_LIMIT.addBet();
             AppState.betCount++;
             AppState.lastBetTime = Date.now();
 
-            // Save to history
             const hist = getHistory();
             hist.unshift({
               id: Date.now(),
@@ -4893,13 +4663,12 @@
               JSON.stringify(hist.slice(0, 50)),
             );
 
-            // Add to cashout potential
             AppState.cashoutBets.unshift({
               id: Date.now(),
               match: sels[0].matchName,
               stake: AppState.stake,
               potential: potential,
-              cashoutValue: potential * 0.6, // 60% cashout value
+              cashoutValue: potential * 0.6,
             });
 
             AppState.selections = {};
@@ -4965,99 +4734,6 @@
           });
         }
 
-        // ===== SWIPE GESTURES for Mobile =====
-        function initSwipeGestures() {
-          let touchStartX = 0;
-          let touchStartY = 0;
-          let touchEndX = 0;
-          let touchEndY = 0;
-
-          document.addEventListener(
-            "touchstart",
-            (e) => {
-              touchStartX = e.touches[0].clientX;
-              touchStartY = e.touches[0].clientY;
-            },
-            { passive: true },
-          );
-
-          document.addEventListener("touchend", (e) => {
-            touchEndX = e.changedTouches[0].clientX;
-            touchEndY = e.changedTouches[0].clientY;
-            const diffX = touchEndX - touchStartX;
-            const diffY = touchEndY - touchStartY;
-
-            // Horizontal swipe on match cards
-            if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
-              const card = e.target.closest(".match-card");
-              if (card) {
-                const oddsBtns = card.querySelectorAll(".odd-btn");
-                if (oddsBtns.length) {
-                  const btn =
-                    diffX > 0 ? oddsBtns[0] : oddsBtns[oddsBtns.length - 1];
-                  if (btn) btn.click();
-                  showToast(
-                    diffX > 0 ? "Quick bet on Home" : "Quick bet on Away",
-                    "info",
-                  );
-                }
-              }
-            }
-          });
-        }
-
-        // ===== QUICK BET BUTTON =====
-        document
-          .getElementById("quick-bet-btn")
-          ?.addEventListener("click", () => {
-            const firstMatch = document.querySelector(".match-card");
-            if (firstMatch) {
-              const firstOdd = firstMatch.querySelector(".odd-btn");
-              if (firstOdd) firstOdd.click();
-              showToast("Quick bet added! Adjust stake in betslip.", "success");
-            }
-          });
-
-        // ===== LIVE INSIGHTS UPDATE (Simulated WebSocket) =====
-        function initLiveInsights() {
-          const trendingSpins = [
-            "Over 2.5 Goals ↑12%",
-            "BTTS ↑8%",
-            "Home Win ↑15%",
-            "Under 2.5 ↓5%",
-          ];
-          const highVolumeSpins = [
-            "BTTS in 4 matches",
-            "Over 1.5 in 7 matches",
-            "Both halves over 0.5 in 3 matches",
-          ];
-          const sharpSpins = [
-            "Bayern -1.5 AH",
-            "Real Madrid ML",
-            "PSG Team Total Over 1.5",
-            "Man City Clean Sheet No",
-          ];
-
-          let idx = 0;
-          setInterval(() => {
-            const trending = document.getElementById("trending-bet");
-            const high = document.getElementById("high-volume");
-            const sharp = document.getElementById("sharp-money");
-            if (trending)
-              trending.textContent =
-                trendingSpins[Math.floor(Math.random() * trendingSpins.length)];
-            if (high)
-              high.textContent =
-                highVolumeSpins[
-                  Math.floor(Math.random() * highVolumeSpins.length)
-                ];
-            if (sharp)
-              sharp.textContent =
-                sharpSpins[Math.floor(Math.random() * sharpSpins.length)];
-          }, 8000);
-        }
-
-        // ===== ENHANCED MATCH DATA with more events =====
         const MATCHES = [
           {
             id: "m1",
@@ -5198,7 +4874,6 @@
           },
         ];
 
-        // ===== HELPER FUNCTIONS =====
         function outcomeLabel(market, idx) {
           if (market === "1x2") return ["1", "X", "2"][idx];
           if (market === "dc") return ["1X", "12", "X2"][idx];
@@ -5217,28 +4892,6 @@
           };
           hdr.innerHTML = (labels[market] || ["1", "X", "2"])
             .map((l) => `<span>${l}</span>`)
-            .join("");
-        }
-
-        function fmtStake(n) {
-          return "₦" + Number(n).toLocaleString("en-NG");
-        }
-
-        // ===== RENDER MATCHES with Skeleton Loading =====
-        function showSkeletonLoader() {
-          const sec = document.getElementById("matches-section");
-          if (!sec) return;
-          sec.innerHTML = Array(3)
-            .fill()
-            .map(
-              () => `
-        <div class="skeleton-card">
-          <div class="skeleton-team" style="width: 40%"></div>
-          <div class="skeleton-team" style="width: 60%"></div>
-          <div class="skeleton-team" style="width: 50%"></div>
-        </div>
-      `,
-            )
             .join("");
         }
 
@@ -5286,16 +4939,16 @@
             sec.innerHTML = `<div class="outright-card">
           <div class="outright-hdr">🏴 Premier League — Season Winner</div>
           ${[
-            ["Manchester City", "2.50"],
-            ["Arsenal", "3.10"],
-            ["Liverpool", "4.00"],
-            ["Chelsea", "8.50"],
-          ]
-            .map(
-              ([t, p]) =>
-                `<div class="outright-item"><span>${t}</span><button class="odd-btn outright-btn" style="min-width:80px" data-outright="EPL" data-team="${t}" data-price="${p}" aria-label="${t} to win EPL @ ${p}">${p}</button></div>`,
-            )
-            .join("")}
+              ["Manchester City", "2.50"],
+              ["Arsenal", "3.10"],
+              ["Liverpool", "4.00"],
+              ["Chelsea", "8.50"],
+            ]
+              .map(
+                ([t, p]) =>
+                  `<div class="outright-item"><span>${t}</span><button class="odd-btn outright-btn" style="min-width:80px" data-outright="EPL" data-team="${t}" data-price="${p}" aria-label="${t} to win EPL @ ${p}">${p}</button></div>`,
+              )
+              .join("")}
         </div>`;
             sec
               .querySelectorAll(".outright-btn")
@@ -5305,7 +4958,6 @@
             return;
           }
 
-          // Simulate async loading
           setTimeout(() => {
             let filtered = MATCHES.filter((m) => {
               if (AppState.filter === "live" && !m.live) return false;
@@ -5393,7 +5045,6 @@
           updateBetslip();
         }
 
-        // ===== BETSLIP FUNCTIONS (Preserved) =====
         function buildBetslipItems(targetId, removeCls) {
           if (!Object.keys(AppState.selections).length) return null;
           return Object.values(AppState.selections)
@@ -5495,7 +5146,7 @@
         function setStake(value) {
           const v = Math.max(0, Math.min(10000000, parseInt(value) || 0));
           AppState.stake = v;
-          const display = fmtStake(v);
+          const display = "₦" + v.toLocaleString("en-NG");
           [
             document.getElementById("stake-display"),
             document.getElementById("mob-stake-display"),
@@ -5511,7 +5162,6 @@
           calcOdds();
         }
 
-        // ===== HISTORY =====
         function getHistory() {
           try {
             return JSON.parse(
@@ -5532,7 +5182,7 @@
           <div class="history-entry-hdr"><span>${e.date}</span><span class="history-status">Pending</span></div>
           <div class="history-sel">${e.selections.map((s) => `<span class="sel-item"><span>${s.matchName}</span><span style="color:var(--accent);font-weight:700">${s.outcome} @${s.price.toFixed(2)}</span></span>`).join("")}</div>
           <div class="history-summary">
-            <span>Stake: <strong style="color:var(--text)">${fmtStake(e.stake)}</strong></span>
+            <span>Stake: <strong style="color:var(--text)">₦${e.stake.toLocaleString("en-NG")}</strong></span>
             <span>Odds: <strong style="color:var(--text)">${e.totalOdds.toFixed(2)}</strong></span>
             <span class="history-return">₦${(e.totalOdds * e.stake).toLocaleString("en-NG", { minimumFractionDigits: 2 })}</span>
           </div>
@@ -5551,7 +5201,6 @@
           if (l) l.innerHTML = histHtml(getHistory());
         }
 
-        // ===== MODAL HELPERS =====
         function openModal(id) {
           const e = document.getElementById(id);
           if (e) e.classList.add("open");
@@ -5581,7 +5230,6 @@
             : "All Leagues";
         }
 
-        // ===== AGE VERIFICATION =====
         const ageModal = document.getElementById("age-modal");
         function checkAge() {
           if (localStorage.getItem("age_verified") === "true") {
@@ -5624,7 +5272,6 @@
             }
           });
 
-        // ===== COOKIE CONSENT =====
         document
           .getElementById("cookie-accept")
           ?.addEventListener("click", () => {
@@ -5649,7 +5296,6 @@
           );
         }
 
-        // ===== LIVE TICKER =====
         function buildTicker() {
           const items = [
             { t: "Bayern Munich vs Dortmund", s: "2 - 1", live: true },
@@ -5701,7 +5347,6 @@
         }
         buildFooterOdds();
 
-        // ===== EVENT LISTENERS =====
         document
           .getElementById("mobile-auth-trigger")
           ?.addEventListener("click", (e) => {
@@ -5725,7 +5370,6 @@
                 `Welcome back! Balance: ₦${AppState.user.balance.toLocaleString()}`,
                 "success",
               );
-              startSessionManagement();
             } else {
               showToast("Please enter a valid phone number", "error");
             }
@@ -6012,7 +5656,6 @@
             showToast("History cleared", "info");
           });
 
-        // ===== LIVE SCORE POLLING =====
         let liveInterval;
         function startPolling() {
           liveInterval = setInterval(() => {
@@ -6039,7 +5682,6 @@
         );
         startPolling();
 
-        // ===== ODDS DRIFT =====
         setInterval(() => {
           MATCHES.forEach((m) => {
             Object.keys(m.odds).forEach((mkt) => {
@@ -6064,7 +5706,18 @@
             });
         }, 30000);
 
-        // ===== INITIALIZE ALL FEATURES =====
+        function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        }
+
         function init() {
           mktHeaders("1x2");
           setStake(100);
@@ -6072,11 +5725,8 @@
           updateBetslip();
           renderHistory();
           renderMobileHistory();
-          initSwipeGestures();
-          initLiveInsights();
           updateCashoutWidget();
 
-          // Preloader
           const fill = document.getElementById("preloader-fill");
           const preloader = document.getElementById("preloader");
           let progress = 0;
