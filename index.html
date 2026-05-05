@@ -3544,13 +3544,13 @@
         <div class="logo-placeholder" aria-label="ERIBSBETS">ER</div>
         <ul class="nav-links">
           <li>
-            <a href="#"
+            <a href="index.html"
               ><span class="icon" aria-hidden="true">🏠</span
               ><span>Home</span></a
             >
           </li>
           <li class="active">
-            <a href="#" aria-current="page"
+            <a href="index.html" aria-current="page"
               ><span class="icon" aria-hidden="true">⚽</span
               ><span>Sport</span></a
             >
@@ -3562,7 +3562,7 @@
             >
           </li>
           <li>
-            <a href="#"
+            <a href="casino.html"
               ><span class="icon" aria-hidden="true">🎰</span
               ><span>Casino</span></a
             >
@@ -3571,8 +3571,7 @@
         <div
           class="quick-actions"
           style="display: flex; gap: 8px; margin-left: auto; margin-right: 8px"
-        >
-        </div>
+        ></div>
         <div class="nav-right">
           <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
             🌙
@@ -4939,16 +4938,16 @@
             sec.innerHTML = `<div class="outright-card">
           <div class="outright-hdr">🏴 Premier League — Season Winner</div>
           ${[
-              ["Manchester City", "2.50"],
-              ["Arsenal", "3.10"],
-              ["Liverpool", "4.00"],
-              ["Chelsea", "8.50"],
-            ]
-              .map(
-                ([t, p]) =>
-                  `<div class="outright-item"><span>${t}</span><button class="odd-btn outright-btn" style="min-width:80px" data-outright="EPL" data-team="${t}" data-price="${p}" aria-label="${t} to win EPL @ ${p}">${p}</button></div>`,
-              )
-              .join("")}
+            ["Manchester City", "2.50"],
+            ["Arsenal", "3.10"],
+            ["Liverpool", "4.00"],
+            ["Chelsea", "8.50"],
+          ]
+            .map(
+              ([t, p]) =>
+                `<div class="outright-item"><span>${t}</span><button class="odd-btn outright-btn" style="min-width:80px" data-outright="EPL" data-team="${t}" data-price="${p}" aria-label="${t} to win EPL @ ${p}">${p}</button></div>`,
+            )
+            .join("")}
         </div>`;
             sec
               .querySelectorAll(".outright-btn")

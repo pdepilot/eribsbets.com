@@ -1,0 +1,3686 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ERIBSBETS — Casino & Slots</title>
+    <meta
+      name="description"
+      content="Premium online casino with slots, live dealers, crash games and jackpots."
+    />
+    <meta name="theme-color" content="#00e676" />
+
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' wss://; font-src 'self' data:;"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="manifest" href="manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="ERIBSBETS" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #060b12;
+        --surface: #0b1320;
+        --surface-2: #101a2c;
+        --surface-3: #162235;
+        --border: #1e2f48;
+        --border-2: #263c58;
+        --accent: #00e676;
+        --accent-dim: #00b859;
+        --accent-glow: rgba(0, 230, 118, 0.15);
+        --accent-glow-strong: rgba(0, 230, 118, 0.3);
+        --blue: #2979ff;
+        --blue-dim: #1a5fcc;
+        --amber: #ffab00;
+        --red: #ff3d57;
+        --red-glow: rgba(255, 61, 87, 0.2);
+        --text: #e8f4ff;
+        --text-2: #7a9fc4;
+        --text-3: #3d5a78;
+        --nav-h: 54px;
+        --topbar-h: 52px;
+        --radius: 10px;
+        --radius-lg: 16px;
+        --font-head: "Syne", sans-serif;
+        --font-body: "Space Grotesk", sans-serif;
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+        --shadow-glow: 0 0 24px var(--accent-glow);
+        --shadow-glow-strong: 0 0 40px var(--accent-glow-strong);
+      }
+      body.light-theme {
+        --bg: #f0f5fb;
+        --surface: #ffffff;
+        --surface-2: #f5f8fc;
+        --surface-3: #eaeff7;
+        --border: #d0dce8;
+        --border-2: #bccad8;
+        --text: #0a1a2e;
+        --text-2: #3a5570;
+        --text-3: #7a96b0;
+        --accent: #009a4e;
+        --accent-dim: #007a3e;
+        --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--surface);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-2);
+        border-radius: 99px;
+      }
+      .pb-digit {
+        width: 14px;
+        height: 20px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+        position: relative;
+      }
+      .pb-digit::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--accent);
+        animation: rollUp 0.5s ease-in-out infinite alternate;
+        transform-origin: bottom;
+        border-radius: 2px;
+      }
+      .pb-digit:nth-child(2)::before {
+        animation-delay: 0.1s;
+      }
+      .pb-digit:nth-child(3)::before {
+        animation-delay: 0.2s;
+      }
+      .pb-digit:nth-child(4)::before {
+        animation-delay: 0.3s;
+      }
+      .pb-digit:nth-child(5)::before {
+        animation-delay: 0.4s;
+      }
+      .pb-digit:nth-child(7)::before {
+        animation-delay: 0.15s;
+      }
+      .pb-digit:nth-child(8)::before {
+        animation-delay: 0.25s;
+      }
+      .pb-digit:nth-child(9)::before {
+        animation-delay: 0.35s;
+      }
+      .pb-digit:nth-child(10)::before {
+        animation-delay: 0.45s;
+      }
+      .pb-sep {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: blink 0.8s infinite;
+      }
+      @keyframes rollUp {
+        from {
+          transform: scaleY(0.2);
+        }
+        to {
+          transform: scaleY(1);
+        }
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+      .preloader-tagline {
+        font-size: 13px;
+        color: var(--text-3);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        animation: fadePulse 2s ease infinite;
+      }
+      @keyframes fadePulse {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .preloader-bar {
+        width: 220px;
+        height: 2px;
+        background: var(--surface-3);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .preloader-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+        border-radius: 99px;
+        transition: width 0.3s ease;
+        box-shadow: 0 0 8px var(--accent-glow-strong);
+      }
+
+      /* Age Modal */
+      #age-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 90000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6, 11, 18, 0.97);
+        backdrop-filter: blur(8px);
+      }
+      #age-modal.open {
+        display: flex;
+      }
+      .age-box {
+        background: var(--surface);
+        border: 1px solid var(--border-2);
+        border-radius: 24px;
+        padding: 48px 36px;
+        max-width: 460px;
+        width: 93%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 0 80px rgba(0, 0, 0, 0.8),
+          0 0 0 1px var(--border);
+        animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.88);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .age-box::before,
+      .age-box::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-color: var(--accent);
+        border-style: solid;
+      }
+      .age-box::before {
+        top: 16px;
+        left: 16px;
+        border-width: 2px 0 0 2px;
+        border-radius: 8px 0 0 0;
+      }
+      .age-box::after {
+        bottom: 16px;
+        right: 16px;
+        border-width: 0 2px 2px 0;
+        border-radius: 0 0 8px 0;
+      }
+      .age-badge-large {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-head);
+        font-size: 22px;
+        font-weight: 800;
+        color: #000;
+        margin: 0 auto 24px;
+        box-shadow: 0 0 32px var(--accent-glow-strong);
+      }
+      .age-title {
+        font-family: var(--font-head);
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+      }
+      .age-subtitle {
+        color: var(--text-2);
+        font-size: 14px;
+        margin-bottom: 32px;
+        line-height: 1.5;
+      }
+      .age-input-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .age-field {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        text-align: left;
+      }
+      .age-field label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-3);
+      }
+      .age-field input,
+      .age-field select {
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        padding: 12px 14px;
+        font-size: 15px;
+        font-family: var(--font-body);
+        outline: none;
+        width: 100%;
+        transition: border-color 0.2s;
+        appearance: none;
+      }
+      .age-field input:focus,
+      .age-field select:focus {
+        border-color: var(--accent);
+      }
+      .age-field select {
+        cursor: pointer;
+      }
+      .age-confirm-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        color: #000;
+        border: none;
+        border-radius: 12px;
+        padding: 14px;
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 4px 20px var(--accent-glow-strong);
+        margin-bottom: 10px;
+      }
+      .age-confirm-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 32px var(--accent-glow-strong);
+      }
+      .age-exit-btn {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--border-2);
+        border-radius: 12px;
+        padding: 12px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--text-3);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .age-exit-btn:hover {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .underage-notice {
+        display: none;
+        background: rgba(255, 61, 87, 0.08);
+        border: 1px solid var(--red);
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 16px;
+        animation: shake 0.4s ease;
+      }
+      .underage-notice.show {
+        display: block;
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-8px);
+        }
+        40% {
+          transform: translateX(8px);
+        }
+        60% {
+          transform: translateX(-6px);
+        }
+        80% {
+          transform: translateX(6px);
+        }
+      }
+      .underage-notice p {
+        color: var(--red);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      .underage-notice small {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--text-3);
+      }
+
+      /* Cookie */
+      #cookie-bar {
+        position: fixed;
+        bottom: -200px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 80000;
+        background: var(--surface);
+        border: 1px solid var(--border-2);
+        border-radius: 20px;
+        padding: 20px 24px;
+        max-width: 560px;
+        width: calc(100% - 32px);
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        box-shadow:
+          0 -4px 60px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(0, 230, 118, 0.06);
+        transition: bottom 0.5s cubic-bezier(0.34, 1.3, 0.64, 1);
+      }
+      #cookie-bar.show {
+        bottom: 80px;
+      }
+      @media (max-width: 600px) {
+        #cookie-bar.show {
+          bottom: 70px;
+        }
+      }
+      .cookie-icon {
+        font-size: 28px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .cookie-text {
+        flex: 1;
+      }
+      .cookie-text strong {
+        display: block;
+        font-family: var(--font-head);
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .cookie-text p {
+        font-size: 12px;
+        color: var(--text-2);
+        line-height: 1.5;
+      }
+      .cookie-text a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .cookie-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .cookie-accept {
+        background: var(--accent);
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        padding: 9px 18px;
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: var(--font-body);
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+      .cookie-accept:hover {
+        background: var(--accent-dim);
+      }
+      .cookie-decline {
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 18px;
+        font-size: 12px;
+        color: var(--text-3);
+        cursor: pointer;
+        font-family: var(--font-body);
+        white-space: nowrap;
+        transition: all 0.15s;
+      }
+      .cookie-decline:hover {
+        border-color: var(--border-2);
+        color: var(--text-2);
+      }
+
+      .session-timer {
+        font-size: 10px;
+        background: var(--surface-2);
+        padding: 4px 8px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .reality-check {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--surface);
+        border: 2px solid var(--amber);
+        border-radius: 12px;
+        padding: 12px 20px;
+        z-index: 20000;
+        display: none;
+        animation: slideUp 0.3s ease;
+        max-width: 90%;
+        text-align: center;
+      }
+      .reality-check.show {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateX(-50%) translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+      }
+      .rate-limit-indicator {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: var(--red);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        z-index: 20000;
+        display: none;
+      }
+
+      /* Header */
+      .header-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 2500;
+        display: flex;
+        flex-direction: column;
+      }
+      .topbar {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        height: var(--topbar-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        gap: 12px;
+      }
+      .topbar-brand {
+        font-family: var(--font-head);
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: relative;
+      }
+      .brand-er {
+        display: inline-block;
+        animation: brandFloat 4s ease-in-out infinite;
+        color: var(--text);
+      }
+      .brand-ibs {
+        color: var(--text);
+      }
+      .brand-bets {
+        color: var(--accent);
+        display: inline-block;
+        position: relative;
+      }
+      .brand-bets::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 99px;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: brandUnderline 4s ease-in-out infinite;
+      }
+      @keyframes brandFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-1.5px);
+        }
+      }
+      @keyframes brandUnderline {
+        0%,
+        40% {
+          transform: scaleX(0);
+        }
+        60%,
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      .topbar-ticker {
+        flex: 1;
+        overflow: hidden;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        margin: 0 16px;
+      }
+      @media (max-width: 900px) {
+        .topbar-ticker {
+          display: none;
+        }
+      }
+      .ticker-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--red);
+        background: rgba(255, 61, 87, 0.12);
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--red);
+        white-space: nowrap;
+        margin-right: 10px;
+        letter-spacing: 0.5px;
+      }
+      .ticker-scroll {
+        overflow: hidden;
+        flex: 1;
+      }
+      .ticker-inner {
+        display: flex;
+        gap: 24px;
+        animation: tickerMove 22s linear infinite;
+        white-space: nowrap;
+      }
+      .ticker-inner:hover {
+        animation-play-state: paused;
+      }
+      @keyframes tickerMove {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .ticker-item {
+        font-size: 12px;
+        color: var(--text-2);
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .ticker-item .t-score {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .ticker-item .t-live {
+        background: var(--red);
+        color: #fff;
+        font-size: 9px;
+        font-weight: 700;
+        padding: 1px 5px;
+        border-radius: 3px;
+      }
+      .auth-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .auth-field {
+        display: flex;
+        align-items: center;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        height: 36px;
+        transition: border-color 0.2s;
+      }
+      .auth-field:focus-within {
+        border-color: var(--accent);
+      }
+      .auth-field .prefix {
+        padding: 0 8px;
+        font-size: 12px;
+        color: var(--text-2);
+        background: var(--surface-3);
+        border-right: 1px solid var(--border);
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .auth-field input {
+        background: transparent;
+        border: none;
+        color: var(--text);
+        padding: 0 10px;
+        font-size: 13px;
+        font-family: var(--font-body);
+        outline: none;
+        width: 130px;
+        height: 100%;
+      }
+      .auth-field input::placeholder {
+        color: var(--text-3);
+      }
+      .forgot-link {
+        font-size: 11px;
+        color: var(--text-3);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .forgot-link:hover {
+        color: var(--accent);
+      }
+      .btn {
+        cursor: pointer;
+        border: none;
+        border-radius: var(--radius);
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 13px;
+        transition: all 0.18s;
+      }
+      .btn-login {
+        background: var(--blue);
+        color: #fff;
+        padding: 0 18px;
+        height: 36px;
+      }
+      .btn-login:hover {
+        background: var(--blue-dim);
+      }
+      .btn-register {
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        color: #000;
+        padding: 0 18px;
+        height: 36px;
+        font-weight: 700;
+        box-shadow: 0 2px 12px var(--accent-glow);
+      }
+      .btn-register:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px var(--accent-glow-strong);
+      }
+      .mobile-auth-btn {
+        display: none;
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        color: #000;
+        border: none;
+        border-radius: var(--radius);
+        padding: 0 14px;
+        height: 34px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .main-nav {
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--border);
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        gap: 4px;
+      }
+      .logo-placeholder {
+        font-family: var(--font-head);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--accent);
+        letter-spacing: 2px;
+        margin-right: 8px;
+        text-shadow: 0 0 20px var(--accent-glow-strong);
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2px;
+        margin-left: 8px;
+      }
+      .nav-links li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 14px;
+        height: var(--nav-h);
+        justify-content: center;
+        text-decoration: none;
+        color: var(--text-2);
+        font-size: 11px;
+        font-weight: 600;
+        font-family: var(--font-body);
+        gap: 3px;
+        transition: color 0.15s;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+      }
+      .nav-links li a .icon {
+        font-size: 17px;
+      }
+      .nav-links li.active a {
+        color: var(--text);
+        border-bottom-color: var(--accent);
+      }
+      .nav-links li a:hover {
+        color: var(--text);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+      }
+      .icon-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--text-2);
+        font-size: 18px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          color 0.15s,
+          background 0.15s;
+      }
+      .icon-btn:hover {
+        color: var(--text);
+        background: var(--surface-3);
+      }
+      .dropdown-wrap {
+        position: relative;
+      }
+      .mega-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        z-index: 3000;
+        padding: 12px;
+        min-width: 320px;
+        box-shadow: var(--shadow-card);
+      }
+      .mega-menu.open {
+        display: block;
+        animation: fadeDown 0.18s ease;
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+      }
+      .mega-grid a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 6px;
+        color: var(--text-2);
+        text-decoration: none;
+        font-size: 11px;
+        border-radius: var(--radius);
+        gap: 4px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .mega-grid a:hover {
+        background: var(--surface-3);
+        color: var(--text);
+      }
+      .mega-grid a .icon {
+        font-size: 18px;
+      }
+
+      .sub-nav {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto;
+      }
+      .sub-nav::-webkit-scrollbar {
+        height: 0;
+      }
+      .sub-nav ul {
+        list-style: none;
+        display: flex;
+        padding: 0 8px;
+        width: max-content;
+      }
+      .sub-nav ul li a {
+        display: block;
+        padding: 12px 14px;
+        color: var(--text-2);
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+      }
+      .sub-nav ul li.active a,
+      .sub-nav ul li a:hover {
+        color: var(--text);
+        border-bottom-color: var(--accent);
+      }
+
+      /* Main Layout */
+      .main-container {
+        display: grid;
+        grid-template-columns: 240px 1fr 300px;
+        gap: 16px;
+        padding: 16px;
+        max-width: 1600px;
+        margin: 0 auto;
+        align-items: start;
+      }
+      @media (max-width: 1100px) {
+        .main-container {
+          grid-template-columns: 1fr;
+        }
+        .sidebar-left {
+          display: none;
+        }
+        .sidebar-right {
+          display: block !important;
+          position: relative;
+          width: 100%;
+          margin-bottom: 16px;
+          top: auto;
+          max-height: none;
+          overflow-y: visible;
+        }
+      }
+      @media (min-width: 1101px) and (max-width: 1380px) {
+        .main-container {
+          grid-template-columns: 210px 1fr 280px;
+        }
+      }
+
+      .sidebar-left,
+      .sidebar-right {
+        position: sticky;
+        top: calc(var(--topbar-h) + var(--nav-h) + 52px + 1rem);
+        max-height: calc(
+          100vh - (var(--topbar-h) + var(--nav-h) + 52px + 2rem)
+        );
+        overflow-y: auto;
+      }
+      .sidebar-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .sidebar-card h3 {
+        padding: 10px 14px;
+        font-family: var(--font-head);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-2);
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--border);
+      }
+      .sidebar-list {
+        list-style: none;
+      }
+      .sidebar-list li {
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--text-2);
+        transition:
+          background 0.12s,
+          color 0.12s,
+          padding-left 0.2s;
+      }
+      .sidebar-list li:last-child {
+        border-bottom: none;
+      }
+      .sidebar-list li:hover {
+        background: var(--surface-2);
+        color: var(--text);
+        padding-left: 20px;
+      }
+      .sidebar-list li.active {
+        background: var(--surface-3);
+        color: var(--accent);
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      .content-center {
+        min-width: 0;
+      }
+
+      /* Casino Hero */
+      .casino-hero {
+        background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .casino-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          var(--accent-glow-strong),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .casino-hero-content {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+      }
+      .casino-hero-badge {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 99px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+      }
+      .casino-hero h1 {
+        font-family: var(--font-head);
+        font-size: clamp(24px, 4vw, 40px);
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+      }
+      .casino-hero p {
+        color: var(--text-2);
+        font-size: 14px;
+        margin-bottom: 20px;
+        max-width: 420px;
+        line-height: 1.5;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .hero-btn-primary {
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        color: #000;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 4px 20px var(--accent-glow-strong);
+      }
+      .hero-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px var(--accent-glow-strong);
+      }
+      .hero-btn-secondary {
+        background: transparent;
+        border: 1px solid var(--border-2);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .hero-btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .casino-hero-visual {
+        position: relative;
+        z-index: 1;
+        width: 180px;
+        height: 180px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, var(--accent-dim), var(--blue-dim));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        box-shadow: 0 0 60px var(--accent-glow-strong);
+        flex-shrink: 0;
+      }
+      @media (max-width: 768px) {
+        .casino-hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 24px;
+        }
+        .casino-hero-visual {
+          width: 120px;
+          height: 120px;
+          font-size: 56px;
+        }
+        .casino-hero p {
+          margin: 0 auto 20px;
+        }
+        .hero-cta {
+          justify-content: center;
+        }
+      }
+
+      /* Jackpot Ticker */
+      .jackpot-bar {
+        background: linear-gradient(
+          90deg,
+          rgba(0, 230, 118, 0.08),
+          rgba(41, 121, 255, 0.08)
+        );
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 14px 18px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .jackpot-bar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .jackpot-bar-label {
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+      }
+      .jackpot-amount {
+        font-family: var(--font-head);
+        font-size: clamp(20px, 3vw, 28px);
+        font-weight: 800;
+        color: var(--accent);
+        text-shadow: 0 0 20px var(--accent-glow-strong);
+      }
+      .jackpot-bar-right {
+        font-size: 12px;
+        color: var(--text-2);
+      }
+
+      /* Search & Chips */
+      .search-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .search-bar {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0 12px;
+        height: 44px;
+        transition: border-color 0.2s;
+      }
+      .search-bar:focus-within {
+        border-color: var(--accent);
+      }
+      .search-bar input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 14px;
+      }
+      .search-bar input::placeholder {
+        color: var(--text-3);
+      }
+      .search-icon {
+        color: var(--text-3);
+        font-size: 15px;
+      }
+      .clear-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-3);
+        font-size: 16px;
+        padding: 2px;
+      }
+      .clear-btn:hover {
+        color: var(--red);
+      }
+
+      .category-scroll {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        margin-bottom: 16px;
+        padding-bottom: 4px;
+      }
+      .category-scroll::-webkit-scrollbar {
+        height: 0;
+      }
+      .category-chip {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 99px;
+        padding: 8px 16px;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        color: var(--text-2);
+        font-family: var(--font-body);
+        transition: all 0.15s;
+        flex-shrink: 0;
+        font-weight: 500;
+      }
+      .category-chip:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+      .category-chip.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #000;
+        font-weight: 700;
+      }
+      .category-chip .chip-icon {
+        font-size: 14px;
+      }
+
+      /* Game Grid */
+      .section-title {
+        font-family: var(--font-head);
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      @media (max-width: 768px) {
+        .game-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .game-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+      }
+
+      .game-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+      }
+      .game-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-card);
+      }
+      .game-thumb {
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        position: relative;
+      }
+      .game-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 11, 18, 0.88);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        transition: opacity 0.2s;
+        padding: 10px;
+      }
+      .game-card:hover .game-overlay {
+        opacity: 1;
+      }
+      .play-btn {
+        background: var(--accent);
+        color: #000;
+        border: none;
+        border-radius: 99px;
+        padding: 8px 22px;
+        font-weight: 800;
+        font-family: var(--font-head);
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .play-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px var(--accent-glow-strong);
+      }
+      .demo-btn {
+        background: transparent;
+        border: 1px solid var(--border-2);
+        color: var(--text);
+        border-radius: 99px;
+        padding: 6px 16px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.15s;
+        font-family: var(--font-body);
+      }
+      .demo-btn:hover {
+        border-color: var(--text);
+      }
+      .game-info {
+        padding: 10px;
+      }
+      .game-title {
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 2px;
+      }
+      .game-provider {
+        font-size: 11px;
+        color: var(--text-3);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .game-badges {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        gap: 4px;
+        z-index: 2;
+      }
+      .g-badge {
+        font-size: 9px;
+        font-weight: 800;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .g-badge.live {
+        background: var(--red);
+        color: #fff;
+      }
+      .g-badge.new {
+        background: var(--amber);
+        color: #000;
+      }
+      .g-badge.hot {
+        background: linear-gradient(90deg, var(--accent), var(--blue));
+        color: #000;
+      }
+      .fav-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(6, 11, 18, 0.6);
+        border: 1px solid var(--border);
+        color: var(--text-3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.15s;
+        z-index: 2;
+        backdrop-filter: blur(4px);
+      }
+      .fav-btn:hover {
+        color: var(--red);
+        border-color: var(--red);
+      }
+      .fav-btn.active {
+        color: var(--red);
+        border-color: var(--red);
+        background: rgba(255, 61, 87, 0.15);
+      }
+
+      /* Recent Wins Widget */
+      .win-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 12px;
+      }
+      .win-item:last-child {
+        border-bottom: none;
+      }
+      .win-game {
+        color: var(--text-2);
+      }
+      .win-user {
+        color: var(--text-3);
+        font-size: 11px;
+      }
+      .win-amount {
+        color: var(--accent);
+        font-weight: 700;
+        font-family: var(--font-head);
+      }
+
+      /* Modals & Shared */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(6px);
+      }
+      .modal-overlay.open {
+        display: flex;
+        animation: fadeIn 0.2s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .modal {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px 24px;
+        max-width: 400px;
+        width: 92%;
+        text-align: center;
+        box-shadow: var(--shadow-card);
+        animation: scaleIn 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+      }
+      .modal-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+      }
+      .modal h2 {
+        font-family: var(--font-head);
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .modal p {
+        font-size: 14px;
+        color: var(--text-2);
+        line-height: 1.5;
+      }
+      .modal-btn {
+        width: 100%;
+        background: var(--accent);
+        color: #000;
+        border: none;
+        border-radius: var(--radius);
+        padding: 11px;
+        font-family: var(--font-head);
+        font-weight: 800;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 16px;
+        transition: all 0.15s;
+      }
+      .modal-btn:hover {
+        background: var(--accent-dim);
+      }
+      .modal-btn.secondary {
+        background: var(--surface-2);
+        color: var(--text);
+        border: 1px solid var(--border);
+        margin-top: 8px;
+      }
+      .modal-btn.secondary:hover {
+        border-color: var(--accent);
+      }
+
+      .auth-modal-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 16px;
+        text-align: left;
+      }
+      .auth-label {
+        font-size: 12px;
+        color: var(--text-2);
+        margin-bottom: 4px;
+        display: block;
+      }
+      .auth-input-wrap {
+        display: flex;
+        align-items: center;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .auth-input-wrap .pfx {
+        padding: 0 10px;
+        font-size: 13px;
+        color: var(--text-2);
+        background: var(--surface-3);
+        border-right: 1px solid var(--border);
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+      .auth-input-wrap input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text);
+        padding: 0 12px;
+        height: 40px;
+        font-family: var(--font-body);
+        font-size: 14px;
+      }
+
+      .toast-container {
+        position: fixed;
+        bottom: 72px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        pointer-events: none;
+      }
+      .toast {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 10px 18px;
+        font-size: 13px;
+        color: var(--text);
+        max-width: 320px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: all 0.25s;
+        box-shadow: var(--shadow-card);
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .toast.toast-success {
+        border-color: var(--accent);
+      }
+      .toast.toast-error {
+        border-color: var(--red);
+      }
+      .toast.toast-info {
+        border-color: var(--blue);
+      }
+
+      .back-top {
+        position: fixed;
+        bottom: 72px;
+        right: 16px;
+        background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-glow);
+        z-index: 900;
+        transition: all 0.15s;
+      }
+      .back-top:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow-strong);
+      }
+
+      /* Mobile */
+      @media (max-width: 1100px) {
+        body {
+          padding-bottom: 64px;
+        }
+        .mobile-auth-btn {
+          display: flex;
+          align-items: center;
+        }
+        .desktop-auth {
+          display: none;
+        }
+      }
+      @media (min-width: 1101px) {
+        .mobile-auth-btn {
+          display: none !important;
+        }
+      }
+      .mob-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        z-index: 1000;
+        height: 60px;
+      }
+      @media (max-width: 1100px) {
+        .mob-nav {
+          display: flex;
+        }
+      }
+      .mob-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 0;
+        gap: 3px;
+        text-decoration: none;
+        color: var(--text-3);
+        font-size: 10px;
+        font-weight: 600;
+        font-family: var(--font-body);
+        transition: color 0.15s;
+        min-height: 44px;
+        position: relative;
+      }
+      .mob-nav-item.active {
+        color: var(--accent);
+      }
+      .mob-nav-item .icon {
+        font-size: 20px;
+      }
+      .mob-nav-item .mob-badge {
+        position: absolute;
+        top: 4px;
+        right: calc(50% - 14px);
+        background: var(--amber);
+        color: #000;
+        border-radius: 99px;
+        padding: 1px 5px;
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .drawer-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        backdrop-filter: blur(3px);
+      }
+      .drawer-overlay.open {
+        display: block;
+      }
+      .drawer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-height: 88vh;
+        background: var(--surface);
+        border-radius: 20px 20px 0 0;
+        z-index: 10001;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+      }
+      .drawer.open {
+        transform: translateY(0);
+      }
+      .drawer-hdr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface-2);
+        border-radius: 20px 20px 0 0;
+      }
+      .drawer-hdr h3 {
+        font-family: var(--font-head);
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .drawer-close {
+        background: transparent;
+        border: none;
+        color: var(--text-2);
+        font-size: 24px;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .drawer-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 14px;
+      }
+      .drawer-footer {
+        padding: 14px;
+        border-top: 1px solid var(--border);
+        background: var(--surface-2);
+      }
+      @media (min-width: 1101px) {
+        .drawer-overlay,
+        .drawer {
+          display: none !important;
+        }
+      }
+
+      /* Wallet */
+      .wallet-balance {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .wallet-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .wallet-actions button {
+        flex: 1;
+        border-radius: 8px;
+        padding: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: var(--font-body);
+        border: none;
+        font-size: 13px;
+      }
+      .deposit-btn {
+        background: var(--blue);
+        color: white;
+      }
+      .withdraw-btn {
+        background: var(--surface-2);
+        border: 1px solid var(--border) !important;
+        color: var(--text);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        margin-top: 48px;
+        position: relative;
+        overflow: hidden;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
+      }
+      .footer-hero {
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--border);
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .footer-hero::before {
+        content: "ERIBSBETS";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-head);
+        font-size: clamp(60px, 12vw, 140px);
+        font-weight: 800;
+        color: var(--border);
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: 4px;
+      }
+      .footer-hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .footer-hero-tagline {
+        font-family: var(--font-head);
+        font-size: clamp(18px, 4vw, 32px);
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+      }
+      .footer-hero-sub {
+        font-size: 14px;
+        color: var(--text-2);
+        margin-bottom: 24px;
+      }
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+      }
+      .social-link {
+        width: 44px;
+        height: 44px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        transition: all 0.2s;
+        color: var(--text-2);
+      }
+      .social-link:hover {
+        border-color: var(--accent);
+        background: var(--accent-glow);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px var(--accent-glow);
+      }
+      .footer-odds-ticker {
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 0;
+        overflow: hidden;
+      }
+      .footer-odds-inner {
+        display: flex;
+        gap: 32px;
+        animation: tickerMove 30s linear infinite;
+        white-space: nowrap;
+        padding: 0 20px;
+      }
+      .footer-odds-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+        color: var(--text-2);
+        flex-shrink: 0;
+      }
+      .footer-odds-item .fo-match {
+        font-weight: 600;
+        color: var(--text);
+      }
+      .footer-odds-item .fo-odds {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .footer-odds-item .fo-sep {
+        color: var(--text-3);
+      }
+      .footer-grid {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 48px 24px 32px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 500px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .footer-logo {
+        font-family: var(--font-head);
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: var(--text);
+        margin-bottom: 12px;
+        display: block;
+      }
+      .footer-logo span {
+        color: var(--accent);
+      }
+      .footer-desc {
+        font-size: 13px;
+        color: var(--text-2);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        max-width: 280px;
+      }
+      .footer-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .footer-badge {
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-2);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .footer-badge.age {
+        border-color: var(--amber);
+        color: var(--amber);
+      }
+      .footer-col-title {
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text);
+        margin-bottom: 16px;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-links li a {
+        color: var(--text-2);
+        text-decoration: none;
+        font-size: 13px;
+        transition:
+          color 0.15s,
+          padding-left 0.2s;
+        display: block;
+      }
+      .footer-links li a:hover {
+        color: var(--accent);
+        padding-left: 4px;
+      }
+      .footer-hotline {
+        background: rgba(0, 230, 118, 0.06);
+        border: 1px solid rgba(0, 230, 118, 0.2);
+        border-radius: 12px;
+        padding: 16px;
+        margin-top: 16px;
+      }
+      .footer-hotline-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+      .footer-hotline-num {
+        font-family: var(--font-head);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--text);
+      }
+      .footer-hotline-sub {
+        font-size: 11px;
+        color: var(--text-3);
+        margin-top: 2px;
+      }
+      .footer-bottom {
+        border-top: 1px solid var(--border);
+        padding: 20px 24px;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-bottom-left {
+        font-size: 12px;
+        color: var(--text-3);
+      }
+      .footer-bottom-right {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-bottom-right a {
+        font-size: 12px;
+        color: var(--text-3);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-bottom-right a:hover {
+        color: var(--accent);
+      }
+      .rg-banner {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .rg-banner p {
+        font-size: 11px;
+        color: var(--text-3);
+        text-align: center;
+        line-height: 1.5;
+        max-width: 700px;
+      }
+      .rg-badge-set {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .rg-badge {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-3);
+        white-space: nowrap;
+      }
+
+      /* Mobile overflow fixes */
+      @media (max-width: 768px) {
+        .topbar {
+          padding: 0 12px;
+          gap: 8px;
+        }
+        .topbar-brand {
+          font-size: 18px;
+          flex-shrink: 0;
+        }
+        .main-nav {
+          padding: 0 8px;
+          gap: 0;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .main-nav::-webkit-scrollbar {
+          display: none;
+        }
+        .search-row {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .search-bar {
+          flex: 1 1 100%;
+          min-width: 0;
+        }
+        .main-container {
+          padding: 12px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 32px 20px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+          padding: 16px;
+        }
+        .rg-banner {
+          flex-direction: column;
+          text-align: center;
+          padding: 16px;
+        }
+        .casino-hero-visual {
+          display: none;
+        }
+      }
+    </style>
+    <base target="_blank" />
+  </head>
+  <body>
+    <div id="age-modal">
+      <div class="age-box">
+        <div class="age-badge-large">18+</div>
+        <h2 class="age-title">Verify Your Age</h2>
+        <p class="age-subtitle">
+          ERIBSBETS Casino is strictly for adults. Enter your date of birth to
+          continue.
+        </p>
+        <div class="age-input-row">
+          <div class="age-field" style="flex: 0 0 70px">
+            <label>Day</label
+            ><input
+              type="number"
+              id="age-day"
+              min="1"
+              max="31"
+              placeholder="DD"
+              maxlength="2"
+            />
+          </div>
+          <div class="age-field">
+            <label>Month</label>
+            <select id="age-month">
+              <option value="">Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+          <div class="age-field" style="flex: 0 0 80px">
+            <label>Year</label
+            ><input
+              type="number"
+              id="age-year"
+              min="1900"
+              max="2025"
+              placeholder="YYYY"
+              maxlength="4"
+            />
+          </div>
+        </div>
+        <button class="age-confirm-btn" id="age-confirm-btn">
+          Confirm Age & Enter
+        </button>
+        <button
+          class="age-exit-btn"
+          onclick="window.location = 'https://www.google.com'"
+        >
+          I'm Under 18 — Exit
+        </button>
+        <div class="underage-notice" id="underage-notice">
+          <p>⛔ You must be 18 or older to access this platform.</p>
+          <small>Gambling is only permitted for adults.</small>
+        </div>
+      </div>
+    </div>
+
+    <div id="cookie-bar">
+      <div class="cookie-icon">🍪</div>
+      <div class="cookie-text">
+        <strong>We use cookies</strong>
+        <p>
+          We use cookies to personalise your experience, analyse traffic and
+          serve targeted ads. By accepting, you agree to our
+          <a href="#">Cookie Policy</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-accept" id="cookie-accept">Accept All</button>
+        <button class="cookie-decline" id="cookie-decline">Decline</button>
+      </div>
+    </div>
+
+    <div id="reality-check" class="reality-check">
+      <div>
+        <strong>⏰ Reality Check</strong>
+        <p id="reality-check-text">You've been playing for 30 minutes</p>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: center">
+        <button
+          id="reality-continue"
+          class="age-confirm-btn"
+          style="padding: 8px 16px; font-size: 12px"
+        >
+          Continue
+        </button>
+        <button
+          id="reality-logout"
+          class="age-exit-btn"
+          style="padding: 8px 16px; font-size: 12px"
+        >
+          Take a Break
+        </button>
+      </div>
+    </div>
+    <div id="rate-limit-indicator" class="rate-limit-indicator"></div>
+
+    <div
+      id="auth-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+    >
+      <div class="modal">
+        <div class="modal-icon">🔐</div>
+        <h2 id="auth-modal-title">Login to ERIBSBETS</h2>
+        <div class="auth-modal-fields">
+          <div>
+            <label class="auth-label">Mobile Number</label>
+            <div class="auth-input-wrap">
+              <span class="pfx">+234</span
+              ><input
+                type="tel"
+                placeholder="08000000000"
+                maxlength="11"
+                id="login-phone"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="auth-label">Password</label>
+            <div class="auth-input-wrap">
+              <input
+                type="password"
+                placeholder="Your password"
+                id="login-password"
+              />
+            </div>
+          </div>
+          <a
+            href="#"
+            class="forgot-link"
+            style="font-size: 12px; text-align: right; display: block"
+            >Forgot Password?</a
+          >
+        </div>
+        <button class="modal-btn" id="auth-login-btn">Login</button>
+        <button class="modal-btn secondary" id="auth-register-btn">
+          Create Account
+        </button>
+        <button
+          class="modal-btn secondary"
+          id="close-auth-modal"
+          style="margin-top: 4px"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="game-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="game-modal-title"
+    >
+      <div class="modal">
+        <div class="modal-icon" id="game-modal-icon">🎰</div>
+        <h2 id="game-modal-title">Launching Game</h2>
+        <p id="game-modal-desc">Preparing your session…</p>
+        <button class="modal-btn" id="close-game-modal">OK</button>
+      </div>
+    </div>
+
+    <div class="header-wrapper">
+      <header class="topbar">
+        <a href="index.html" class="topbar-brand"
+          ><span class="brand-er">ER</span><span class="brand-ibs">IBS</span
+          ><span class="brand-bets">BETS</span></a
+        >
+        <div class="session-timer" id="session-timer" style="display: none">
+          <span>⏱️</span><span id="session-time">00:00</span>
+        </div>
+        <div class="topbar-ticker">
+          <span class="ticker-label">⚡ LIVE</span>
+          <div class="ticker-scroll">
+            <div class="ticker-inner" id="ticker-inner"></div>
+          </div>
+        </div>
+        <div class="auth-row desktop-auth">
+          <div class="auth-field">
+            <span class="prefix">+234</span
+            ><input
+              type="tel"
+              placeholder="Mobile Number"
+              maxlength="11"
+              aria-label="Mobile number"
+            />
+          </div>
+          <div class="auth-field">
+            <input
+              type="password"
+              placeholder="Password"
+              aria-label="Password"
+            />
+          </div>
+          <a href="#" class="forgot-link">Forgot?</a>
+          <button class="btn btn-login">Login</button>
+          <button class="btn btn-register">Register</button>
+        </div>
+        <button class="mobile-auth-btn" id="mobile-auth-trigger">
+          Login / Register
+        </button>
+      </header>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="logo-placeholder" aria-label="ERIBSBETS">ER</div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html"
+              ><span class="icon" aria-hidden="true">🏠</span
+              ><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="index.html"
+              ><span class="icon" aria-hidden="true">⚽</span
+              ><span>Sport</span></a
+            >
+          </li>
+          <li>
+            <a href="live.html"
+              ><span class="icon" aria-hidden="true">⏱️</span
+              ><span>Live</span></a
+            >
+          </li>
+          <li class="active">
+            <a href="casino.html" aria-current="page"
+              ><span class="icon" aria-hidden="true">🎰</span
+              ><span>Casino</span></a
+            >
+          </li>
+        </ul>
+        <div class="nav-right">
+          <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+            🌙
+          </button>
+          <div class="dropdown-wrap">
+            <button
+              class="icon-btn"
+              id="mega-menu-btn"
+              aria-label="More"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2.5"
+                fill="none"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mega-menu" id="mega-menu" role="menu">
+              <div class="mega-grid">
+                <a href="#" role="menuitem"
+                  ><span class="icon">✈️</span><span>Aviator</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎲</span><span>Live Casino</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎱</span><span>Lucky Nums</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🃏</span><span>Betgames</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎮</span><span>Esports</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">💻</span><span>Virtuals</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎁</span><span>Promos</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">⚽</span><span>Football</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏀</span><span>Basketball</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎾</span><span>Tennis</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏓</span><span>Table Tennis</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏒</span><span>Ice Hockey</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="sub-nav" aria-label="Casino categories">
+        <ul>
+          <li class="active"><a href="#">All Games</a></li>
+          <li><a href="#">Slots</a></li>
+          <li><a href="#">Live Casino</a></li>
+          <li><a href="#">Table Games</a></li>
+          <li><a href="#">Crash Games</a></li>
+          <li><a href="#">Virtual Sports</a></li>
+          <li><a href="#">Jackpots</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main-container">
+      <aside class="sidebar-left" aria-label="Casino categories">
+        <div class="sidebar-card">
+          <h3>Menu</h3>
+          <ul class="sidebar-list" id="casino-menu">
+            <li data-cat="all" class="active">
+              <span aria-hidden="true">🎰</span> All Games
+            </li>
+            <li data-cat="slots"><span aria-hidden="true">🍒</span> Slots</li>
+            <li data-cat="live">
+              <span aria-hidden="true">🎲</span> Live Casino
+            </li>
+            <li data-cat="table">
+              <span aria-hidden="true">🃏</span> Table Games
+            </li>
+            <li data-cat="crash">
+              <span aria-hidden="true">✈️</span> Crash Games
+            </li>
+            <li data-cat="virtual">
+              <span aria-hidden="true">🏇</span> Virtual Sports
+            </li>
+            <li data-cat="jackpot">
+              <span aria-hidden="true">💎</span> Jackpots
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>Providers</h3>
+          <ul class="sidebar-list">
+            <li><span aria-hidden="true">🔷</span> Pragmatic Play</li>
+            <li><span aria-hidden="true">🔷</span> Evolution</li>
+            <li><span aria-hidden="true">🔷</span> NetEnt</li>
+            <li><span aria-hidden="true">🔷</span> Play'n GO</li>
+            <li><span aria-hidden="true">🔷</span> Red Tiger</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="content-center" aria-label="Casino games">
+        <div class="casino-hero">
+          <div class="casino-hero-content">
+            <div class="casino-hero-badge">🔥 FEATURED</div>
+            <h1>100% Casino Welcome Bonus</h1>
+            <p>
+              Double your first deposit up to ₦100,000 + 50 Free Spins on Sweet
+              Bonanza. Wagering applies.
+            </p>
+            <div class="hero-cta">
+              <button
+                class="hero-btn-primary"
+                onclick="showToast('Bonus claimed! Good luck.', 'success')"
+              >
+                Claim Bonus
+              </button>
+              <button
+                class="hero-btn-secondary"
+                onclick="
+                  showToast('Terms: 35x wagering. Min deposit ₦1,000.', 'info')
+                "
+              >
+                View T&Cs
+              </button>
+            </div>
+          </div>
+          <div class="casino-hero-visual">🎰</div>
+        </div>
+
+        <div class="jackpot-bar">
+          <div class="jackpot-bar-left">
+            <span class="jackpot-bar-label">💰 Mega Jackpot</span>
+            <span class="jackpot-amount" id="jackpot-amount"
+              >₦24,582,940.00</span
+            >
+          </div>
+          <div class="jackpot-bar-right">Growing every second · 18+ only</div>
+        </div>
+
+        <div class="search-row">
+          <div class="search-bar">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="text"
+              id="game-search"
+              placeholder="Search games or providers…"
+              aria-label="Search games"
+            />
+            <button
+              class="clear-btn"
+              id="search-clear"
+              style="display: none"
+              aria-label="Clear search"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <div class="category-scroll" role="list">
+          <button
+            class="category-chip active"
+            role="listitem"
+            data-filter="all"
+          >
+            <span class="chip-icon">🎰</span>All
+          </button>
+          <button class="category-chip" role="listitem" data-filter="slots">
+            <span class="chip-icon">🍒</span>Slots
+          </button>
+          <button class="category-chip" role="listitem" data-filter="live">
+            <span class="chip-icon">🎲</span>Live
+          </button>
+          <button class="category-chip" role="listitem" data-filter="table">
+            <span class="chip-icon">🃏</span>Table
+          </button>
+          <button class="category-chip" role="listitem" data-filter="crash">
+            <span class="chip-icon">✈️</span>Crash
+          </button>
+          <button class="category-chip" role="listitem" data-filter="virtual">
+            <span class="chip-icon">🏇</span>Virtual
+          </button>
+          <button class="category-chip" role="listitem" data-filter="jackpot">
+            <span class="chip-icon">💎</span>Jackpot
+          </button>
+          <button class="category-chip" role="listitem" data-filter="new">
+            <span class="chip-icon">✨</span>New
+          </button>
+        </div>
+
+        <div id="casino-sections"></div>
+      </section>
+
+      <aside class="sidebar-right" aria-label="Wallet & Wins">
+        <div class="sidebar-card wallet-widget" id="wallet-widget">
+          <h3>💰 My Wallet</h3>
+          <div style="padding: 16px">
+            <div class="wallet-balance" id="wallet-balance">₦0.00</div>
+            <div
+              style="font-size: 11px; color: var(--text-2); margin-bottom: 12px"
+            >
+              Available Balance
+            </div>
+            <div class="wallet-actions">
+              <button class="deposit-btn" id="deposit-btn">Deposit</button>
+              <button class="withdraw-btn" id="withdraw-btn">Withdraw</button>
+            </div>
+            <div
+              style="
+                margin-top: 12px;
+                font-size: 10px;
+                color: var(--text-3);
+                text-align: center;
+              "
+            >
+              ⚡ Instant deposits · 24h withdrawals
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card" id="recent-wins">
+          <h3>🏆 Recent Big Wins</h3>
+          <div style="padding: 12px" id="wins-list"></div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>🎁 Promo</h3>
+          <div style="padding: 14px">
+            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px">
+              Weekend Cashback
+            </div>
+            <div
+              style="font-size: 12px; color: var(--text-2); margin-bottom: 10px"
+            >
+              Get 10% back on casino losses every weekend.
+            </div>
+            <button
+              style="
+                width: 100%;
+                background: var(--accent);
+                border: none;
+                border-radius: 8px;
+                padding: 8px;
+                font-weight: 700;
+                cursor: pointer;
+                color: #000;
+                font-family: var(--font-body);
+              "
+              onclick="showToast('Cashback activated!', 'success')"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-hero">
+        <div class="footer-hero-content">
+          <div class="footer-hero-tagline">WHERE WINNERS PLAY</div>
+          <p class="footer-hero-sub">
+            Nigeria's most trusted sports betting & casino platform
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-link" aria-label="Telegram">✈️</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-odds-ticker">
+        <div class="footer-odds-inner" id="footer-odds-inner"></div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <span class="footer-logo">ERIBS<span>BETS</span></span>
+          <p class="footer-desc">
+            Nigeria's leading sports betting and casino platform. Fast payouts,
+            competitive odds, premium slots and live dealers — every time you
+            play.
+          </p>
+          <div class="footer-badges">
+            <div class="footer-badge age">⚠️ 18+</div>
+            <div class="footer-badge">🔒 SSL Secure</div>
+            <div class="footer-badge">⚡ Fast Payouts</div>
+            <div class="footer-badge">📱 Mobile Ready</div>
+          </div>
+          <div class="footer-hotline">
+            <div class="footer-hotline-label">📞 Support Hotline</div>
+            <div class="footer-hotline-num">0800-ERIBS-1</div>
+            <div class="footer-hotline-sub">Available 24/7 · Free to call</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Casino</div>
+          <ul class="footer-links">
+            <li><a href="#">Slots</a></li>
+            <li><a href="#">Live Casino</a></li>
+            <li><a href="#">Table Games</a></li>
+            <li><a href="#">Crash Games</a></li>
+            <li><a href="#">Jackpots</a></li>
+            <li><a href="#">Virtual Sports</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Promotions</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#">How to Play</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Responsible Gambling</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          © 2025 ERIBSBETS Ltd. All rights reserved. Licensed & Regulated.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a
+          ><a href="#">Sitemap</a>
+        </div>
+      </div>
+      <div class="rg-banner">
+        <div class="rg-badge-set">
+          <div class="rg-badge">18+</div>
+          <div class="rg-badge">BeGambleAware</div>
+          <div class="rg-badge">GamStop</div>
+        </div>
+        <p>
+          Gambling can be addictive. Play responsibly. ERIBSBETS is committed to
+          responsible gambling. If you or someone you know has a gambling
+          problem, call the NCPG Helpline: 1-800-522-4700. Please bet within
+          your means.
+        </p>
+      </div>
+    </footer>
+
+    <nav class="mob-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="mob-nav-item"
+        ><span class="icon">🏠</span><span>Home</span></a
+      >
+      <a href="index.html" class="mob-nav-item"
+        ><span class="icon">⚽</span><span>Sports</span></a
+      >
+      <a href="live.html" class="mob-nav-item"
+        ><span class="icon">▶️</span><span>Live</span></a
+      >
+      <a href="#" class="mob-nav-item active"
+        ><span class="icon">🎰</span><span>Casino</span></a
+      >
+      <a href="#" class="mob-nav-item" id="mob-menu-trigger"
+        ><span class="icon">☰</span><span>Menu</span></a
+      >
+    </nav>
+
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+    <div
+      id="menu-drawer"
+      class="drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
+    >
+      <div class="drawer-hdr">
+        <h3>Menu</h3>
+        <button
+          class="drawer-close"
+          id="close-drawer-btn"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+      </div>
+      <div class="drawer-body">
+        <ul class="sidebar-list" style="margin-bottom: 12px">
+          <li data-cat="all" class="active"><span>🎰</span> All Games</li>
+          <li data-cat="slots"><span>🍒</span> Slots</li>
+          <li data-cat="live"><span>🎲</span> Live Casino</li>
+          <li data-cat="table"><span>🃏</span> Table Games</li>
+          <li data-cat="crash"><span>✈️</span> Crash Games</li>
+          <li data-cat="virtual"><span>🏇</span> Virtual Sports</li>
+          <li data-cat="jackpot"><span>💎</span> Jackpots</li>
+        </ul>
+      </div>
+    </div>
+
+    <button id="back-top" class="back-top" aria-label="Back to top">↑</button>
+    <div
+      id="toast-container"
+      class="toast-container"
+      aria-live="assertive"
+    ></div>
+
+    <script>
+      (function () {
+        "use strict";
+        const AppState = {
+          filter: "all",
+          search: "",
+          favorites: JSON.parse(localStorage.getItem("eribsbets_favs") || "[]"),
+          user: { loggedIn: false, balance: 50000, phone: null },
+          sessionStart: Date.now(),
+        };
+
+        function showToast(msg, type = "info") {
+          const cont = document.getElementById("toast-container");
+          const t = document.createElement("div");
+          t.className = `toast toast-${type}`;
+          t.setAttribute("role", "status");
+          t.innerText = msg;
+          cont.appendChild(t);
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => t.classList.add("show")),
+          );
+          setTimeout(() => {
+            t.classList.remove("show");
+            setTimeout(() => t.remove(), 300);
+          }, 3000);
+        }
+
+        function updateWalletDisplay() {
+          const el = document.getElementById("wallet-balance");
+          if (el)
+            el.textContent = `₦${AppState.user.balance.toLocaleString("en-NG", { minimumFractionDigits: 2 })}`;
+        }
+        document
+          .getElementById("deposit-btn")
+          ?.addEventListener("click", () =>
+            showToast(
+              "Deposit feature coming soon. Use bank transfer.",
+              "info",
+            ),
+          );
+        document
+          .getElementById("withdraw-btn")
+          ?.addEventListener("click", () =>
+            showToast("Withdrawal coming soon. Minimum ₦1000.", "info"),
+          );
+
+        const GAMES = [
+          {
+            id: "g1",
+            name: "Sweet Bonanza",
+            provider: "Pragmatic Play",
+            cat: "slots",
+            icon: "🍬",
+            rtp: "96.5%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g2",
+            name: "Gates of Olympus",
+            provider: "Pragmatic Play",
+            cat: "slots",
+            icon: "⚡",
+            rtp: "96.5%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g3",
+            name: "Aviator",
+            provider: "Spribe",
+            cat: "crash",
+            icon: "✈️",
+            rtp: "97.0%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g4",
+            name: "Lightning Roulette",
+            provider: "Evolution",
+            cat: "live",
+            icon: "⚡",
+            rtp: "97.1%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g5",
+            name: "Blackjack Classic",
+            provider: "Evolution",
+            cat: "table",
+            icon: "🃏",
+            rtp: "99.4%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g6",
+            name: "Book of Dead",
+            provider: "Play'n GO",
+            cat: "slots",
+            icon: "📖",
+            rtp: "96.2%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g7",
+            name: "Starburst",
+            provider: "NetEnt",
+            cat: "slots",
+            icon: "⭐",
+            rtp: "96.1%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g8",
+            name: "Crazy Time",
+            provider: "Evolution",
+            cat: "live",
+            icon: "🎡",
+            rtp: "95.5%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g9",
+            name: "Spaceman",
+            provider: "Pragmatic Play",
+            cat: "crash",
+            icon: "🚀",
+            rtp: "96.5%",
+            isNew: true,
+            isHot: false,
+          },
+          {
+            id: "g10",
+            name: "Baccarat Squeeze",
+            provider: "Evolution",
+            cat: "live",
+            icon: "🎴",
+            rtp: "98.9%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g11",
+            name: "Wolf Gold",
+            provider: "Pragmatic Play",
+            cat: "slots",
+            icon: "🐺",
+            rtp: "96.0%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g12",
+            name: "Mega Moolah",
+            provider: "Microgaming",
+            cat: "jackpot",
+            icon: "🦁",
+            rtp: "88.1%",
+            isNew: false,
+            isHot: true,
+            jackpot: 24582940,
+          },
+          {
+            id: "g13",
+            name: "Virtual Football",
+            provider: "Inspired",
+            cat: "virtual",
+            icon: "⚽",
+            rtp: "94.0%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g14",
+            name: "Virtual Horse Racing",
+            provider: "Inspired",
+            cat: "virtual",
+            icon: "🏇",
+            rtp: "90.5%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g15",
+            name: "Sugar Rush",
+            provider: "Pragmatic Play",
+            cat: "slots",
+            icon: "🍭",
+            rtp: "96.5%",
+            isNew: true,
+            isHot: false,
+          },
+          {
+            id: "g16",
+            name: "Big Bass Bonanza",
+            provider: "Pragmatic Play",
+            cat: "slots",
+            icon: "🎣",
+            rtp: "96.7%",
+            isNew: false,
+            isHot: true,
+          },
+          {
+            id: "g17",
+            name: "Roulette Azure",
+            provider: "Pragmatic Play",
+            cat: "live",
+            icon: "🔵",
+            rtp: "97.3%",
+            isNew: true,
+            isHot: false,
+          },
+          {
+            id: "g18",
+            name: "Divine Fortune",
+            provider: "NetEnt",
+            cat: "jackpot",
+            icon: "🦄",
+            rtp: "96.6%",
+            isNew: false,
+            isHot: false,
+            jackpot: 12845000,
+          },
+          {
+            id: "g19",
+            name: "Texas Hold'em",
+            provider: "Evolution",
+            cat: "table",
+            icon: "🤠",
+            rtp: "99.0%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g20",
+            name: "Penny Pelican",
+            provider: "BGaming",
+            cat: "slots",
+            icon: "🐦",
+            rtp: "95.9%",
+            isNew: true,
+            isHot: false,
+          },
+          {
+            id: "g21",
+            name: "JetX",
+            provider: "SmartSoft",
+            cat: "crash",
+            icon: "🚀",
+            rtp: "97.0%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g22",
+            name: "Speed Baccarat",
+            provider: "Evolution",
+            cat: "live",
+            icon: "⏩",
+            rtp: "98.9%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g23",
+            name: "3D Roulette",
+            provider: "Iron Dog",
+            cat: "table",
+            icon: "🔴",
+            rtp: "97.0%",
+            isNew: false,
+            isHot: false,
+          },
+          {
+            id: "g24",
+            name: "Gonzo's Quest",
+            provider: "NetEnt",
+            cat: "slots",
+            icon: "🏴‍☠️",
+            rtp: "96.0%",
+            isNew: false,
+            isHot: false,
+          },
+        ];
+
+        function isFav(id) {
+          return AppState.favorites.includes(id);
+        }
+        function toggleFav(id) {
+          if (isFav(id))
+            AppState.favorites = AppState.favorites.filter((x) => x !== id);
+          else AppState.favorites.push(id);
+          localStorage.setItem(
+            "eribsbets_favs",
+            JSON.stringify(AppState.favorites),
+          );
+          renderCasino();
+          showToast(
+            isFav(id) ? "Added to favorites" : "Removed from favorites",
+            "info",
+          );
+        }
+
+        function buildGameCard(g) {
+          const favClass = isFav(g.id) ? "active" : "";
+          const badges = [];
+          if (g.cat === "live")
+            badges.push('<span class="g-badge live">LIVE</span>');
+          if (g.isNew) badges.push('<span class="g-badge new">NEW</span>');
+          if (g.isHot) badges.push('<span class="g-badge hot">HOT</span>');
+          return `
+          <div class="game-card" data-id="${g.id}" data-cat="${g.cat}">
+            <div class="game-thumb">
+              <div class="game-badges">${badges.join("")}</div>
+              <button class="fav-btn ${favClass}" data-id="${g.id}" aria-label="Toggle favorite">♥</button>
+              <span style="font-size:42px">${g.icon}</span>
+              <div class="game-overlay">
+                <button class="play-btn" data-id="${g.id}" data-mode="real">▶ Play</button>
+                <button class="demo-btn" data-id="${g.id}" data-mode="demo">Demo</button>
+              </div>
+            </div>
+            <div class="game-info">
+              <div class="game-title">${g.name}</div>
+              <div class="game-provider"><span>${g.provider}</span><span style="color:var(--text-3)">RTP ${g.rtp}</span></div>
+            </div>
+          </div>`;
+        }
+
+        function renderSection(title, icon, games) {
+          if (!games.length) return "";
+          return `
+          <div style="margin-bottom:8px">
+            <div class="section-title"><span>${icon}</span> ${title}</div>
+            <div class="game-grid">${games.map(buildGameCard).join("")}</div>
+          </div>`;
+        }
+
+        function renderCasino() {
+          const sec = document.getElementById("casino-sections");
+          let filtered = GAMES.filter((g) => {
+            if (AppState.filter !== "all" && AppState.filter !== "new") {
+              if (
+                AppState.filter === "jackpot" &&
+                !g.jackpot &&
+                g.cat !== "jackpot"
+              )
+                return false;
+              if (AppState.filter !== "jackpot" && g.cat !== AppState.filter)
+                return false;
+            }
+            if (AppState.filter === "new" && !g.isNew) return false;
+            if (AppState.search.trim()) {
+              const q = AppState.search.toLowerCase();
+              if (
+                !g.name.toLowerCase().includes(q) &&
+                !g.provider.toLowerCase().includes(q)
+              )
+                return false;
+            }
+            return true;
+          });
+
+          if (!filtered.length) {
+            sec.innerHTML = `<div class="empty-state" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:10px;opacity:.5">🔍</div><p>No games found</p><p style="font-size:12px;color:var(--text-3);margin-top:4px">Try a different search or category.</p></div>`;
+            attachGameEvents();
+            return;
+          }
+
+          // If filtering/searching, show flat grid; otherwise show sections
+          if (AppState.filter !== "all" || AppState.search.trim()) {
+            sec.innerHTML = `<div class="game-grid" style="margin-top:8px">${filtered.map(buildGameCard).join("")}</div>`;
+          } else {
+            const hot = filtered.filter((g) => g.isHot).slice(0, 8);
+            const live = filtered.filter((g) => g.cat === "live").slice(0, 8);
+            const crash = filtered.filter((g) => g.cat === "crash").slice(0, 4);
+            const newg = filtered.filter((g) => g.isNew).slice(0, 8);
+            const jack = filtered
+              .filter((g) => g.jackpot || g.cat === "jackpot")
+              .slice(0, 4);
+            sec.innerHTML =
+              renderSection("Popular Games", "🔥", hot) +
+              renderSection("Live Casino", "🎲", live) +
+              renderSection("Crash Games", "✈️", crash) +
+              renderSection("New Releases", "✨", newg) +
+              renderSection("Jackpot Games", "💎", jack);
+          }
+          attachGameEvents();
+        }
+
+        function attachGameEvents() {
+          document.querySelectorAll(".fav-btn").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              toggleFav(btn.dataset.id);
+            });
+          });
+          document.querySelectorAll(".play-btn, .demo-btn").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              launchGame(btn.dataset.id, btn.dataset.mode);
+            });
+          });
+        }
+
+        function launchGame(id, mode) {
+          const g = GAMES.find((x) => x.id === id);
+          if (!g) return;
+          const title = document.getElementById("game-modal-title");
+          const desc = document.getElementById("game-modal-desc");
+          const icon = document.getElementById("game-modal-icon");
+          if (title)
+            title.innerText = mode === "demo" ? `Demo: ${g.name}` : `${g.name}`;
+          if (desc)
+            desc.innerText =
+              mode === "demo"
+                ? "Loading demo credits… No real money is used."
+                : "Connecting to provider… Good luck!";
+          if (icon) icon.innerText = g.icon;
+          openModal("game-modal");
+        }
+
+        function openModal(id) {
+          const e = document.getElementById(id);
+          if (e) e.classList.add("open");
+        }
+        function closeModal(id) {
+          const e = document.getElementById(id);
+          if (e) e.classList.remove("open");
+        }
+        document
+          .getElementById("close-game-modal")
+          ?.addEventListener("click", () => closeModal("game-modal"));
+        document.querySelectorAll(".modal-overlay").forEach((ov) =>
+          ov.addEventListener("click", (e) => {
+            if (e.target === ov && ov.id !== "age-modal") closeModal(ov.id);
+          }),
+        );
+
+        // Category chips
+        document.querySelectorAll(".category-chip").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            document
+              .querySelectorAll(".category-chip")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            AppState.filter = chip.dataset.filter;
+            // Sync sidebar
+            document
+              .querySelectorAll("#casino-menu li")
+              .forEach((li) =>
+                li.classList.toggle(
+                  "active",
+                  li.dataset.cat === AppState.filter,
+                ),
+              );
+            renderCasino();
+          });
+        });
+        // Sidebar menu
+        document.querySelectorAll("#casino-menu li").forEach((li) => {
+          li.addEventListener("click", () => {
+            document
+              .querySelectorAll("#casino-menu li")
+              .forEach((l) => l.classList.remove("active"));
+            li.classList.add("active");
+            AppState.filter = li.dataset.cat;
+            document
+              .querySelectorAll(".category-chip")
+              .forEach((c) =>
+                c.classList.toggle(
+                  "active",
+                  c.dataset.filter === AppState.filter,
+                ),
+              );
+            renderCasino();
+          });
+        });
+
+        // Search
+        const searchInput = document.getElementById("game-search");
+        const debouncedSearch = debounce(() => {
+          AppState.search = searchInput.value;
+          document.getElementById("search-clear").style.display =
+            AppState.search ? "block" : "none";
+          renderCasino();
+        }, 300);
+        searchInput?.addEventListener("input", debouncedSearch);
+        document
+          .getElementById("search-clear")
+          ?.addEventListener("click", () => {
+            searchInput.value = "";
+            AppState.search = "";
+            document.getElementById("search-clear").style.display = "none";
+            renderCasino();
+          });
+
+        function debounce(func, wait) {
+          let timeout;
+          return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+          };
+        }
+
+        // Jackpot animation
+        let jackpot = 24582940;
+        setInterval(() => {
+          jackpot += Math.floor(Math.random() * 1500) + 300;
+          const el = document.getElementById("jackpot-amount");
+          if (el)
+            el.innerText = `₦${jackpot.toLocaleString("en-NG", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }, 2500);
+
+        // Recent wins simulation
+        const USERS = [
+          "BigBoss",
+          "NaijaKing",
+          "LuckyStar",
+          "CashMadam",
+          "OgaBets",
+          "WinnerWay",
+        ];
+        const WINS = [
+          "Sweet Bonanza",
+          "Aviator",
+          "Gates of Olympus",
+          "Mega Moolah",
+          "Lightning Roulette",
+        ];
+        function renderWins() {
+          const container = document.getElementById("wins-list");
+          if (!container) return;
+          let html = "";
+          for (let i = 0; i < 6; i++) {
+            const u = USERS[Math.floor(Math.random() * USERS.length)];
+            const w = WINS[Math.floor(Math.random() * WINS.length)];
+            const amt = Math.floor(Math.random() * 500000) + 50000;
+            html += `<div class="win-item"><div><div class="win-game">${w}</div><div class="win-user">${u}</div></div><div class="win-amount">₦${amt.toLocaleString()}</div></div>`;
+          }
+          container.innerHTML = html;
+        }
+        renderWins();
+        setInterval(renderWins, 20000);
+
+        // Age gate
+        const ageModal = document.getElementById("age-modal");
+        function checkAge() {
+          if (localStorage.getItem("age_verified") === "true") {
+            ageModal?.classList.remove("open");
+          } else {
+            ageModal?.classList.add("open");
+          }
+        }
+        checkAge();
+        document
+          .getElementById("age-confirm-btn")
+          ?.addEventListener("click", () => {
+            const day = parseInt(document.getElementById("age-day").value),
+              month = parseInt(document.getElementById("age-month").value),
+              year = parseInt(document.getElementById("age-year").value);
+            const notice = document.getElementById("underage-notice");
+            if (!day || !month || !year || year < 1900 || year > 2025) {
+              showToast("Please enter a valid date of birth", "error");
+              return;
+            }
+            const dob = new Date(year, month - 1, day);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+            if (age < 18) {
+              notice.classList.add("show");
+            } else {
+              localStorage.setItem("age_verified", "true");
+              ageModal.classList.remove("open");
+              showToast("Welcome to ERIBSBETS Casino! 🎉", "success");
+              setTimeout(() => {
+                if (!localStorage.getItem("cookies_set"))
+                  document.getElementById("cookie-bar")?.classList.add("show");
+              }, 1200);
+            }
+          });
+        document
+          .getElementById("cookie-accept")
+          ?.addEventListener("click", () => {
+            localStorage.setItem("cookies_set", "accepted");
+            document.getElementById("cookie-bar")?.classList.remove("show");
+            showToast("Cookie preferences saved ✓", "success");
+          });
+        document
+          .getElementById("cookie-decline")
+          ?.addEventListener("click", () => {
+            localStorage.setItem("cookies_set", "declined");
+            document.getElementById("cookie-bar")?.classList.remove("show");
+          });
+        if (
+          localStorage.getItem("age_verified") === "true" &&
+          !localStorage.getItem("cookies_set")
+        ) {
+          setTimeout(
+            () => document.getElementById("cookie-bar")?.classList.add("show"),
+            800,
+          );
+        }
+
+        // Ticker
+        function buildTicker() {
+          const items = [
+            { t: "Bayern Munich vs Dortmund", s: "2 - 1", live: true },
+            { t: "Arsenal vs Chelsea", s: "0 - 0", live: true },
+            { t: "Real Madrid vs Atletico", s: "1 - 0", live: true },
+            { t: "Man City vs Liverpool", s: "Upcoming", live: false },
+            { t: "PSG vs Marseille", s: "Upcoming", live: false },
+          ];
+          const doubled = [...items, ...items];
+          const el = document.getElementById("ticker-inner");
+          if (!el) return;
+          el.innerHTML = doubled
+            .map(
+              (i) =>
+                `<span class="ticker-item">${i.live ? '<span class="t-live">LIVE</span>' : ""}<span>${i.t}</span><span class="t-score">${i.s}</span><span style="color:var(--border-2)">|</span></span>`,
+            )
+            .join("");
+        }
+        buildTicker();
+        function buildFooterOdds() {
+          const items = [
+            { m: "Bayern vs Dortmund", o: ["1.45", "4.20", "6.50"] },
+            { m: "Real Madrid vs Barca", o: ["2.10", "3.50", "3.20"] },
+            { m: "PSG vs Man City", o: ["3.20", "3.40", "2.20"] },
+            { m: "AC Milan vs Inter", o: ["2.60", "3.10", "2.70"] },
+            { m: "Arsenal vs Chelsea", o: ["2.20", "3.30", "3.00"] },
+          ];
+          const doubled = [...items, ...items];
+          const el = document.getElementById("footer-odds-inner");
+          if (!el) return;
+          el.innerHTML = doubled
+            .map(
+              (i) =>
+                `<span class="footer-odds-item"><span class="fo-match">${i.m}</span><span class="fo-odds">${i.o[0]}</span><span class="fo-sep">/</span><span class="fo-odds">${i.o[1]}</span><span class="fo-sep">/</span><span class="fo-odds">${i.o[2]}</span><span style="color:var(--border-2);margin:0 8px">•</span></span>`,
+            )
+            .join("");
+        }
+        buildFooterOdds();
+
+        // Auth
+        document
+          .getElementById("mobile-auth-trigger")
+          ?.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal("auth-modal");
+          });
+        document
+          .getElementById("close-auth-modal")
+          ?.addEventListener("click", () => closeModal("auth-modal"));
+        document
+          .getElementById("auth-login-btn")
+          ?.addEventListener("click", () => {
+            const phone = document.getElementById("login-phone")?.value;
+            if (phone && phone.length >= 10) {
+              AppState.user.loggedIn = true;
+              AppState.user.phone = phone;
+              AppState.user.balance = 50000;
+              updateWalletDisplay();
+              closeModal("auth-modal");
+              showToast(
+                `Welcome back! Balance: ₦${AppState.user.balance.toLocaleString()}`,
+                "success",
+              );
+            } else {
+              showToast("Please enter a valid phone number", "error");
+            }
+          });
+        document
+          .getElementById("auth-register-btn")
+          ?.addEventListener("click", () =>
+            showToast("Registration coming soon!", "info"),
+          );
+        document
+          .querySelector(".btn-login")
+          ?.addEventListener("click", () => openModal("auth-modal"));
+        document
+          .querySelector(".btn-register")
+          ?.addEventListener("click", () => openModal("auth-modal"));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeModal("auth-modal");
+            closeModal("game-modal");
+            closeDrawer();
+            document.getElementById("mega-menu")?.classList.remove("open");
+          }
+        });
+
+        // Theme
+        document.getElementById("theme-btn")?.addEventListener("click", () => {
+          document.body.classList.toggle("light-theme");
+          document.getElementById("theme-btn").innerText =
+            document.body.classList.contains("light-theme") ? "☀️" : "🌙";
+          localStorage.setItem(
+            "theme",
+            document.body.classList.contains("light-theme") ? "light" : "dark",
+          );
+        });
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light-theme");
+          const tb = document.getElementById("theme-btn");
+          if (tb) tb.innerText = "☀️";
+        }
+
+        // Mega menu
+        document
+          .getElementById("mega-menu-btn")
+          ?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const m = document.getElementById("mega-menu");
+            const isOpen = m.classList.toggle("open");
+            document
+              .getElementById("mega-menu-btn")
+              .setAttribute("aria-expanded", isOpen);
+          });
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".dropdown-wrap")) {
+            document.getElementById("mega-menu")?.classList.remove("open");
+            document
+              .getElementById("mega-menu-btn")
+              ?.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Back to top
+        const backBtn = document.getElementById("back-top");
+        window.addEventListener("scroll", () => {
+          if (backBtn)
+            backBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+        });
+        backBtn?.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" }),
+        );
+
+        // Drawer
+        function openDrawer() {
+          document.getElementById("drawer-overlay")?.classList.add("open");
+          document.getElementById("menu-drawer")?.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeDrawer() {
+          document.getElementById("drawer-overlay")?.classList.remove("open");
+          document.getElementById("menu-drawer")?.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        document
+          .getElementById("mob-menu-trigger")
+          ?.addEventListener("click", (e) => {
+            e.preventDefault();
+            openDrawer();
+          });
+        document
+          .getElementById("close-drawer-btn")
+          ?.addEventListener("click", closeDrawer);
+        document
+          .getElementById("drawer-overlay")
+          ?.addEventListener("click", closeDrawer);
+        // Drawer menu clicks
+        document
+          .querySelectorAll("#menu-drawer .sidebar-list li")
+          .forEach((li) => {
+            li.addEventListener("click", () => {
+              AppState.filter = li.dataset.cat;
+              document
+                .querySelectorAll(".category-chip")
+                .forEach((c) =>
+                  c.classList.toggle(
+                    "active",
+                    c.dataset.filter === AppState.filter,
+                  ),
+                );
+              renderCasino();
+              closeDrawer();
+            });
+          });
+
+        // Init
+        updateWalletDisplay();
+        renderCasino();
+      })();
+    </script>
+  </body>
+</html>
