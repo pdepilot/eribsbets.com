@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ERIBSBETS — Live</title>
+    <meta
+      name="description"
+      content="Live matches, real-time odds, and live betting on ERIBSBETS."
+    />
+    <meta name="theme-color" content="#00e676" />
+
+    <!-- Fonts (match main site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Shared UI + Live page styling -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/live.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (same UI system as main site) -->
+    <div class="header-wrapper">
+      <header class="topbar">
+        <a href="index.html" class="topbar-brand" aria-label="ERIBSBETS Home">
+          <span class="brand-er">ER</span><span class="brand-ibs">IBS</span
+          ><span class="brand-bets">BETS</span>
+        </a>
+
+        <div class="topbar-ticker" aria-label="Live ticker">
+          <span class="ticker-label">⚡ LIVE</span>
+          <div class="ticker-scroll">
+            <div class="ticker-inner" id="ticker-inner"></div>
+          </div>
+        </div>
+
+        <div class="auth-row desktop-auth">
+          <div class="auth-field">
+            <span class="prefix">+234</span>
+            <input
+              type="tel"
+              placeholder="Mobile Number"
+              maxlength="11"
+              aria-label="Mobile number"
+            />
+          </div>
+          <div class="auth-field">
+            <input
+              type="password"
+              placeholder="Password"
+              aria-label="Password"
+            />
+          </div>
+          <a href="#" class="forgot-link">Forgot?</a>
+          <button class="btn btn-login">Login</button>
+          <button class="btn btn-register">Register</button>
+        </div>
+
+        <button class="mobile-auth-btn" id="mobile-auth-trigger">
+          Login / Register
+        </button>
+      </header>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="logo-placeholder" aria-label="ERIBSBETS">ER</div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html"
+              ><span class="icon" aria-hidden="true">🏠</span
+              ><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="index.html"
+              ><span class="icon" aria-hidden="true">⚽</span
+              ><span>Sport</span></a
+            >
+          </li>
+          <li class="active">
+            <a href="live.html" aria-current="page"
+              ><span class="icon" aria-hidden="true">⏱️</span
+              ><span>Live</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon" aria-hidden="true">🎰</span
+              ><span>Casino</span></a
+            >
+          </li>
+        </ul>
+
+        <div class="nav-right" style="margin-left: auto">
+          <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+            🌙
+          </button>
+          <div class="dropdown-wrap">
+            <button
+              class="icon-btn"
+              id="mega-menu-btn"
+              aria-label="More sports"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2.5"
+                fill="none"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mega-menu" id="mega-menu" role="menu">
+              <div class="mega-grid">
+                <a href="#" role="menuitem"
+                  ><span class="icon">✈️</span><span>Aviator</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎲</span><span>Live Casino</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎱</span><span>Lucky Nums</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🃏</span><span>Betgames</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎮</span><span>Esports</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">💻</span><span>Virtuals</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎁</span><span>Promos</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">⚽</span><span>Football</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏀</span><span>Basketball</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🎾</span><span>Tennis</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏓</span><span>Table Tennis</span></a
+                >
+                <a href="#" role="menuitem"
+                  ><span class="icon">🏒</span><span>Ice Hockey</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="sub-nav" aria-label="Live categories">
+        <ul>
+          <li class="active"><a href="#">Live Now</a></li>
+          <li><a href="#">Upcoming</a></li>
+          <li><a href="#">Popular</a></li>
+          <li><a href="#">Favourites</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="live-page" aria-label="Live betting">
+      <aside class="live-sidebar-left" aria-label="Live overview">
+        <div class="sidebar-card">
+          <h3>Live Sports</h3>
+          <ul class="sidebar-list">
+            <li><span>Football</span><span class="ct" id="ct-football">—</span></li>
+            <li>
+              <span>Basketball</span
+              ><span class="ct" id="ct-basketball">—</span>
+            </li>
+            <li><span>Tennis</span><span class="ct" id="ct-tennis">—</span></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card live-stat-card" aria-label="Live stats summary">
+          <h3>Pulse</h3>
+          <div class="lst-row">
+            <span class="lst-label">Trending</span
+            ><span class="lst-val" id="lst-trending">—</span>
+          </div>
+          <div class="lst-row">
+            <span class="lst-label">All Live</span
+            ><span class="lst-val" id="lst-total">—</span>
+          </div>
+          <div class="lst-row">
+            <span class="lst-label">Favourites</span
+            ><span class="lst-val" id="lst-favs">—</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="live-stream-col" aria-label="Live matches">
+        <div class="refresh-bar" id="refresh-bar" aria-live="polite">
+          <span class="spin-ring" aria-hidden="true"></span>
+          <span class="rf-label" id="rf-label">Live — updating</span>
+          <button class="rf-toggle" id="rf-toggle" type="button">Pause</button>
+        </div>
+
+        <div class="live-filter-strip" aria-label="Live filters">
+          <button class="lf-chip active" type="button" data-sport="all">
+            All Live <span class="lf-count" id="chip-all">0</span>
+          </button>
+          <button class="lf-chip" type="button" data-sport="football">
+            Football <span class="lf-count" id="chip-football">0</span>
+          </button>
+          <button class="lf-chip" type="button" data-sport="basketball">
+            Basketball <span class="lf-count" id="chip-basketball">0</span>
+          </button>
+          <button class="lf-chip" type="button" data-sport="tennis">
+            Tennis <span class="lf-count" id="chip-tennis">0</span>
+          </button>
+          <button class="lf-chip fav-chip" type="button" data-sport="favorites">
+            Favorites <span class="lf-count" id="chip-favs">0</span>
+          </button>
+        </div>
+
+        <div class="trending-banner" aria-label="Trending">
+          <span class="tb-icon">🔥</span>
+          <span class="tb-label">Trending</span>
+          <div class="tb-scroll">
+            <div class="tb-inner" id="trending-inner"></div>
+          </div>
+        </div>
+
+        <section id="live-matches-section" aria-label="Live matches list"></section>
+      </section>
+
+      <aside class="live-sidebar-right" aria-label="Betslip">
+        <div class="betslip-container">
+          <div class="bs-tabs">
+            <button class="bs-tab active" data-tab="betslip" type="button">
+              Betslip <span class="badge zero" id="desktop-badge">0</span>
+            </button>
+            <button class="bs-tab" data-tab="history" type="button">
+              History
+            </button>
+          </div>
+
+          <div id="panel-betslip">
+            <div class="bs-body" id="bs-body">
+              <div class="empty-state">
+                <div class="empty-icon">📋</div>
+                <p>Your betslip is empty</p>
+                <p class="hint">Select odds to add them here.</p>
+              </div>
+            </div>
+
+            <div class="bs-footer" id="bs-footer" style="display: none">
+              <div class="stake-presets">
+                <button class="preset-btn" data-stake="100" type="button">
+                  ₦100
+                </button>
+                <button class="preset-btn" data-stake="500" type="button">
+                  ₦500
+                </button>
+                <button class="preset-btn" data-stake="1000" type="button">
+                  ₦1K
+                </button>
+                <button class="preset-btn" data-stake="5000" type="button">
+                  ₦5K
+                </button>
+              </div>
+
+              <div class="stake-row">
+                <span>Stake Amount</span><strong id="stake-display">₦100</strong>
+              </div>
+              <input
+                type="range"
+                id="stake-slider"
+                min="100"
+                max="100000"
+                step="100"
+                value="100"
+                aria-label="Stake slider"
+              />
+              <div class="stake-input-row">
+                <input
+                  type="number"
+                  id="stake-input"
+                  min="100"
+                  max="10000000"
+                  placeholder="Enter stake (₦)"
+                  value="100"
+                  aria-label="Stake amount input"
+                />
+              </div>
+              <div class="odds-row">
+                <span>Total Odds</span
+                ><span class="odds-val" id="total-odds">0.00</span>
+              </div>
+              <div class="return-row">
+                <span>Potential Return</span
+                ><span class="return-val" id="potential-return">₦0.00</span>
+              </div>
+              <button class="place-btn" id="place-bet-btn" type="button">
+                PLACE BET
+              </button>
+              <p class="rg-note">
+                Please gamble responsibly. 18+ only. T&Cs apply.
+              </p>
+            </div>
+          </div>
+
+          <div id="panel-history" style="display: none">
+            <div class="history-hdr">
+              <span>Recent Bets</span
+              ><button class="clear-hist-btn" id="clear-history-btn" type="button">
+                Clear All
+              </button>
+            </div>
+            <div class="history-list" id="history-list"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-hero">
+        <div class="footer-hero-content">
+          <div class="footer-hero-tagline">WHERE WINNERS PLAY</div>
+          <p class="footer-hero-sub">
+            Nigeria's most trusted sports betting platform
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-link" aria-label="Telegram">✈️</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-odds-ticker">
+        <div class="footer-odds-inner" id="footer-odds-inner"></div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <span class="footer-logo">ERIBS<span>BETS</span></span>
+          <p class="footer-desc">
+            Nigeria's leading sports betting platform. Fast payouts, competitive
+            odds, and a seamless experience — every time you bet.
+          </p>
+          <div class="footer-badges">
+            <div class="footer-badge age">⚠️ 18+</div>
+            <div class="footer-badge">🔒 SSL Secure</div>
+            <div class="footer-badge">⚡ Fast Payouts</div>
+            <div class="footer-badge">📱 Mobile Ready</div>
+          </div>
+          <div class="footer-hotline">
+            <div class="footer-hotline-label">📞 Support Hotline</div>
+            <div class="footer-hotline-num">0800-ERIBS-1</div>
+            <div class="footer-hotline-sub">Available 24/7 · Free to call</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Sports</div>
+          <ul class="footer-links">
+            <li><a href="#">⚽ Football</a></li>
+            <li><a href="#">🏀 Basketball</a></li>
+            <li><a href="#">🎾 Tennis</a></li>
+            <li><a href="#">🏒 Ice Hockey</a></li>
+            <li><a href="#">🏓 Table Tennis</a></li>
+            <li><a href="#">🏏 Cricket</a></li>
+            <li><a href="#">🎮 Esports</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Promotions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#">How to Bet</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Responsible Gambling</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="footer-bottom"
+        style="
+          border-top: 1px solid var(--border);
+          padding: 20px 24px;
+          max-width: 1400px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+        "
+      >
+        <div style="font-size: 12px; color: var(--text-3)">
+          © 2025 ERIBSBETS Ltd. All rights reserved. Licensed & Regulated.
+        </div>
+        <div style="display: flex; gap: 16px">
+          <a
+            href="#"
+            style="font-size: 12px; color: var(--text-3); text-decoration: none"
+            >Privacy</a
+          >
+          <a
+            href="#"
+            style="font-size: 12px; color: var(--text-3); text-decoration: none"
+            >Terms</a
+          >
+          <a
+            href="#"
+            style="font-size: 12px; color: var(--text-3); text-decoration: none"
+            >Cookies</a
+          >
+          <a
+            href="#"
+            style="font-size: 12px; color: var(--text-3); text-decoration: none"
+            >Sitemap</a
+          >
+        </div>
+      </div>
+
+      <div class="rg-banner">
+        <div class="rg-badge-set">
+          <div class="rg-badge">18+</div>
+          <div class="rg-badge">BeGambleAware</div>
+          <div class="rg-badge">GamStop</div>
+        </div>
+        <p>
+          Gambling can be addictive. Play responsibly. ERIBSBETS is committed to
+          responsible gambling. If you or someone you know has a gambling
+          problem, call the NCPG Helpline: 1-800-522-4700. Please bet within
+          your means.
+        </p>
+      </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mob-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="mob-nav-item"
+        ><span class="icon">🏠</span><span>Home</span></a
+      >
+      <a href="index.html" class="mob-nav-item"
+        ><span class="icon">⚽</span><span>Sports</span></a
+      >
+      <a href="live.html" class="mob-nav-item active"
+        ><span class="icon">▶️</span><span>Live</span></a
+      >
+      <a href="#" class="mob-nav-item" id="mob-betslip-trigger">
+        <span class="icon">📄</span>
+        <span class="mob-badge" id="mob-badge" style="display: none">0</span>
+        <span>Betslip</span>
+      </a>
+      <a href="#" class="mob-nav-item"
+        ><span class="icon">☰</span><span>Menu</span></a
+      >
+    </nav>
+
+    <!-- MOBILE BETSLIP DRAWER -->
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+    <div
+      id="betslip-drawer"
+      class="drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Betslip"
+    >
+      <div class="drawer-hdr">
+        <h3>My Bets</h3>
+        <button
+          class="drawer-close"
+          id="close-drawer-btn"
+          aria-label="Close betslip"
+          type="button"
+        >
+          ×
+        </button>
+      </div>
+      <div class="bs-tabs" style="flex-shrink: 0">
+        <button class="bs-tab active" data-mob-tab="betslip" type="button">
+          Betslip <span class="badge zero" id="mob-drawer-badge">0</span>
+        </button>
+        <button class="bs-tab" data-mob-tab="history" type="button">
+          History
+        </button>
+      </div>
+
+      <div
+        id="mob-panel-betslip"
+        style="
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          overflow: hidden;
+          min-height: 0;
+        "
+      >
+        <div class="drawer-body" id="drawer-body"></div>
+        <div class="drawer-footer" id="drawer-footer" style="display: none">
+          <div class="stake-presets">
+            <button class="preset-btn" data-stake="100" type="button">₦100</button>
+            <button class="preset-btn" data-stake="500" type="button">₦500</button>
+            <button class="preset-btn" data-stake="1000" type="button">₦1K</button>
+            <button class="preset-btn" data-stake="5000" type="button">₦5K</button>
+          </div>
+          <div class="stake-row">
+            <span>Stake</span><strong id="mob-stake-display">₦100</strong>
+          </div>
+          <input
+            type="range"
+            id="mob-stake-slider"
+            min="100"
+            max="100000"
+            step="100"
+            value="100"
+            aria-label="Mobile stake slider"
+          />
+          <div class="odds-row">
+            <span>Total Odds</span
+            ><span class="odds-val" id="mob-total-odds">0.00</span>
+          </div>
+          <div class="return-row">
+            <span>Potential Return</span
+            ><span class="return-val" id="mob-potential-return">₦0.00</span>
+          </div>
+          <button class="place-btn" id="mob-place-btn" type="button">
+            PLACE BET
+          </button>
+          <p class="rg-note">Please gamble responsibly. 18+ only.</p>
+        </div>
+      </div>
+
+      <div
+        id="mob-panel-history"
+        style="
+          display: none;
+          flex-direction: column;
+          flex: 1;
+          overflow: hidden;
+          min-height: 0;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+          "
+        >
+          <span style="font-size: 13px; font-weight: 600">Recent Bets</span>
+          <button class="clear-hist-btn" id="mob-clear-history-btn" type="button">
+            Clear All
+          </button>
+        </div>
+        <div
+          class="history-list"
+          id="mob-history-list"
+          style="flex: 1; overflow-y: auto; padding: 10px"
+        ></div>
+      </div>
+    </div>
+
+    <!-- QUICK BET TOAST -->
+    <div
+      class="quick-bet-toast"
+      id="quick-bet-toast"
+      role="status"
+      aria-live="polite"
+    >
+      <div class="qbt-text">Added to betslip.</div>
+      <button class="qbt-close" type="button" aria-label="Close">×</button>
+    </div>
+
+    <button id="back-top" class="back-top" aria-label="Back to top">↑</button>
+    <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+    <script src="js/live.js"></script>
+
+    <script>
+      // Minimal nav dropdown parity (keeps identity consistent)
+      (function () {
+        const btn = document.getElementById("mega-menu-btn");
+        const menu = document.getElementById("mega-menu");
+        if (!btn || !menu) return;
+        btn.addEventListener("click", () => {
+          const open = menu.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        document.addEventListener("click", (e) => {
+          if (!menu.classList.contains("open")) return;
+          if (btn.contains(e.target) || menu.contains(e.target)) return;
+          menu.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ERIBSBETS — Sign In or Create Account</title>
+    <meta name="description" content="Join ERIBSBETS - Nigeria's premier sports betting platform">
+    <meta name="theme-color" content="#00e676">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #0f1622;
+            --bg-card: #141c2c;
+            --bg-card-hover: #1a2438;
+            --border-light: #1e2f48;
+            --border-glow: rgba(0, 230, 118, 0.3);
+            --accent: #00e676;
+            --accent-dim: #00b859;
+            --accent-glow: rgba(0, 230, 118, 0.15);
+            --accent-glow-strong: rgba(0, 230, 118, 0.25);
+            --text-primary: #e8f4ff;
+            --text-secondary: #7a9fc4;
+            --text-muted: #3d5a78;
+            --error: #ff3d57;
+            --error-dim: #ff3d571a;
+            --success: #00e676;
+            --transition-smooth: cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(0, 230, 118, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .auth-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Brand Area */
+        .brand-area {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s var(--transition-smooth);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+        }
+
+        .logo span {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+            animation: logoGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { text-shadow: 0 0 0px var(--accent-glow); }
+            50% { text-shadow: 0 0 20px var(--accent-glow-strong); }
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Main Card - 3D Flip Container */
+        .flip-container {
+            perspective: 2000px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .flipper {
+            position: relative;
+            width: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flipper.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Both sides */
+        .login-side,
+        .register-side {
+            position: relative;
+            width: 100%;
+            backface-visibility: hidden;
+            background: rgba(20, 28, 44, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 230, 118, 0.1);
+            padding: 40px 32px;
+        }
+
+        .login-side {
+            transform: rotateY(0deg);
+        }
+
+        .register-side {
+            transform: rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Welcome Text Rotator */
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 32px;
+            min-height: 80px;
+        }
+
+        .welcome-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .welcome-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 48px 16px 48px;
+            background: rgba(10, 15, 26, 0.8);
+            border: 1.5px solid var(--border-light);
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+            background: rgba(10, 15, 26, 1);
+        }
+
+        .form-group input.error {
+            border-color: var(--error);
+            animation: shake 0.4s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .form-group i:first-child {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 18px;
+            transition: color 0.2s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .form-group input:focus + i:first-child {
+            color: var(--accent);
+        }
+
+        /* Floating Labels */
+        .form-group .floating-label {
+            position: absolute;
+            left: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 15px;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            background: transparent;
+            padding: 0 4px;
+            z-index: 1;
+        }
+
+        .form-group input:focus ~ .floating-label,
+        .form-group input:not(:placeholder-shown) ~ .floating-label {
+            top: 0;
+            font-size: 11px;
+            color: var(--accent);
+            background: var(--bg-card);
+            padding: 0 6px;
+        }
+
+        .form-group input:not(:focus):not(:placeholder-shown) ~ .floating-label {
+            color: var(--text-secondary);
+        }
+
+        /* Password Toggle Button */
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 18px;
+            transition: all 0.2s ease;
+            z-index: 10;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .password-toggle:hover {
+            color: var(--accent);
+            background: rgba(0, 230, 118, 0.1);
+        }
+
+        .password-toggle:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        /* Checkbox & Forgot */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 13px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+
+        .forgot-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .forgot-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Button */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-submit:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--accent-glow-strong);
+        }
+
+        /* Switch Link */
+        .switch-link {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .switch-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .switch-link a:hover {
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        /* Referral Field */
+        .referral-field {
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .referral-toggle {
+            font-size: 12px;
+            color: var(--accent);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            transition: all 0.2s;
+        }
+
+        .referral-toggle:hover {
+            opacity: 0.8;
+        }
+
+        /* Error & Success Messages */
+        .error-message {
+            background: var(--error-dim);
+            border: 1px solid var(--error);
+            color: var(--error);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 16px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .success-message {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 16px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading State */
+        .btn-submit.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            right: 20px;
+            top: calc(50% - 10px);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .login-side, .register-side {
+                padding: 28px 20px;
+            }
+            
+            .welcome-title {
+                font-size: 24px;
+            }
+            
+            .form-group input {
+                padding: 14px 44px 14px 44px;
+                font-size: 14px;
+            }
+            
+            .btn-submit {
+                padding: 14px;
+            }
+            
+            .password-toggle {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-container {
+                padding: 0;
+            }
+            
+            .brand-area {
+                margin-bottom: 24px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+
+        /* Input Autofill Styles */
+        input:-webkit-autofill,
+        input:-webkit-autofill:focus {
+            transition: background-color 0s 600000s, color 0s 600000s;
+        }
+
+        input:-webkit-autofill ~ .floating-label {
+            top: 0;
+            font-size: 11px;
+            background: var(--bg-card);
+        }
+
+        /* Hide number spinners */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Placeholder styling */
+        .form-group input::placeholder {
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="auth-container">
+        <div class="brand-area">
+            <div class="logo">
+                ERIBS<span>BETS</span>
+            </div>
+            <div class="tagline">WHERE WINNERS PLAY</div>
+        </div>
+        
+        <div class="flip-container">
+            <div class="flipper" id="flipper">
+                <!-- Login Side -->
+                <div class="login-side">
+                    <div class="welcome-text">
+                        <div class="welcome-title" id="loginTitle">Welcome Back</div>
+                        <div class="welcome-sub" id="loginSub">Sign in to continue your winning streak</div>
+                    </div>
+                    
+                    <div id="loginError" class="error-message"></div>
+                    <div id="loginSuccess" class="success-message"></div>
+                    
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <input type="text" id="loginEmail" placeholder=" " autocomplete="username">
+                            <i class="fas fa-envelope"></i>
+                            <label class="floating-label">Email / Username</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="password" id="loginPassword" placeholder=" " autocomplete="current-password">
+                            <i class="fas fa-lock"></i>
+                            <label class="floating-label">Password</label>
+                            <button type="button" class="password-toggle" data-target="loginPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe"> Remember Me
+                            </label>
+                            <a href="#" class="forgot-link" id="forgotPassword">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit" id="loginBtn">SIGN IN</button>
+                    </form>
+                    
+                    <div class="switch-link">
+                        New to ERIBSBETS? <a id="switchToRegister">Create Account →</a>
+                    </div>
+                </div>
+                
+                <!-- Register Side -->
+                <div class="register-side">
+                    <div class="welcome-text">
+                        <div class="welcome-title" id="registerTitle">Join the Game</div>
+                        <div class="welcome-sub" id="registerSub">Create your account and start winning today</div>
+                    </div>
+                    
+                    <div id="registerError" class="error-message"></div>
+                    <div id="registerSuccess" class="success-message"></div>
+                    
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <input type="text" id="regFullname" placeholder=" " autocomplete="name">
+                            <i class="fas fa-user"></i>
+                            <label class="floating-label">Full Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="regEmail" placeholder=" " autocomplete="email">
+                            <i class="fas fa-envelope"></i>
+                            <label class="floating-label">Email</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" id="regPhone" placeholder=" " autocomplete="tel">
+                            <i class="fas fa-phone"></i>
+                            <label class="floating-label">Phone Number</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="password" id="regPassword" placeholder=" " autocomplete="new-password">
+                            <i class="fas fa-lock"></i>
+                            <label class="floating-label">Password</label>
+                            <button type="button" class="password-toggle" data-target="regPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="password" id="regConfirmPassword" placeholder=" " autocomplete="off">
+                            <i class="fas fa-check-circle"></i>
+                            <label class="floating-label">Confirm Password</label>
+                            <button type="button" class="password-toggle" data-target="regConfirmPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="referral-field" id="referralField" style="display: none;">
+                            <div class="form-group">
+                                <input type="text" id="regReferral" placeholder=" " autocomplete="off">
+                                <i class="fas fa-ticket-alt"></i>
+                                <label class="floating-label">Referral Code (Optional)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="referral-toggle" id="referralToggle">
+                            <i class="fas fa-gift"></i> Have a referral code?
+                        </div>
+                        
+                        <button type="submit" class="btn-submit" id="registerBtn">CREATE ACCOUNT</button>
+                    </form>
+                    
+                    <div class="switch-link">
+                        Already have an account? <a id="switchToLogin">Sign In →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ===== PASSWORD TOGGLE FUNCTIONALITY =====
+        // Initialize all password toggle buttons
+        function initPasswordToggles() {
+            const toggleButtons = document.querySelectorAll('.password-toggle');
+            
+            toggleButtons.forEach(button => {
+                // Remove any existing event listeners by replacing with a new button
+                const newButton = button.cloneNode(true);
+                button.parentNode.replaceChild(newButton, button);
+                
+                newButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const passwordInput = document.getElementById(targetId);
+                    
+                    if (!passwordInput) return;
+                    
+                    const icon = this.querySelector('i');
+                    
+                    // Toggle password visibility
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                        
+                        // Add subtle visual feedback
+                        this.style.transform = 'translateY(-50%) scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = 'translateY(-50%)';
+                        }, 150);
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                        
+                        this.style.transform = 'translateY(-50%) scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = 'translateY(-50%)';
+                        }, 150);
+                    }
+                    
+                    // Focus the input after toggle for better UX
+                    passwordInput.focus();
+                });
+            });
+        }
+        
+        // Flip Transition - ONLY triggered by buttons
+        const flipper = document.getElementById('flipper');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        function flipToRegister() {
+            flipper.classList.add('flipped');
+            // Add subtle entrance animation to register content
+            const registerWelcome = document.querySelector('.register-side .welcome-text');
+            if (registerWelcome) {
+                registerWelcome.style.animation = 'fadeInUp 0.4s ease';
+                setTimeout(() => {
+                    registerWelcome.style.animation = '';
+                }, 500);
+            }
+            // Clear any visible messages when switching
+            hideAllMessages();
+            // Reinitialize password toggles after DOM changes
+            setTimeout(initPasswordToggles, 50);
+        }
+        
+        function flipToLogin() {
+            flipper.classList.remove('flipped');
+            // Add subtle entrance animation to login content
+            const loginWelcome = document.querySelector('.login-side .welcome-text');
+            if (loginWelcome) {
+                loginWelcome.style.animation = 'fadeInUp 0.4s ease';
+                setTimeout(() => {
+                    loginWelcome.style.animation = '';
+                }, 500);
+            }
+            hideAllMessages();
+            // Reinitialize password toggles after DOM changes
+            setTimeout(initPasswordToggles, 50);
+        }
+        
+        switchToRegister?.addEventListener('click', (e) => {
+            e.preventDefault();
+            flipToRegister();
+        });
+        
+        switchToLogin?.addEventListener('click', (e) => {
+            e.preventDefault();
+            flipToLogin();
+        });
+        
+        // Referral Toggle
+        const referralToggle = document.getElementById('referralToggle');
+        const referralField = document.getElementById('referralField');
+        
+        if (referralToggle && referralField) {
+            referralToggle.addEventListener('click', () => {
+                if (referralField.style.display === 'none' || !referralField.style.display) {
+                    referralField.style.display = 'block';
+                    referralToggle.innerHTML = '<i class="fas fa-times"></i> Hide referral code';
+                    // Animate appearance
+                    referralField.style.animation = 'fadeInUp 0.3s ease';
+                    setTimeout(() => {
+                        referralField.style.animation = '';
+                    }, 300);
+                } else {
+                    referralField.style.display = 'none';
+                    referralToggle.innerHTML = '<i class="fas fa-gift"></i> Have a referral code?';
+                }
+            });
+        }
+        
+        // Helper Functions
+        function hideAllMessages() {
+            document.querySelectorAll('.error-message, .success-message').forEach(el => {
+                el.style.display = 'none';
+                el.innerHTML = '';
+            });
+        }
+        
+        function showError(elementId, message) {
+            const errorDiv = document.getElementById(elementId);
+            errorDiv.innerHTML = message;
+            errorDiv.style.display = 'block';
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
+                if (errorDiv.style.display === 'block') {
+                    errorDiv.style.opacity = '0';
+                    setTimeout(() => {
+                        errorDiv.style.display = 'none';
+                        errorDiv.style.opacity = '1';
+                    }, 300);
+                }
+            }, 4000);
+        }
+        
+        function showSuccess(elementId, message) {
+            const successDiv = document.getElementById(elementId);
+            successDiv.innerHTML = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.opacity = '0';
+                setTimeout(() => {
+                    successDiv.style.display = 'none';
+                    successDiv.style.opacity = '1';
+                }, 300);
+            }, 3000);
+        }
+        
+        function setLoading(button, isLoading) {
+            if (isLoading) {
+                button.classList.add('loading');
+                button.disabled = true;
+            } else {
+                button.classList.remove('loading');
+                button.disabled = false;
+            }
+        }
+        
+        // Login Validation
+        function validateLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email) {
+                showError('loginError', 'Please enter your email or username');
+                return false;
+            }
+            if (!password) {
+                showError('loginError', 'Please enter your password');
+                return false;
+            }
+            if (password.length < 6) {
+                showError('loginError', 'Password must be at least 6 characters');
+                return false;
+            }
+            return true;
+        }
+        
+        // Register Validation
+        function validateRegister() {
+            const fullname = document.getElementById('regFullname').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (!fullname) {
+                showError('registerError', 'Please enter your full name');
+                return false;
+            }
+            if (fullname.length < 2) {
+                showError('registerError', 'Please enter a valid full name');
+                return false;
+            }
+            if (!email) {
+                showError('registerError', 'Please enter your email');
+                return false;
+            }
+            const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('registerError', 'Please enter a valid email address');
+                return false;
+            }
+            if (!phone) {
+                showError('registerError', 'Please enter your phone number');
+                return false;
+            }
+            const phoneRegex = /^[\d\s\+\(\)]{10,15}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('registerError', 'Please enter a valid phone number (10-15 digits)');
+                return false;
+            }
+            if (!password) {
+                showError('registerError', 'Please enter a password');
+                return false;
+            }
+            if (password.length < 6) {
+                showError('registerError', 'Password must be at least 6 characters');
+                return false;
+            }
+            if (password !== confirmPassword) {
+                showError('registerError', 'Passwords do not match');
+                return false;
+            }
+            return true;
+        }
+        
+        // Login Handler
+        document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!validateLogin()) return;
+            
+            const btn = document.getElementById('loginBtn');
+            setLoading(btn, true);
+            
+            // Simulate API call
+            setTimeout(() => {
+                setLoading(btn, false);
+                showSuccess('loginSuccess', 'Login successful! Redirecting to dashboard...');
+                setTimeout(() => {
+                    console.log('Logged in:', document.getElementById('loginEmail').value);
+                    // Uncomment for actual redirect:
+                    // window.location.href = '/dashboard';
+                }, 1500);
+            }, 800);
+        });
+        
+        // Register Handler
+        document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!validateRegister()) return;
+            
+            const btn = document.getElementById('registerBtn');
+            setLoading(btn, true);
+            
+            // Simulate API call
+            setTimeout(() => {
+                setLoading(btn, false);
+                showSuccess('registerSuccess', 'Account created successfully! Redirecting to login...');
+                setTimeout(() => {
+                    flipToLogin();
+                    // Pre-fill email for convenience
+                    const regEmail = document.getElementById('regEmail').value;
+                    if (regEmail) {
+                        document.getElementById('loginEmail').value = regEmail;
+                        // Trigger floating label update
+                        const loginEmailInput = document.getElementById('loginEmail');
+                        loginEmailInput.dispatchEvent(new Event('input'));
+                        // Update placeholder for floating label
+                        loginEmailInput.setAttribute('placeholder', ' ');
+                    }
+                    hideAllMessages();
+                    showSuccess('loginSuccess', 'Account created! Please sign in above.');
+                }, 2000);
+            }, 1000);
+        });
+        
+        // Forgot Password Handler
+        document.getElementById('forgotPassword')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('loginEmail');
+            const email = emailInput.value.trim();
+            if (!email) {
+                showError('loginError', 'Please enter your email to reset password');
+                emailInput.focus();
+            } else {
+                showSuccess('loginSuccess', `Password reset link sent to ${email} (demo mode)`);
+            }
+        });
+        
+        // Create animated particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 6 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 20 + 15}s`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                particle.style.opacity = Math.random() * 0.4;
+                container.appendChild(particle);
+            }
+        }
+        
+        // Entrance animations
+        function entranceAnimation() {
+            const container = document.querySelector('.flip-container');
+            if (container) {
+                container.style.animation = 'fadeInUp 0.6s var(--transition-smooth)';
+            }
+        }
+        
+        // Initialize floating labels for existing values
+        function initFloatingLabels() {
+            const inputs = document.querySelectorAll('.form-group input');
+            inputs.forEach(input => {
+                if (!input.hasAttribute('placeholder')) {
+                    input.setAttribute('placeholder', ' ');
+                }
+                // Check if input has value to trigger floating label
+                if (input.value) {
+                    input.dispatchEvent(new Event('input'));
+                }
+            });
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            entranceAnimation();
+            initFloatingLabels();
+            initPasswordToggles();
+        });
+        
+        // Subtle mouse parallax effect - WITHOUT causing flips
+        // This only adds a subtle 3D tilt effect for premium feel, doesn't trigger form switch
+        const flipContainer = document.querySelector('.flip-container');
+        const card = document.querySelector('.flipper');
+        
+        if (flipContainer && card) {
+            let tiltTimeout;
+            
+            flipContainer.addEventListener('mousemove', (e) => {
+                if (tiltTimeout) clearTimeout(tiltTimeout);
+                
+                // Only apply tilt effect, never trigger flip
+                const rect = flipContainer.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                // Apply subtle rotation - maximum 2 degrees, doesn't affect flip state
+                const currentState = flipper.classList.contains('flipped');
+                if (!currentState) {
+                    card.style.transform = `rotateY(${x * 2}deg) rotateX(${y * -1.5}deg)`;
+                } else {
+                    card.style.transform = `rotateY(180deg) rotateX(${y * -1.5}deg)`;
+                }
+            });
+            
+            flipContainer.addEventListener('mouseleave', () => {
+                tiltTimeout = setTimeout(() => {
+                    const currentState = flipper.classList.contains('flipped');
+                    if (!currentState) {
+                        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+                    } else {
+                        card.style.transform = 'rotateY(180deg) rotateX(0deg)';
+                    }
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>
