@@ -8,7 +8,7 @@
     />
     <title>ERIBSBETS — Casino & Slots</title>
     <meta
-      name="description"
+      name="description"ss
       content="Premium online casino with slots, live dealers, crash games and jackpots."
     />
     <meta name="theme-color" content="#00e676" />
@@ -3546,7 +3546,7 @@
           .getElementById("mobile-auth-trigger")
           ?.addEventListener("click", (e) => {
             e.preventDefault();
-            openModal("auth-modal");
+            window.location.href = "login.html";
           });
         document
           .getElementById("close-auth-modal")
@@ -3554,32 +3554,23 @@
         document
           .getElementById("auth-login-btn")
           ?.addEventListener("click", () => {
-            const phone = document.getElementById("login-phone")?.value;
-            if (phone && phone.length >= 10) {
-              AppState.user.loggedIn = true;
-              AppState.user.phone = phone;
-              AppState.user.balance = 50000;
-              updateWalletDisplay();
-              closeModal("auth-modal");
-              showToast(
-                `Welcome back! Balance: ₦${AppState.user.balance.toLocaleString()}`,
-                "success",
-              );
-            } else {
-              showToast("Please enter a valid phone number", "error");
-            }
+            window.location.href = "login.html";
           });
         document
           .getElementById("auth-register-btn")
-          ?.addEventListener("click", () =>
-            showToast("Registration coming soon!", "info"),
-          );
+          ?.addEventListener("click", () => {
+            window.location.href = "login.html";
+          });
         document
           .querySelector(".btn-login")
-          ?.addEventListener("click", () => openModal("auth-modal"));
+          ?.addEventListener("click", () => {
+            window.location.href = "login.html";
+          });
         document
           .querySelector(".btn-register")
-          ?.addEventListener("click", () => openModal("auth-modal"));
+          ?.addEventListener("click", () => {
+            window.location.href = "login.html";
+          });
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") {
             closeModal("auth-modal");
