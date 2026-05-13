@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>My Profile — ERIBSBETS</title>
+    <meta
+      name="description"
+      content="Manage your ERIBSBETS account, balance, and preferences."
+    />
+    <meta name="theme-color" content="#00e676" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/user-profile.css" />
+  </head>
+  <body class="profile-app">
+    <div id="profile-toast-root" class="profile-toast-root" aria-live="polite"></div>
+
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <div class="profile-shell">
+      <aside
+        id="profile-sidebar"
+        class="profile-sidebar"
+        aria-label="Account navigation"
+      >
+        <div class="sidebar-inner">
+          <div class="sidebar-brand-row">
+            <a href="index.html" class="sidebar-logo" aria-label="ERIBSBETS Home">
+              <span class="logo-er">ER</span><span class="logo-ibs">IBS</span
+              ><span class="logo-bets">BETS</span>
+            </a>
+            <button
+              type="button"
+              class="sidebar-close-btn"
+              id="sidebar-close-btn"
+              aria-label="Close menu"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="user-block">
+            <div class="user-avatar-wrap">
+              <div class="user-avatar-ring" aria-hidden="true"></div>
+              <div class="user-avatar" id="user-avatar" aria-hidden="true">
+                <i class="fas fa-user"></i>
+              </div>
+              <span class="user-status-dot" title="Online"></span>
+            </div>
+            <p class="user-welcome-label">Welcome</p>
+            <h1 class="user-display-name" id="user-display-name">—</h1>
+            <p class="user-handle" id="user-username">—</p>
+            <div class="user-account-pill">
+              <span class="pill-label">Account Number</span>
+              <span class="pill-value" id="user-account-number">—</span>
+            </div>
+          </div>
+
+          <div class="balance-card" id="balance-card">
+            <div class="balance-card-glow" aria-hidden="true"></div>
+            <div class="balance-card-top">
+              <span class="balance-label">Balance</span>
+              <button
+                type="button"
+                class="balance-toggle"
+                id="balance-visibility-toggle"
+                aria-label="Hide balance"
+                aria-pressed="false"
+                title="Toggle balance visibility"
+              >
+                <i class="fas fa-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="balance-amount-wrap">
+              <p class="balance-amount" id="balance-amount" data-visible="true">
+                ₦0.00
+              </p>
+            </div>
+            <div class="balance-actions">
+              <button type="button" class="btn-glow btn-deposit" id="btn-deposit">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                Deposit
+              </button>
+              <button type="button" class="btn-glow btn-withdraw" id="btn-withdraw">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                Withdraw
+              </button>
+            </div>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Profile sections">
+            <ul class="sidebar-nav-list">
+              <li>
+                <a href="#" class="nav-row nav-row-split" data-nav="benefits">
+                  <span class="nav-left"
+                    ><i class="fas fa-gift" aria-hidden="true"></i> Betway
+                    Benefits</span
+                  >
+                  <span class="nav-meta" id="nav-benefits-amt">₦0.00</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row is-active" data-nav="profile" aria-current="page">
+                  <i class="fas fa-id-card" aria-hidden="true"></i> My Profile
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="bets">
+                  <i class="fas fa-ticket" aria-hidden="true"></i> My Bets
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="bonus">
+                  <i class="fas fa-coins" aria-hidden="true"></i> Bonus Summary
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="transactions">
+                  <i class="fas fa-receipt" aria-hidden="true"></i> Transaction
+                  History
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="responsible">
+                  <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                  Responsible Gaming
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="casino-wins">
+                  <i class="fas fa-dice" aria-hidden="true"></i> My Casino Big Wins
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="influencer">
+                  <i class="fas fa-bullhorn" aria-hidden="true"></i> Bet Influencer
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="voucher">
+                  <i class="fas fa-tag" aria-hidden="true"></i> Promo Voucher
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-row" data-nav="rewards">
+                  <i class="fas fa-star" aria-hidden="true"></i> ERIBS Rewards
+                </a>
+              </li>
+            </ul>
+            <button type="button" class="nav-row nav-logout" id="btn-logout">
+              <i class="fas fa-right-from-bracket" aria-hidden="true"></i> Log Out
+            </button>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="profile-main-wrap">
+        <header class="profile-topbar">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-expanded="false"
+            aria-controls="profile-sidebar"
+            aria-label="Open menu"
+          >
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+          <a href="index.html" class="topbar-home-link">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <span>Back to Sports</span>
+          </a>
+          <div class="topbar-spacer"></div>
+          <button type="button" class="theme-chip" id="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon" id="theme-icon">🌙</span>
+          </button>
+        </header>
+
+        <main class="profile-main" id="profile-main">
+          <section class="main-hero">
+            <div class="hero-grid-lines" aria-hidden="true"></div>
+            <div class="hero-content">
+              <p class="hero-kicker">
+                <span class="pulse-dot" aria-hidden="true"></span> Account hub
+              </p>
+              <h2 class="hero-title">
+                Welcome back,
+                <span id="hero-name">Princeton</span>
+              </h2>
+              <p class="hero-lead">
+                Your dashboard is synced and ready. Deposit, track play, and
+                manage rewards — built for speed and clarity.
+              </p>
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <span class="stat-label">Wallet</span>
+                  <span class="stat-value" id="hero-balance-stat">₦0.00</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">Account</span>
+                  <span class="stat-value stat-mono" id="hero-account-stat">—</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">Status</span>
+                  <span class="stat-value stat-accent">Verified</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="orbit-ring"></div>
+              <div class="orbit-core">
+                <i class="fas fa-bolt"></i>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-panel">
+            <header class="panel-head">
+              <h3 class="panel-title">Overview</h3>
+              <p class="panel-sub">
+                Placeholder modules below wire cleanly to your future REST or
+                GraphQL endpoints.
+              </p>
+            </header>
+            <div class="panel-grid">
+              <article class="tile tile-accent">
+                <div class="tile-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>Performance</h4>
+                <p>Live staking analytics will appear here post-integration.</p>
+              </article>
+              <article class="tile">
+                <div class="tile-icon"><i class="fas fa-shield-halved"></i></div>
+                <h4>Security</h4>
+                <p>Session-based access with room for JWT or cookie auth.</p>
+              </article>
+              <article class="tile">
+                <div class="tile-icon"><i class="fas fa-headset"></i></div>
+                <h4>Support</h4>
+                <p>24/7 priority lanes unlock once CRM hooks are connected.</p>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/auth-session.js"></script>
+    <script src="js/user-profile.js"></script>
+  </body>
+</html>
