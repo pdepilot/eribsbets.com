@@ -51,7 +51,7 @@
         playsinline
         preload="auto"
       >
-        <source src="videos/football_highlight.mp4" type="video/mp4" />
+        <source src="videos/video2.mp4" type="video/mp4" />
       </video>
       <div class="preloader-overlay" id="preloader-overlay"></div>
       <div class="preloader-logo-reveal" id="preloader-logo-reveal">
@@ -356,40 +356,40 @@
             </button>
             <div class="mega-menu" id="mega-menu" role="menu">
               <div class="mega-grid">
-                <a href="#" role="menuitem"
+                <a href="aviator.html" role="menuitem"
                   ><span class="icon">✈️</span><span>Aviator</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="live-casino.html" role="menuitem"
                   ><span class="icon">🎲</span><span>Live Casino</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="lucky-nums.html" role="menuitem"
                   ><span class="icon">🎱</span><span>Lucky Nums</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="betgames.html" role="menuitem"
                   ><span class="icon">🃏</span><span>Betgames</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="esports.html" role="menuitem"
                   ><span class="icon">🎮</span><span>Esports</span></a
                 >
                 <a href="virtuals.html" role="menuitem"
                   ><span class="icon">💻</span><span>Virtuals</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="promos.html" role="menuitem"
                   ><span class="icon">🎁</span><span>Promos</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="football.html" role="menuitem"
                   ><span class="icon">⚽</span><span>Football</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="basketball.html" role="menuitem"
                   ><span class="icon">🏀</span><span>Basketball</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="tennis.html" role="menuitem"
                   ><span class="icon">🎾</span><span>Tennis</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="table-tennis.html" role="menuitem"
                   ><span class="icon">🏓</span><span>Table Tennis</span></a
                 >
-                <a href="#" role="menuitem"
+                <a href="ice-hockey.html" role="menuitem"
                   ><span class="icon">🏒</span><span>Ice Hockey</span></a
                 >
               </div>
@@ -400,34 +400,49 @@
 
       <nav class="sub-nav" aria-label="Sport categories">
         <ul>
-          <li class="active"><a href="#">Football</a></li>
-          <li><a href="#">Basketball</a></li>
-          <li><a href="#">Tennis</a></li>
-          <li><a href="#">Table Tennis</a></li>
-          <li><a href="#">Ice Hockey</a></li>
-          <li><a href="#">Volleyball</a></li>
-          <li><a href="#">More Sports</a></li>
+          <li class="active"><a href="football.html">Football</a></li>
+          <li><a href="basketball.html">Basketball</a></li>
+          <li><a href="tennis.html">Tennis</a></li>
+          <li><a href="table-tennis.html">Table Tennis</a></li>
+          <li><a href="ice-hockey.html">Ice Hockey</a></li>
+          <li><a href="volleyball.html">Volleyball</a></li>
+          <li><a href="more-sports.html">More Sports</a></li>
         </ul>
       </nav>
     </div>
 
     <!-- Hot Bet Float -->
-    <div class="hot-bet-float">
-      <div class="hot-bet-chip pulse-anim">
-        <div class="hbc-sport">⚽</div>
+    <div class="hot-bet-float" role="navigation" aria-label="Popular sports">
+      <button
+        type="button"
+        class="hot-bet-chip pulse-anim"
+        data-sport="soccer"
+        aria-pressed="false"
+      >
+        <span class="hbc-sport" aria-hidden="true">⚽</span>
         <span class="hbc-label">Soccer</span>
-        <span class="hbc-count">43</span>
-      </div>
-      <div class="hot-bet-chip">
-        <div class="hbc-sport">🎾</div>
+        <span class="hbc-count" aria-hidden="true">0</span>
+      </button>
+      <button
+        type="button"
+        class="hot-bet-chip"
+        data-sport="tennis"
+        aria-pressed="false"
+      >
+        <span class="hbc-sport" aria-hidden="true">🎾</span>
         <span class="hbc-label">Tennis</span>
-        <span class="hbc-count">20</span>
-      </div>
-      <div class="hot-bet-chip">
-        <div class="hbc-sport">🏀</div>
+        <span class="hbc-count" aria-hidden="true">0</span>
+      </button>
+      <button
+        type="button"
+        class="hot-bet-chip"
+        data-sport="basketball"
+        aria-pressed="false"
+      >
+        <span class="hbc-sport" aria-hidden="true">🏀</span>
         <span class="hbc-label">Basketball</span>
-        <span class="hbc-count">4</span>
-      </div>
+        <span class="hbc-count" aria-hidden="true">0</span>
+      </button>
     </div>
 
     <!-- MAIN -->
@@ -436,23 +451,45 @@
       <aside class="sidebar-left" aria-label="Sport categories">
         <div class="sidebar-card">
           <h3>Popular</h3>
-          <ul class="sidebar-list">
-            <li><span aria-hidden="true">⚽</span> Premier League</li>
-            <li><span aria-hidden="true">⚽</span> La Liga</li>
-            <li><span aria-hidden="true">⚽</span> Serie A</li>
-            <li><span aria-hidden="true">⚽</span> Bundesliga</li>
-            <li><span aria-hidden="true">⚽</span> Champions League</li>
+          <ul class="sidebar-list" id="popular-leagues">
+            <li data-league="premier league" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> Premier League
+            </li>
+            <li data-league="la liga" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> La Liga
+            </li>
+            <li data-league="serie a" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> Serie A
+            </li>
+            <li data-league="bundesliga" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> Bundesliga
+            </li>
+            <li data-league="champions league" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> Champions League
+            </li>
           </ul>
         </div>
         <div class="sidebar-card">
           <h3>All Sports</h3>
-          <ul class="sidebar-list">
-            <li><span aria-hidden="true">⚽</span> Soccer</li>
-            <li><span aria-hidden="true">🎾</span> Tennis</li>
-            <li><span aria-hidden="true">🏀</span> Basketball</li>
-            <li><span aria-hidden="true">🏓</span> Table Tennis</li>
-            <li><span aria-hidden="true">🏒</span> Ice Hockey</li>
-            <li><span aria-hidden="true">🏐</span> Volleyball</li>
+          <ul class="sidebar-list" id="all-sports">
+            <li data-sport="soccer" role="button" tabindex="0">
+              <span aria-hidden="true">⚽</span> Soccer
+            </li>
+            <li data-sport="tennis" role="button" tabindex="0">
+              <span aria-hidden="true">🎾</span> Tennis
+            </li>
+            <li data-sport="basketball" role="button" tabindex="0">
+              <span aria-hidden="true">🏀</span> Basketball
+            </li>
+            <li data-sport="table-tennis" role="button" tabindex="0">
+              <span aria-hidden="true">🏓</span> Table Tennis
+            </li>
+            <li data-sport="ice-hockey" role="button" tabindex="0">
+              <span aria-hidden="true">🏒</span> Ice Hockey
+            </li>
+            <li data-sport="volleyball" role="button" tabindex="0">
+              <span aria-hidden="true">🏐</span> Volleyball
+            </li>
           </ul>
         </div>
       </aside>
@@ -467,9 +504,9 @@
                 playsinline
                 preload="metadata"
                 aria-label="Football stadium spotlight clip"
-                data-fallback="videos/football_highlight.mp4"
+                data-fallback="videos/video1.mp4"
               >
-                <source src="videos/football_highlight.mp4" type="video/mp4" />
+                <source src="videos/video1.mp4" type="video/mp4" />
               </video>
               <div class="top-video-controls" aria-hidden="true">
                 <button class="top-video-btn top-video-pause" type="button">
@@ -485,9 +522,9 @@
                 playsinline
                 preload="metadata"
                 aria-label="Football highlight clip"
-                data-fallback="videos/football_highlight.mp4"
+                data-fallback="videos/video2.mp4"
               >
-                <source src="videos/football_highlight.mp4" type="video/mp4" />
+                <source src="videos/video3.mp4" type="video/mp4" />
               </video>
               <div class="top-video-controls" aria-hidden="true">
                 <button class="top-video-btn top-video-pause" type="button">
@@ -504,9 +541,9 @@
                 preload="metadata"
                 poster="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1400&q=65"
                 aria-label="Night football celebration clip"
-                data-fallback="videos/football_highlight.mp4"
+                data-fallback="videos/video3.mp4"
               >
-                <source src="videos/football_highlight.mp4" type="video/mp4" />
+                <source src="videos/video4.mp4" type="video/mp4" />
               </video>
               <div class="top-video-controls" aria-hidden="true">
                 <button class="top-video-btn top-video-pause" type="button">
@@ -523,9 +560,9 @@
                 preload="metadata"
                 poster="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1400&q=65"
                 aria-label="Stadium highlight replay"
-                data-fallback="videos/football_highlight.mp4"
+                data-fallback="videos/video4.mp4"
               >
-                <source src="videos/greyhound_highlight.mp4" type="video/mp4" />
+                <source src="videos/video4.mp4" type="video/mp4" />
               </video>
               <div class="top-video-controls" aria-hidden="true">
                 <button class="top-video-btn top-video-pause" type="button">
@@ -1377,6 +1414,8 @@
           activeDate: "all",
           search: "",
           leagues: [],
+          sport: null,
+          sidebarFilter: null,
           user: { loggedIn: false, balance: 50000, phone: null },
           sessionStart: Date.now(),
           betCount: 0,
@@ -1584,6 +1623,7 @@
         const MATCHES = [
           {
             id: "m1",
+            sport: "soccer",
             league: "europa league",
             leagueName: "UEFA Europa League",
             country: "🌍 International",
@@ -1599,6 +1639,7 @@
           },
           {
             id: "m2",
+            sport: "soccer",
             league: "premier league",
             leagueName: "Premier League",
             country: "🏴 England",
@@ -1614,6 +1655,7 @@
           },
           {
             id: "m3",
+            sport: "soccer",
             league: "la liga",
             leagueName: "La Liga",
             country: "🇪🇸 Spain",
@@ -1629,6 +1671,7 @@
           },
           {
             id: "m4",
+            sport: "soccer",
             league: "champions league",
             leagueName: "UEFA Champions League",
             country: "🌍 International",
@@ -1644,6 +1687,7 @@
           },
           {
             id: "l1",
+            sport: "soccer",
             league: "bundesliga",
             leagueName: "Bundesliga",
             country: "🇩🇪 Germany",
@@ -1661,6 +1705,7 @@
           },
           {
             id: "u1",
+            sport: "soccer",
             league: "ligue 1",
             leagueName: "Ligue 1",
             country: "🇫🇷 France",
@@ -1676,6 +1721,7 @@
           },
           {
             id: "u2",
+            sport: "soccer",
             league: "serie a",
             leagueName: "Serie A",
             country: "🇮🇹 Italy",
@@ -1691,6 +1737,7 @@
           },
           {
             id: "u3",
+            sport: "soccer",
             league: "premier league",
             leagueName: "Premier League",
             country: "🏴 England",
@@ -1706,6 +1753,7 @@
           },
           {
             id: "u4",
+            sport: "soccer",
             league: "serie a",
             leagueName: "Serie A",
             country: "🇮🇹 Italy",
@@ -1718,6 +1766,118 @@
               gg: ["1.58", "2.30"],
             },
             time: "Today 20:45",
+          },
+          {
+            id: "t1",
+            sport: "tennis",
+            league: "atp masters",
+            leagueName: "ATP Madrid Masters",
+            country: "🇪🇸 Spain",
+            date: "today",
+            teams: ["Novak Djokovic", "Carlos Alcaraz"],
+            odds: {
+              "1x2": ["2.10", "25.00", "1.75"],
+              dc: ["1.35", "1.20", "1.55"],
+              ou: ["1.88", "1.92"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Today 17:30",
+          },
+          {
+            id: "t2",
+            sport: "tennis",
+            league: "wta 1000",
+            leagueName: "WTA Rome",
+            country: "🇮🇹 Italy",
+            date: "tomorrow",
+            teams: ["Iga Swiatek", "Aryna Sabalenka"],
+            odds: {
+              "1x2": ["1.65", "25.00", "2.20"],
+              dc: ["1.25", "1.15", "1.70"],
+              ou: ["1.90", "1.90"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Tomorrow 14:00",
+          },
+          {
+            id: "b1",
+            sport: "basketball",
+            league: "nba",
+            leagueName: "NBA",
+            country: "🇺🇸 USA",
+            date: "today",
+            teams: ["Los Angeles Lakers", "Boston Celtics"],
+            odds: {
+              "1x2": ["2.35", "25.00", "1.62"],
+              dc: ["1.45", "1.25", "1.40"],
+              ou: ["1.87", "1.93"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Today 02:00",
+          },
+          {
+            id: "b2",
+            sport: "basketball",
+            league: "euroleague",
+            leagueName: "EuroLeague",
+            country: "🌍 International",
+            date: "today",
+            teams: ["Real Madrid", "Olympiacos"],
+            odds: {
+              "1x2": ["1.55", "25.00", "2.45"],
+              dc: ["1.22", "1.18", "1.85"],
+              ou: ["1.85", "1.95"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Today 20:30",
+          },
+          {
+            id: "tt1",
+            sport: "table-tennis",
+            league: "wtt",
+            leagueName: "WTT Champions",
+            country: "🌍 International",
+            date: "today",
+            teams: ["Fan Zhendong", "Ma Long"],
+            odds: {
+              "1x2": ["1.72", "25.00", "2.05"],
+              dc: ["1.30", "1.20", "1.50"],
+              ou: ["1.90", "1.90"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Today 16:00",
+          },
+          {
+            id: "h1",
+            sport: "ice-hockey",
+            league: "nhl",
+            leagueName: "NHL",
+            country: "🇺🇸 USA",
+            date: "today",
+            teams: ["Toronto Maple Leafs", "Montreal Canadiens"],
+            odds: {
+              "1x2": ["1.95", "25.00", "1.90"],
+              dc: ["1.35", "1.28", "1.42"],
+              ou: ["1.82", "1.98"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Today 01:00",
+          },
+          {
+            id: "v1",
+            sport: "volleyball",
+            league: "cev",
+            leagueName: "CEV Champions League",
+            country: "🌍 International",
+            date: "tomorrow",
+            teams: ["Trentino", "Lube Civitanova"],
+            odds: {
+              "1x2": ["1.80", "25.00", "2.00"],
+              dc: ["1.28", "1.22", "1.55"],
+              ou: ["1.88", "1.92"],
+              gg: ["1.00", "1.00"],
+            },
+            time: "Tomorrow 19:00",
           },
         ];
 
@@ -1831,6 +1991,7 @@
                 !AppState.leagues.some((l) => m.league === l)
               )
                 return false;
+              if (AppState.sport && m.sport !== AppState.sport) return false;
               return true;
             });
 
@@ -2075,6 +2236,147 @@
               ? AppState.leagues[0].replace(/\b\w/g, (c) => c.toUpperCase())
               : `${AppState.leagues.length} Leagues`
             : "All Leagues";
+        }
+
+        function countMatchesBySport(sport) {
+          return MATCHES.filter((m) => m.sport === sport).length;
+        }
+
+        function updateHotBetCounts() {
+          document.querySelectorAll(".hot-bet-chip").forEach((chip) => {
+            const countEl = chip.querySelector(".hbc-count");
+            if (!countEl || !chip.dataset.sport) return;
+            countEl.textContent = String(countMatchesBySport(chip.dataset.sport));
+          });
+        }
+
+        function syncLeagueCheckboxes() {
+          document
+            .querySelectorAll("#league-dropdown input")
+            .forEach((cb) => {
+              cb.checked = AppState.leagues.includes(cb.value);
+            });
+          updateLeagueLabel();
+        }
+
+        function syncSidebarActiveState() {
+          document
+            .querySelectorAll(".sidebar-left .sidebar-list li")
+            .forEach((li) => {
+              li.classList.remove("active");
+              li.setAttribute("aria-current", "false");
+            });
+          if (!AppState.sidebarFilter) return;
+          const selector =
+            AppState.sidebarFilter.type === "league"
+              ? `.sidebar-left [data-league="${AppState.sidebarFilter.value}"]`
+              : `.sidebar-left [data-sport="${AppState.sidebarFilter.value}"]`;
+          const activeItem = document.querySelector(selector);
+          if (!activeItem) return;
+          activeItem.classList.add("active");
+          activeItem.setAttribute("aria-current", "true");
+        }
+
+        function syncHotBetActiveState() {
+          document.querySelectorAll(".hot-bet-chip").forEach((chip) => {
+            const isActive = AppState.sport === chip.dataset.sport;
+            chip.classList.toggle("active", isActive);
+            chip.setAttribute("aria-pressed", isActive ? "true" : "false");
+            chip.classList.toggle(
+              "pulse-anim",
+              isActive && chip.dataset.sport === "soccer",
+            );
+          });
+        }
+
+        function syncSportNavigation() {
+          syncSidebarActiveState();
+          syncHotBetActiveState();
+        }
+
+        function scrollToMatches() {
+          document
+            .getElementById("matches-section")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function clearSportNavigation() {
+          AppState.sport = null;
+          AppState.leagues = [];
+          AppState.sidebarFilter = null;
+          syncLeagueCheckboxes();
+          syncSportNavigation();
+          renderMatches();
+        }
+
+        function applyLeagueFilter(league) {
+          if (
+            AppState.sidebarFilter?.type === "league" &&
+            AppState.sidebarFilter.value === league
+          ) {
+            clearSportNavigation();
+            return;
+          }
+          AppState.sport = "soccer";
+          AppState.leagues = [league];
+          AppState.sidebarFilter = { type: "league", value: league };
+          syncLeagueCheckboxes();
+          syncSportNavigation();
+          renderMatches();
+          scrollToMatches();
+        }
+
+        function applySportFilter(sport) {
+          if (
+            AppState.sidebarFilter?.type === "sport" &&
+            AppState.sidebarFilter.value === sport
+          ) {
+            clearSportNavigation();
+            return;
+          }
+          AppState.sport = sport;
+          AppState.leagues = [];
+          AppState.sidebarFilter = { type: "sport", value: sport };
+          syncLeagueCheckboxes();
+          syncSportNavigation();
+          renderMatches();
+          scrollToMatches();
+        }
+
+        function initSportNavigation() {
+          updateHotBetCounts();
+
+          document
+            .querySelectorAll("#popular-leagues [data-league]")
+            .forEach((item) => {
+              const activate = () => applyLeagueFilter(item.dataset.league);
+              item.addEventListener("click", activate);
+              item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  activate();
+                }
+              });
+            });
+
+          document
+            .querySelectorAll("#all-sports [data-sport]")
+            .forEach((item) => {
+              const activate = () => applySportFilter(item.dataset.sport);
+              item.addEventListener("click", activate);
+              item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  activate();
+                }
+              });
+            });
+
+          document.querySelectorAll(".hot-bet-chip").forEach((chip) => {
+            chip.addEventListener("click", () =>
+              applySportFilter(chip.dataset.sport),
+            );
+          });
         }
 
         const ageModal = document.getElementById("age-modal");
@@ -2358,6 +2660,9 @@
             AppState.leagues = Array.from(
               document.querySelectorAll("#league-dropdown input:checked"),
             ).map((cb) => cb.value);
+            AppState.sport = null;
+            AppState.sidebarFilter = null;
+            syncSportNavigation();
             updateLeagueLabel();
             renderMatches();
           });
@@ -2368,6 +2673,9 @@
               .querySelectorAll("#league-dropdown input")
               .forEach((cb) => (cb.checked = false));
             AppState.leagues = [];
+            AppState.sport = null;
+            AppState.sidebarFilter = null;
+            syncSportNavigation();
             updateLeagueLabel();
             renderMatches();
           });
@@ -2376,6 +2684,9 @@
             AppState.leagues = Array.from(
               document.querySelectorAll("#league-dropdown input:checked"),
             ).map((cb) => cb.value);
+            AppState.sport = null;
+            AppState.sidebarFilter = null;
+            syncSportNavigation();
             updateLeagueLabel();
             renderMatches();
           }),
@@ -2794,6 +3105,7 @@
         function init() {
           mktHeaders("1x2");
           setStake(100);
+          initSportNavigation();
           renderMatches();
           updateBetslip();
           renderHistory();

@@ -1240,6 +1240,12 @@
         color: var(--text);
         padding-left: 20px;
       }
+      .sidebar-list li.active {
+        background: var(--surface-3);
+        color: var(--accent);
+        padding-left: 20px;
+        font-weight: 600;
+      }
 
       /* ===== CONTENT CENTER ===== */
       .content-center {
@@ -3101,10 +3107,17 @@
         cursor: pointer;
         transition: all 0.2s;
         position: relative;
+        font: inherit;
+        color: inherit;
       }
       .hot-bet-chip:hover {
         border-color: var(--accent);
         transform: scale(1.04);
+      }
+      .hot-bet-chip.active {
+        border-color: var(--accent);
+        background: var(--surface-3);
+        box-shadow: 0 0 0 1px var(--accent-glow);
       }
       .hot-bet-chip.pulse-anim {
         animation: chipPulse 3s ease-in-out infinite;
