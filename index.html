@@ -42,6 +42,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/index.css" />
+    <script src="js/ui-theme.js"></script>
   </head>
   <body>
     <!-- ============================================================
@@ -520,6 +521,126 @@
           style="display: flex; gap: 8px; margin-left: auto; margin-right: 8px"
         ></div>
         <div class="nav-right">
+          <div class="theme-dropdown-wrap dropdown-wrap">
+            <button
+              type="button"
+              class="icon-btn"
+              id="ui-theme-menu-btn"
+              aria-label="Color theme"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span class="ui-theme-dot" aria-hidden="true"></span>
+            </button>
+            <div class="theme-menu" id="theme-menu" role="menu">
+              <div class="theme-menu-list">
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="neon-green"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #00e676"
+                    aria-hidden="true"
+                  ></span
+                  >Neon Green Sportsbook
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="electric-blue"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #00b8ff"
+                    aria-hidden="true"
+                  ></span
+                  >Electric Blue
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="dark-gold"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #d4af37"
+                    aria-hidden="true"
+                  ></span
+                  >Dark Gold Luxury
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="crimson-red"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #ff3355"
+                    aria-hidden="true"
+                  ></span
+                  >Crimson Red
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="midnight-purple"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #b388ff"
+                    aria-hidden="true"
+                  ></span
+                  >Midnight Purple
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="ice-white-glass"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #00838f"
+                    aria-hidden="true"
+                  ></span
+                  >Ice White Glass
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="cyber-black"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #00ffc6"
+                    aria-hidden="true"
+                  ></span
+                  >Cyber Black
+                </button>
+                <button
+                  type="button"
+                  class="theme-opt"
+                  role="menuitem"
+                  data-set-ui-theme="stadium-night"
+                >
+                  <span
+                    class="theme-opt-dot"
+                    style="--theme-swatch: #76ff03"
+                    aria-hidden="true"
+                  ></span
+                  >Stadium Night
+                </button>
+              </div>
+            </div>
+          </div>
           <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
             🌙
           </button>
@@ -1590,6 +1711,7 @@
     ></div>
 
     <script src="js/auth-session.js"></script>
+    <script src="js/profile-bet-return.js"></script>
     <script>
       (function () {
         "use strict";
@@ -1755,6 +1877,9 @@
             updateCashoutWidget();
 
             showToast("Bet placed successfully! Good luck!", "success");
+            if (window.ERIBSBetReturn) {
+              window.ERIBSBetReturn.markBetPlacedForReturn();
+            }
           }, 500);
         }
 
@@ -2926,21 +3051,39 @@
 
             document
               .getElementById("lm-loginForm")
-              ?.addEventListener("submit", (e) => {
+              ?.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 if (!validateLogin()) return;
+                const email = document
+                  .getElementById("lm-loginEmail")
+                  .value.trim();
+                const password =
+                  document.getElementById("lm-loginPassword").value;
+                const Auth = window.ERIBSAuthSession;
+                if (Auth && Auth.hasPasswordCredential(email)) {
+                  const subtleOk =
+                    typeof crypto !== "undefined" && !!crypto.subtle;
+                  const ok = await Auth.verifyPassword(email, password);
+                  if (!ok) {
+                    showError(
+                      "lm-loginError",
+                      subtleOk
+                        ? "Incorrect password."
+                        : "Open this site over HTTPS or http://localhost to verify your saved password.",
+                    );
+                    return;
+                  }
+                }
                 const btn = document.getElementById("lm-loginBtn");
                 setLoading(btn, true);
-                setTimeout(() => {
+                setTimeout(async () => {
                   setLoading(btn, false);
                   showSuccess(
                     "lm-loginSuccess",
                     "Login successful! Welcome back.",
                   );
                   AppState.user.loggedIn = true;
-                  AppState.user.phone = document
-                    .getElementById("lm-loginEmail")
-                    .value.trim();
+                  AppState.user.phone = email;
                   const rememberEl = document.getElementById("lm-rememberMe");
                   if (window.ERIBSAuthSession) {
                     window.ERIBSAuthSession.saveSession({
@@ -2949,6 +3092,15 @@
                       balance: 0,
                       rememberMe: !!(rememberEl && rememberEl.checked),
                     });
+                    if (
+                      window.ERIBSAuthSession &&
+                      !window.ERIBSAuthSession.hasPasswordCredential(email)
+                    ) {
+                      await window.ERIBSAuthSession.setPasswordForUser(
+                        email,
+                        password,
+                      );
+                    }
                   }
                   setTimeout(() => {
                     window.location.href = "user-profile.html";
@@ -2958,21 +3110,33 @@
 
             document
               .getElementById("lm-registerForm")
-              ?.addEventListener("submit", (e) => {
+              ?.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 if (!validateRegister()) return;
                 const btn = document.getElementById("lm-registerBtn");
+                const regEmail =
+                  document.getElementById("lm-regEmail").value.trim();
+                const regPassword =
+                  document.getElementById("lm-regPassword").value;
                 setLoading(btn, true);
-                setTimeout(() => {
+                setTimeout(async () => {
                   setLoading(btn, false);
+                  if (
+                    window.ERIBSAuthSession &&
+                    typeof window.ERIBSAuthSession.setPasswordForUser ===
+                      "function"
+                  ) {
+                    await window.ERIBSAuthSession.setPasswordForUser(
+                      regEmail,
+                      regPassword,
+                    );
+                  }
                   showSuccess(
                     "lm-registerSuccess",
                     "Account created! Please sign in.",
                   );
                   setTimeout(() => {
                     flipToLogin();
-                    const regEmail =
-                      document.getElementById("lm-regEmail").value;
                     if (regEmail) {
                       const loginEmail =
                         document.getElementById("lm-loginEmail");
@@ -3063,7 +3227,15 @@
         });
         document
           .getElementById("close-bet-modal-btn")
-          ?.addEventListener("click", () => closeModal("bet-modal"));
+          ?.addEventListener("click", () => {
+            closeModal("bet-modal");
+            if (
+              window.ERIBSBetReturn &&
+              !window.ERIBSBetReturn.redirectToProfileIfPending()
+            ) {
+              /* stayed on page */
+            }
+          });
         document
           .getElementById("copy-code-btn")
           ?.addEventListener("click", () => {
@@ -3251,17 +3423,67 @@
           .getElementById("mega-menu-btn")
           ?.addEventListener("click", (e) => {
             e.stopPropagation();
+            document.getElementById("theme-menu")?.classList.remove("open");
+            document
+              .getElementById("ui-theme-menu-btn")
+              ?.setAttribute("aria-expanded", "false");
             const m = document.getElementById("mega-menu");
             const isOpen = m.classList.toggle("open");
             document
               .getElementById("mega-menu-btn")
               .setAttribute("aria-expanded", isOpen);
           });
+
+        const themeMenu = document.getElementById("theme-menu");
+        const uiThemeMenuBtn = document.getElementById("ui-theme-menu-btn");
+        function syncThemeMenuActive() {
+          const cur =
+            window.ERIBS_UI_THEME && typeof window.ERIBS_UI_THEME.get === "function"
+              ? window.ERIBS_UI_THEME.get()
+              : "neon-green";
+          document
+            .querySelectorAll("#theme-menu [data-set-ui-theme]")
+            .forEach((b) => {
+              b.classList.toggle(
+                "active",
+                b.getAttribute("data-set-ui-theme") === cur,
+              );
+            });
+        }
+        uiThemeMenuBtn?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          document.getElementById("mega-menu")?.classList.remove("open");
+          document
+            .getElementById("mega-menu-btn")
+            ?.setAttribute("aria-expanded", "false");
+          const isOpen = themeMenu?.classList.toggle("open");
+          uiThemeMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        document
+          .querySelectorAll("#theme-menu [data-set-ui-theme]")
+          .forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const id = btn.getAttribute("data-set-ui-theme");
+              if (window.ERIBS_UI_THEME && id)
+                window.ERIBS_UI_THEME.apply(id);
+              syncThemeMenuActive();
+              themeMenu?.classList.remove("open");
+              uiThemeMenuBtn?.setAttribute("aria-expanded", "false");
+            });
+          });
+        document.addEventListener("eribs-ui-theme-changed", syncThemeMenuActive);
+        syncThemeMenuActive();
+
         document.addEventListener("click", (e) => {
           if (!e.target.closest(".dropdown-wrap")) {
             document.getElementById("mega-menu")?.classList.remove("open");
             document
               .getElementById("mega-menu-btn")
+              ?.setAttribute("aria-expanded", "false");
+            document.getElementById("theme-menu")?.classList.remove("open");
+            document
+              .getElementById("ui-theme-menu-btn")
               ?.setAttribute("aria-expanded", "false");
           }
         });
@@ -3634,19 +3856,35 @@
           );
           if (mq.matches) return;
 
+          const cx = 12;
+          const cy = 12;
+          const ease = 0.12;
+          const trailScale = 0.58;
+          const maxTrail = 78;
+          const rotEase = 0.14;
+          const rotClamp = 10;
+
           const state = {
             mx: window.innerWidth / 2,
             my: window.innerHeight / 2,
             x: window.innerWidth / 2,
             y: window.innerHeight / 2,
+            velX: 0,
+            velY: 0,
+            prevMx: window.innerWidth / 2,
+            prevMy: window.innerHeight / 2,
             rot: 0,
-            lastX: window.innerWidth / 2,
-            lastY: window.innerHeight / 2,
             active: false,
             rafId: 0,
           };
 
           const onMove = (e) => {
+            const rdx = e.clientX - state.prevMx;
+            const rdy = e.clientY - state.prevMy;
+            state.prevMx = e.clientX;
+            state.prevMy = e.clientY;
+            state.velX = state.velX * 0.8 + rdx * 0.48;
+            state.velY = state.velY * 0.8 + rdy * 0.48;
             state.mx = e.clientX;
             state.my = e.clientY;
             if (!state.active) {
@@ -3660,32 +3898,52 @@
           };
 
           const tick = () => {
-            const dx = state.mx - state.x;
-            const dy = state.my - state.y;
-            state.x += dx * 0.18;
-            state.y += dy * 0.18;
+            const sp = Math.hypot(state.velX, state.velY);
+            let tx = state.mx;
+            let ty = state.my;
+            if (sp > 0.35) {
+              const nx = state.velX / sp;
+              const ny = state.velY / sp;
+              const trail = Math.min(maxTrail, 14 + sp * trailScale);
+              tx -= nx * trail;
+              ty -= ny * trail;
+            } else {
+              tx -= 12;
+              ty -= 12;
+            }
 
-            const moveX = state.x - state.lastX;
-            const moveY = state.y - state.lastY;
-            const speed = Math.min(
-              Math.sqrt(moveX * moveX + moveY * moveY),
-              30,
+            state.x += (tx - state.x) * ease;
+            state.y += (ty - state.y) * ease;
+
+            const lagX = state.mx - state.x;
+            const lagY = state.my - state.y;
+            const speed = Math.min(Math.hypot(lagX, lagY), 42);
+            let targetRot = 0;
+            if (sp > 0.22) {
+              targetRot =
+                (Math.atan2(state.velY, state.velX) * 180) / Math.PI * 0.038;
+            }
+            targetRot = Math.max(
+              -rotClamp,
+              Math.min(rotClamp, targetRot + speed * 0.05),
             );
-            state.rot += (moveX + moveY) * 0.6;
-            state.lastX = state.x;
-            state.lastY = state.y;
+            state.rot += (targetRot - state.rot) * rotEase;
+            state.rot *= 0.989;
 
-            const scale = 1 + Math.min(speed / 120, 0.18);
+            const scale = 1 + Math.min(speed / 150, 0.1);
             cursor.style.transform =
               "translate3d(" +
-              (state.x - 19) +
+              (state.x - cx) +
               "px," +
-              (state.y - 19) +
+              (state.y - cy) +
               "px,0) rotate(" +
               state.rot.toFixed(2) +
               "deg) scale(" +
               scale.toFixed(3) +
               ")";
+
+            state.velX *= 0.965;
+            state.velY *= 0.965;
 
             state.rafId = requestAnimationFrame(tick);
           };

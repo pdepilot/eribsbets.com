@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Dashboard — ERIBSBETS</title>
+    <title>Responsible Gaming — ERIBSBETS</title>
     <meta
       name="description"
-      content="Manage your ERIBSBETS account, balance, and preferences."
+      content="Set deposit limits, session reminders, and self-exclusion on your ERIBSBETS account."
     />
     <meta name="theme-color" content="#00e676" />
     <meta name="robots" content="noindex, nofollow" />
@@ -34,11 +34,7 @@
     <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
 
     <div class="profile-shell">
-      <aside
-        id="profile-sidebar"
-        class="profile-sidebar"
-        aria-label="Account navigation"
-      >
+      <aside id="profile-sidebar" class="profile-sidebar" aria-label="Account navigation">
         <div class="sidebar-inner">
           <div class="sidebar-brand-row">
             <a href="index.html" class="sidebar-logo" aria-label="ERIBSBETS Home">
@@ -88,9 +84,7 @@
               </button>
             </div>
             <div class="balance-amount-wrap">
-              <p class="balance-amount" id="balance-amount" data-visible="true">
-                ₦0.00
-              </p>
+              <p class="balance-amount" id="balance-amount" data-visible="true">₦0.00</p>
             </div>
             <div class="balance-actions">
               <button type="button" class="btn-glow btn-deposit" id="btn-deposit">
@@ -107,20 +101,14 @@
           <nav class="sidebar-nav" aria-label="Profile sections">
             <ul class="sidebar-nav-list">
               <li>
-                <a
-                  href="user-profile.html"
-                  class="nav-row is-active"
-                  data-nav="dashboard"
-                  aria-current="page"
-                >
+                <a href="user-profile.html" class="nav-row" data-nav="dashboard">
                   <i class="fas fa-chart-pie" aria-hidden="true"></i> Dashboard
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-row nav-row-split" data-nav="benefits">
                   <span class="nav-left"
-                    ><i class="fas fa-gift" aria-hidden="true"></i> ERIBS Rewards
-                    </span
+                    ><i class="fas fa-gift" aria-hidden="true"></i> ERIBS Rewards</span
                   >
                   <span class="nav-meta" id="nav-benefits-amt">₦0.00</span>
                 </a>
@@ -131,7 +119,9 @@
                 </a>
               </li>
               <li>
-                <a href="my-bets.html" class="nav-row" data-nav="bets">
+                <a
+                  href="my-bets.html" class="nav-row" data-nav="bets"
+                >
                   <i class="fas fa-ticket" aria-hidden="true"></i> My Bets
                 </a>
               </li>
@@ -142,12 +132,11 @@
               </li>
               <li>
                 <a href="transaction-history.html" class="nav-row" data-nav="transactions">
-                  <i class="fas fa-receipt" aria-hidden="true"></i> Transaction
-                  History
+                  <i class="fas fa-receipt" aria-hidden="true"></i> Transaction History
                 </a>
               </li>
               <li>
-                <a href="responsible-gaming.html" class="nav-row" data-nav="responsible">
+                <a href="responsible-gaming.html" class="nav-row is-active" data-nav="responsible" aria-current="page">
                   <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
                   Responsible Gaming
                 </a>
@@ -209,65 +198,95 @@
             <div class="hero-grid-lines" aria-hidden="true"></div>
             <div class="hero-content">
               <p class="hero-kicker">
-                <span class="pulse-dot" aria-hidden="true"></span> Account hub
+                <span class="pulse-dot" aria-hidden="true"></span> Play safely
               </p>
               <h2 class="hero-title">
-                Welcome back,
-                <span id="hero-name">Princeton</span>
+                Limits for
+                <span id="hero-name">Player</span>
               </h2>
               <p class="hero-lead">
-                Your dashboard is synced and ready. Deposit, track play, and
-                manage rewards — built for speed and clarity.
+                Set deposit, loss, and session controls that match your comfort. Self-exclusion and
+                cool-off tools help you pause when you need to — sync these to your compliance API.
               </p>
               <div class="hero-stats">
                 <div class="stat-card">
+                  <span class="stat-label">Deposit limit</span>
+                  <span class="stat-value" id="rg-stat-deposit">Not set</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">Session limit</span>
+                  <span class="stat-value" id="rg-stat-session">Not set</span>
+                </div>
+                <div class="stat-card">
                   <span class="stat-label">Wallet</span>
                   <span class="stat-value" id="hero-balance-stat">₦0.00</span>
-                </div>
-                <div class="stat-card">
-                  <span class="stat-label">Account</span>
-                  <span class="stat-value stat-mono" id="hero-account-stat">—</span>
-                </div>
-                <div class="stat-card">
-                  <span class="stat-label">Status</span>
-                  <span class="stat-value stat-accent">Verified</span>
                 </div>
               </div>
             </div>
             <div class="hero-visual" aria-hidden="true">
               <div class="orbit-ring"></div>
               <div class="orbit-core">
-                <i class="fas fa-bolt"></i>
+                <i class="fas fa-hand-holding-heart"></i>
               </div>
             </div>
           </section>
 
-          <section class="content-panel">
-            <header class="panel-head">
-              <h3 class="panel-title">Overview</h3>
-              <p class="panel-sub">
-                Placeholder modules below wire cleanly to your future REST or
-                GraphQL endpoints.
-              </p>
-            </header>
-            <div class="panel-grid">
-              <article class="tile tile-accent">
-                <div class="tile-icon"><i class="fas fa-chart-line"></i></div>
-                <h4>Performance</h4>
-                <p>Live staking analytics will appear here post-integration.</p>
-              </article>
-              <article class="tile">
-                <div class="tile-icon"><i class="fas fa-shield-halved"></i></div>
-                <h4>Security</h4>
-                <p>Session-based access with room for JWT or cookie auth.</p>
-              </article>
-              <article class="tile">
-                <div class="tile-icon"><i class="fas fa-headset"></i></div>
-                <h4>Support</h4>
-                <p>24/7 priority lanes unlock once CRM hooks are connected.</p>
-              </article>
-            </div>
-          </section>
+          <div class="profile-panels-stack">
+            <section class="content-panel" aria-labelledby="rg-tools-title">
+              <header class="panel-head">
+                <h3 class="panel-title" id="rg-tools-title">Your controls</h3>
+                <p class="panel-sub">
+                  Buttons below are placeholders. When integrated, they open limit wizards or
+                  self-exclusion flows backed by your responsible-gaming service.
+                </p>
+              </header>
+              <div class="panel-grid">
+                <article class="tile tile-accent">
+                  <div class="tile-icon"><i class="fas fa-wallet"></i></div>
+                  <h4>Deposit limits</h4>
+                  <p>Daily, weekly, or monthly caps on how much you can fund your wallet.</p>
+                  <button type="button" class="btn-profile-secondary rg-action-btn" data-rg="deposit">
+                    Set deposit limit
+                  </button>
+                </article>
+                <article class="tile">
+                  <div class="tile-icon"><i class="fas fa-clock"></i></div>
+                  <h4>Session reminder</h4>
+                  <p>Reality checks and maximum session length before you are prompted to stop.</p>
+                  <button type="button" class="btn-profile-secondary rg-action-btn" data-rg="session">
+                    Manage session
+                  </button>
+                </article>
+                <article class="tile">
+                  <div class="tile-icon"><i class="fas fa-ban"></i></div>
+                  <h4>Take a break</h4>
+                  <p>Cool-off for 24 hours up to 6 months, or permanent self-exclusion.</p>
+                  <button type="button" class="btn-profile-secondary rg-action-btn" data-rg="exclude">
+                    Self-exclusion
+                  </button>
+                </article>
+              </div>
+            </section>
+
+            <section class="content-panel" aria-labelledby="rg-help-title">
+              <header class="panel-head">
+                <h3 class="panel-title" id="rg-help-title">Need support?</h3>
+                <p class="panel-sub">
+                  Gambling should be entertainment, not income. If play stops being fun, reach out.
+                </p>
+              </header>
+              <dl class="profile-dl">
+                <div>
+                  <dt>Helpline (NG)</dt>
+                  <dd>Contact your local responsible-gaming helpline when live.</dd>
+                </div>
+                <div>
+                  <dt>Account</dt>
+                  <dd class="stat-mono" id="rg-help-account">—</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
         </main>
       </div>
     </div>

@@ -346,6 +346,9 @@
     renderHistory();
     showBetReceipt(placedSelections, totalOdds, bookingCode);
     showToast(`Bet placed successfully. Booking code ${bookingCode}.`);
+    if (window.ERIBSBetReturn) {
+      window.ERIBSBetReturn.markBetPlacedForReturn();
+    }
   }
 
   document.getElementById("place-bet-btn")?.addEventListener("click", placeBet);

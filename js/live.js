@@ -662,6 +662,12 @@
     closeDrawer();
 
     showToast(`✅ Bet Placed! Code: ${code} · Potential: ₦${potential.toLocaleString("en-NG", { minimumFractionDigits: 2 })}`, "success");
+    if (window.ERIBSBetReturn) {
+      window.ERIBSBetReturn.markBetPlacedForReturn();
+      window.setTimeout(function () {
+        window.ERIBSBetReturn.redirectToProfileIfPending();
+      }, 2400);
+    }
   }
 
   function getHistory() {

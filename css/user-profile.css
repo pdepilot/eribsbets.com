@@ -1033,6 +1033,478 @@ body.light-theme .stat-card {
   line-height: 1.45;
 }
 
+/* --- My profile (identity) --- */
+.profile-dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile-dl > div {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  gap: 12px 20px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-dl > div:last-child {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.profile-dl dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  font-weight: 600;
+}
+
+.profile-dl dd {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.profile-dl dd.stat-mono {
+  font-size: 13px;
+}
+
+.profile-muted {
+  color: var(--text-2);
+  font-weight: 400;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(0, 230, 118, 0.28);
+}
+
+body.light-theme .profile-badge {
+  background: rgba(0, 154, 78, 0.1);
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn-profile-secondary {
+  position: relative;
+  border-radius: var(--radius);
+  padding: 11px 18px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border-2);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s ease;
+}
+
+.btn-profile-secondary:hover {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 18px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.profile-panels-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profile-form {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  max-width: 420px;
+}
+
+.profile-form-hint {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.profile-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.profile-form-row label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+}
+
+.profile-form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-2);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.profile-form-input:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+body.light-theme .profile-form-input {
+  background: #fff;
+}
+
+.profile-form-msg {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.profile-form-msg--error {
+  color: var(--red);
+}
+
+.profile-form-actions {
+  margin-top: 4px;
+}
+
+/* --- Account lists (bets, ledger, wins) --- */
+.bets-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.bet-chip {
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface-2);
+  font-family: var(--font-body);
+  cursor: default;
+}
+
+.bet-chip.is-active {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: rgba(0, 230, 118, 0.1);
+}
+
+body.light-theme .bet-chip.is-active {
+  background: rgba(0, 154, 78, 0.1);
+}
+
+.ledger-table-wrap {
+  margin-top: 6px;
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.ledger-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ledger-table th {
+  text-align: left;
+  padding: 12px 14px;
+  color: var(--text-3);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-3);
+}
+
+.ledger-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.ledger-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ledger-empty td {
+  color: var(--text-2);
+  text-align: center;
+  padding: 32px 16px;
+  line-height: 1.55;
+}
+
+.ledger-amount--credit {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ledger-amount--debit {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.win-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.win-card {
+  padding: 18px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.win-card:hover {
+  border-color: var(--border-2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.win-card-game {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+}
+
+.win-card-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.win-card-amount {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--font-head);
+}
+
+.win-card--empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  align-items: center;
+  padding: 36px 20px;
+}
+
+.win-card--empty p {
+  max-width: 42ch;
+  margin: 0 auto;
+}
+
+.bonus-progress {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.bonus-progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.bonus-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.bonus-progress-meta {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.bonus-progress-track {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.bonus-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  box-shadow: 0 0 12px var(--accent-glow-strong);
+}
+
+.tile .rg-action-btn,
+.tile .bet-launch-btn {
+  margin-top: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.profile-bet-return-banner {
+  margin-bottom: 18px;
+  padding: 18px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  background: linear-gradient(
+    125deg,
+    rgba(0, 230, 118, 0.1) 0%,
+    var(--surface) 45%,
+    var(--surface-2) 100%
+  );
+  box-shadow: var(--shadow-card), 0 0 28px var(--accent-glow);
+  animation: fadeUp 0.5s var(--ease-out) both;
+}
+
+body.light-theme .profile-bet-return-banner {
+  border-color: rgba(0, 154, 78, 0.28);
+  background: linear-gradient(125deg, rgba(0, 154, 78, 0.08) 0%, #fff 55%, #f5f8fc 100%);
+}
+
+.profile-bet-return-banner__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  padding-right: 28px;
+}
+
+.profile-bet-return-banner__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 230, 118, 0.15);
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.profile-bet-return-banner__title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.profile-bet-return-banner__text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  max-width: 52ch;
+  margin-bottom: 14px;
+}
+
+.profile-bet-return-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-bet-return-banner__btn {
+  text-decoration: none;
+  font-size: 13px;
+  padding: 10px 16px;
+}
+
+.profile-bet-return-banner__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.profile-bet-return-banner__close:hover {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+@media (max-width: 600px) {
+  .profile-bet-return-banner__inner {
+    flex-direction: column;
+  }
+
+  .profile-bet-return-banner__actions {
+    flex-direction: column;
+  }
+
+  .profile-bet-return-banner__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-dl > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
 /* --- Responsive --- */
 @media (max-width: 1100px) {
   .hero-stats {

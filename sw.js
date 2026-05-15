@@ -3,7 +3,9 @@ const CACHE_NAME = 'eribsbets-v1';
 const ASSETS = [
   '/index.html',
   '/css/index.css',
+  '/css/ui-themes.css',
   '/js/betslip.js',
+  '/js/ui-theme.js',
   '/images/logo.png'
 ];
 

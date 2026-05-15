@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications · ERIBSBETS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body class="admin-app">
+  <div class="admin-grid-bg" aria-hidden="true"></div>
+  <div id="sidebar-overlay" class="admin-sidebar-overlay" aria-hidden="true"></div>
+  <div class="admin-shell">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <div class="admin-sidebar-brand">
+        <a href="index.html" class="admin-logo">ERIBS<span>BETS</span></a>
+        <span class="admin-logo-badge">Admin</span>
+      </div>
+      <nav class="admin-nav">
+          <p class="admin-nav-group-title">Core</p>
+          <a href="index.html" class="admin-nav-link"><i class="fa-solid fa-gauge-high"></i><span class="admin-nav-label">Dashboard</span></a>
+          <a href="users.html" class="admin-nav-link"><i class="fa-solid fa-users"></i><span class="admin-nav-label">Users</span></a>
+          <a href="matches.html" class="admin-nav-link"><i class="fa-solid fa-futbol"></i><span class="admin-nav-label">Matches</span></a>
+          <a href="betting.html" class="admin-nav-link"><i class="fa-solid fa-ticket"></i><span class="admin-nav-label">Betting</span></a>
+          <p class="admin-nav-group-title">Finance</p>
+          <a href="wallet.html" class="admin-nav-link"><i class="fa-solid fa-wallet"></i><span class="admin-nav-label">Wallet</span></a>
+          <p class="admin-nav-group-title">Insights</p>
+          <a href="analytics.html" class="admin-nav-link"><i class="fa-solid fa-chart-line"></i><span class="admin-nav-label">Analytics</span></a>
+          <p class="admin-nav-group-title">System</p>
+          <a href="notifications.html" class="admin-nav-link is-active"><i class="fa-solid fa-bell"></i><span class="admin-nav-label">Notifications</span></a>
+          <a href="settings.html" class="admin-nav-link"><i class="fa-solid fa-gear"></i><span class="admin-nav-label">Settings</span></a>
+          <a href="logs.html" class="admin-nav-link"><i class="fa-solid fa-terminal"></i><span class="admin-nav-label">Logs</span></a>
+          <p class="admin-nav-group-title">Account</p>
+          <a href="profile.html" class="admin-nav-link"><i class="fa-solid fa-user-shield"></i><span class="admin-nav-label">Profile</span></a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <p>Frontend control center — connect APIs when ready.</p>
+        <a href="../index.html" class="admin-nav-link" style="margin-top:12px">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="admin-nav-label">Exit to site</span>
+        </a>
+        <div class="admin-live-pill">Platform online</div>
+      </div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" id="mobile-menu-btn" class="admin-menu-btn" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button type="button" id="sidebar-collapse-btn" class="admin-icon-btn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+        <div class="admin-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="global-search" placeholder="Search users, bets, transactions…" autocomplete="off" />
+        </div>
+        <div class="admin-topbar-actions">
+          <div class="admin-dropdown-wrap" data-dropdown>
+            <button type="button" class="admin-icon-btn" data-dropdown-trigger aria-label="Notifications">
+              <i class="fa-solid fa-bell"></i>
+              <span class="badge-dot"></span>
+            </button>
+            <div class="admin-dropdown">
+              <div class="admin-dropdown-head">Notifications</div>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-wallet" style="color:var(--admin-blue)"></i>
+                <div><strong>Withdrawal queue</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">12 pending review</span></div>
+              </a>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-futbol" style="color:var(--admin-accent)"></i>
+                <div><strong>Match voided</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">Lagos Derby · 4m ago</span></div>
+              </a>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-shield-halved" style="color:var(--admin-amber)"></i>
+                <div><strong>KYC flagged</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">3 accounts need review</span></div>
+              </a>
+            </div>
+          </div>
+          <div class="admin-dropdown-wrap" data-dropdown>
+            <button type="button" class="admin-profile-btn" data-dropdown-trigger>
+              <span class="admin-avatar">EA</span>
+              <span>Admin</span>
+              <i class="fa-solid fa-chevron-down" style="font-size:10px;opacity:0.6"></i>
+            </button>
+            <div class="admin-dropdown">
+              <div class="admin-dropdown-head">Account</div>
+              <a href="profile.html" class="admin-dropdown-item"><i class="fa-solid fa-user"></i><div>My profile</div></a>
+              <a href="settings.html" class="admin-dropdown-item"><i class="fa-solid fa-gear"></i><div>Settings</div></a>
+              <a href="../index.html" class="admin-dropdown-item"><i class="fa-solid fa-house"></i><div>Exit to site</div></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="admin-content">
+        <header class="admin-page-head">
+          <nav class="admin-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Admin</a>
+            <i class="fa-solid fa-chevron-right" style="font-size:9px"></i>
+            <span>Notifications</span>
+          </nav>
+          <h1>Notifications</h1>
+          <p>System alerts, compliance flags, and operational messages.</p>
+        </header>
+
+        <div class="admin-toolbar">
+          <select class="admin-select" aria-label="Filter">
+            <option>All</option><option>Unread</option><option>Critical</option><option>Wallet</option>
+          </select>
+          <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="mark-read">Mark all read</button>
+        </div>
+        <section class="admin-panel">
+          <ul class="admin-notif-list">
+            <li class="admin-notif-item unread">
+              <div class="admin-notif-icon critical"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="admin-notif-body">
+                <strong>KYC review required — 3 accounts</strong>
+                <p>Users flagged by automated screening need manual approval.</p>
+                <span class="admin-notif-time">12 min ago</span>
+              </div>
+              <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="dismiss">Dismiss</button>
+            </li>
+            <li class="admin-notif-item unread">
+              <div class="admin-notif-icon wallet"><i class="fa-solid fa-wallet"></i></div>
+              <div class="admin-notif-body">
+                <strong>Withdrawal queue above threshold</strong>
+                <p>12 pending withdrawals totaling ₦1.8M await approval.</p>
+                <span class="admin-notif-time">28 min ago</span>
+              </div>
+              <a href="wallet.html" class="admin-btn admin-btn-primary">Review</a>
+            </li>
+            <li class="admin-notif-item">
+              <div class="admin-notif-icon match"><i class="fa-solid fa-futbol"></i></div>
+              <div class="admin-notif-body">
+                <strong>Match voided — Lagos Derby</strong>
+                <p>All open bets on event #M-48102 have been refunded.</p>
+                <span class="admin-notif-time">1 hr ago</span>
+              </div>
+            </li>
+            <li class="admin-notif-item">
+              <div class="admin-notif-icon info"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="admin-notif-body">
+                <strong>Weekly report ready</strong>
+                <p>GGR up 8.2% vs prior week. Download from analytics.</p>
+                <span class="admin-notif-time">3 hr ago</span>
+              </div>
+            </li>
+            <li class="admin-notif-item">
+              <div class="admin-notif-icon info"><i class="fa-solid fa-server"></i></div>
+              <div class="admin-notif-body">
+                <strong>Scheduled maintenance completed</strong>
+                <p>Odds feed cluster upgraded with zero downtime.</p>
+                <span class="admin-notif-time">Yesterday</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div id="admin-toast-root" class="admin-toast-root" aria-live="polite"></div>
+  <div id="confirm-modal" class="admin-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+    <div class="admin-modal">
+      <div class="admin-modal-head">
+        <h3 id="confirm-modal-title">Confirm action</h3>
+      </div>
+      <div class="admin-modal-body">
+        Are you sure you want to proceed? This demo action cannot be undone on a live backend.
+      </div>
+      <div class="admin-modal-foot">
+        <button type="button" class="admin-btn admin-btn-ghost" data-modal-close>Cancel</button>
+        <button type="button" class="admin-btn admin-btn-primary" id="confirm-delete-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

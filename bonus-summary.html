@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Dashboard — ERIBSBETS</title>
+    <title>Bonus Summary — ERIBSBETS</title>
     <meta
       name="description"
-      content="Manage your ERIBSBETS account, balance, and preferences."
+      content="Track ERIBSBETS welcome bonuses, wagering progress, and promotional balances."
     />
     <meta name="theme-color" content="#00e676" />
     <meta name="robots" content="noindex, nofollow" />
@@ -34,11 +34,7 @@
     <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
 
     <div class="profile-shell">
-      <aside
-        id="profile-sidebar"
-        class="profile-sidebar"
-        aria-label="Account navigation"
-      >
+      <aside id="profile-sidebar" class="profile-sidebar" aria-label="Account navigation">
         <div class="sidebar-inner">
           <div class="sidebar-brand-row">
             <a href="index.html" class="sidebar-logo" aria-label="ERIBSBETS Home">
@@ -88,9 +84,7 @@
               </button>
             </div>
             <div class="balance-amount-wrap">
-              <p class="balance-amount" id="balance-amount" data-visible="true">
-                ₦0.00
-              </p>
+              <p class="balance-amount" id="balance-amount" data-visible="true">₦0.00</p>
             </div>
             <div class="balance-actions">
               <button type="button" class="btn-glow btn-deposit" id="btn-deposit">
@@ -107,20 +101,14 @@
           <nav class="sidebar-nav" aria-label="Profile sections">
             <ul class="sidebar-nav-list">
               <li>
-                <a
-                  href="user-profile.html"
-                  class="nav-row is-active"
-                  data-nav="dashboard"
-                  aria-current="page"
-                >
+                <a href="user-profile.html" class="nav-row" data-nav="dashboard">
                   <i class="fas fa-chart-pie" aria-hidden="true"></i> Dashboard
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-row nav-row-split" data-nav="benefits">
                   <span class="nav-left"
-                    ><i class="fas fa-gift" aria-hidden="true"></i> ERIBS Rewards
-                    </span
+                    ><i class="fas fa-gift" aria-hidden="true"></i> ERIBS Rewards</span
                   >
                   <span class="nav-meta" id="nav-benefits-amt">₦0.00</span>
                 </a>
@@ -136,14 +124,18 @@
                 </a>
               </li>
               <li>
-                <a href="bonus-summary.html" class="nav-row" data-nav="bonus">
+                <a
+                  href="bonus-summary.html"
+                  class="nav-row is-active"
+                  data-nav="bonus"
+                  aria-current="page"
+                >
                   <i class="fas fa-coins" aria-hidden="true"></i> Bonus Summary
                 </a>
               </li>
               <li>
                 <a href="transaction-history.html" class="nav-row" data-nav="transactions">
-                  <i class="fas fa-receipt" aria-hidden="true"></i> Transaction
-                  History
+                  <i class="fas fa-receipt" aria-hidden="true"></i> Transaction History
                 </a>
               </li>
               <li>
@@ -209,65 +201,86 @@
             <div class="hero-grid-lines" aria-hidden="true"></div>
             <div class="hero-content">
               <p class="hero-kicker">
-                <span class="pulse-dot" aria-hidden="true"></span> Account hub
+                <span class="pulse-dot" aria-hidden="true"></span> Rewards &amp; rollover
               </p>
               <h2 class="hero-title">
-                Welcome back,
-                <span id="hero-name">Princeton</span>
+                Bonuses for
+                <span id="hero-name">Player</span>
               </h2>
               <p class="hero-lead">
-                Your dashboard is synced and ready. Deposit, track play, and
-                manage rewards — built for speed and clarity.
+                Welcome offers, reloads, and free-play balances stay in sync with your promo
+                engine. Wagering meters below are ready to bind to live contribution data.
               </p>
               <div class="hero-stats">
                 <div class="stat-card">
+                  <span class="stat-label">Active bonus</span>
+                  <span class="stat-value" id="bonus-stat-active">₦0.00</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">Wagering left</span>
+                  <span class="stat-value" id="bonus-stat-wager">—</span>
+                </div>
+                <div class="stat-card">
                   <span class="stat-label">Wallet</span>
                   <span class="stat-value" id="hero-balance-stat">₦0.00</span>
-                </div>
-                <div class="stat-card">
-                  <span class="stat-label">Account</span>
-                  <span class="stat-value stat-mono" id="hero-account-stat">—</span>
-                </div>
-                <div class="stat-card">
-                  <span class="stat-label">Status</span>
-                  <span class="stat-value stat-accent">Verified</span>
                 </div>
               </div>
             </div>
             <div class="hero-visual" aria-hidden="true">
               <div class="orbit-ring"></div>
               <div class="orbit-core">
-                <i class="fas fa-bolt"></i>
+                <i class="fas fa-coins"></i>
               </div>
             </div>
           </section>
 
-          <section class="content-panel">
-            <header class="panel-head">
-              <h3 class="panel-title">Overview</h3>
-              <p class="panel-sub">
-                Placeholder modules below wire cleanly to your future REST or
-                GraphQL endpoints.
-              </p>
-            </header>
-            <div class="panel-grid">
-              <article class="tile tile-accent">
-                <div class="tile-icon"><i class="fas fa-chart-line"></i></div>
-                <h4>Performance</h4>
-                <p>Live staking analytics will appear here post-integration.</p>
-              </article>
-              <article class="tile">
-                <div class="tile-icon"><i class="fas fa-shield-halved"></i></div>
-                <h4>Security</h4>
-                <p>Session-based access with room for JWT or cookie auth.</p>
-              </article>
-              <article class="tile">
-                <div class="tile-icon"><i class="fas fa-headset"></i></div>
-                <h4>Support</h4>
-                <p>24/7 priority lanes unlock once CRM hooks are connected.</p>
-              </article>
-            </div>
-          </section>
+          <div class="profile-panels-stack">
+            <section class="content-panel" aria-labelledby="bonus-tiles-title">
+              <header class="panel-head">
+                <h3 class="panel-title" id="bonus-tiles-title">Promo wallets</h3>
+                <p class="panel-sub">
+                  Split buckets help compliance and reporting — wire each tile to a ledger account
+                  from your bonus service.
+                </p>
+              </header>
+              <div class="panel-grid">
+                <article class="tile tile-accent">
+                  <div class="tile-icon"><i class="fas fa-futbol"></i></div>
+                  <h4>Sportsbook</h4>
+                  <p>No active sports bonus on this static preview.</p>
+                </article>
+                <article class="tile">
+                  <div class="tile-icon"><i class="fas fa-gamepad"></i></div>
+                  <h4>Casino</h4>
+                  <p>Free spins and match bonuses surface here post-integration.</p>
+                </article>
+                <article class="tile">
+                  <div class="tile-icon"><i class="fas fa-ticket"></i></div>
+                  <h4>Free bets</h4>
+                  <p>Tokenised free bets and risk-free promos list with expiry dates.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="content-panel" aria-labelledby="bonus-wager-title">
+              <header class="panel-head">
+                <h3 class="panel-title" id="bonus-wager-title">Wagering progress</h3>
+                <p class="panel-sub">
+                  Progress bar width is a placeholder (0%). Connect turnover events to animate this
+                  meter in real time.
+                </p>
+              </header>
+              <div class="bonus-progress">
+                <div class="bonus-progress-head">
+                  <span class="bonus-progress-label">Welcome rollover</span>
+                  <span class="bonus-progress-meta">0% complete</span>
+                </div>
+                <div class="bonus-progress-track">
+                  <div class="bonus-progress-fill" style="width: 0%"></div>
+                </div>
+              </div>
+            </section>
+          </div>
         </main>
       </div>
     </div>

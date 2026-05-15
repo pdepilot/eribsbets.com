@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings · ERIBSBETS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body class="admin-app">
+  <div class="admin-grid-bg" aria-hidden="true"></div>
+  <div id="sidebar-overlay" class="admin-sidebar-overlay" aria-hidden="true"></div>
+  <div class="admin-shell">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <div class="admin-sidebar-brand">
+        <a href="index.html" class="admin-logo">ERIBS<span>BETS</span></a>
+        <span class="admin-logo-badge">Admin</span>
+      </div>
+      <nav class="admin-nav">
+          <p class="admin-nav-group-title">Core</p>
+          <a href="index.html" class="admin-nav-link"><i class="fa-solid fa-gauge-high"></i><span class="admin-nav-label">Dashboard</span></a>
+          <a href="users.html" class="admin-nav-link"><i class="fa-solid fa-users"></i><span class="admin-nav-label">Users</span></a>
+          <a href="matches.html" class="admin-nav-link"><i class="fa-solid fa-futbol"></i><span class="admin-nav-label">Matches</span></a>
+          <a href="betting.html" class="admin-nav-link"><i class="fa-solid fa-ticket"></i><span class="admin-nav-label">Betting</span></a>
+          <p class="admin-nav-group-title">Finance</p>
+          <a href="wallet.html" class="admin-nav-link"><i class="fa-solid fa-wallet"></i><span class="admin-nav-label">Wallet</span></a>
+          <p class="admin-nav-group-title">Insights</p>
+          <a href="analytics.html" class="admin-nav-link"><i class="fa-solid fa-chart-line"></i><span class="admin-nav-label">Analytics</span></a>
+          <p class="admin-nav-group-title">System</p>
+          <a href="notifications.html" class="admin-nav-link"><i class="fa-solid fa-bell"></i><span class="admin-nav-label">Notifications</span></a>
+          <a href="settings.html" class="admin-nav-link is-active"><i class="fa-solid fa-gear"></i><span class="admin-nav-label">Settings</span></a>
+          <a href="logs.html" class="admin-nav-link"><i class="fa-solid fa-terminal"></i><span class="admin-nav-label">Logs</span></a>
+          <p class="admin-nav-group-title">Account</p>
+          <a href="profile.html" class="admin-nav-link"><i class="fa-solid fa-user-shield"></i><span class="admin-nav-label">Profile</span></a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <p>Frontend control center — connect APIs when ready.</p>
+        <a href="../index.html" class="admin-nav-link" style="margin-top:12px">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="admin-nav-label">Exit to site</span>
+        </a>
+        <div class="admin-live-pill">Platform online</div>
+      </div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" id="mobile-menu-btn" class="admin-menu-btn" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button type="button" id="sidebar-collapse-btn" class="admin-icon-btn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+        <div class="admin-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="global-search" placeholder="Search users, bets, transactions…" autocomplete="off" />
+        </div>
+        <div class="admin-topbar-actions">
+          <div class="admin-dropdown-wrap" data-dropdown>
+            <button type="button" class="admin-icon-btn" data-dropdown-trigger aria-label="Notifications">
+              <i class="fa-solid fa-bell"></i>
+              <span class="badge-dot"></span>
+            </button>
+            <div class="admin-dropdown">
+              <div class="admin-dropdown-head">Notifications</div>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-wallet" style="color:var(--admin-blue)"></i>
+                <div><strong>Withdrawal queue</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">12 pending review</span></div>
+              </a>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-futbol" style="color:var(--admin-accent)"></i>
+                <div><strong>Match voided</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">Lagos Derby · 4m ago</span></div>
+              </a>
+              <a href="notifications.html" class="admin-dropdown-item">
+                <i class="fa-solid fa-shield-halved" style="color:var(--admin-amber)"></i>
+                <div><strong>KYC flagged</strong><br /><span style="font-size:12px;color:var(--admin-text-3)">3 accounts need review</span></div>
+              </a>
+            </div>
+          </div>
+          <div class="admin-dropdown-wrap" data-dropdown>
+            <button type="button" class="admin-profile-btn" data-dropdown-trigger>
+              <span class="admin-avatar">EA</span>
+              <span>Admin</span>
+              <i class="fa-solid fa-chevron-down" style="font-size:10px;opacity:0.6"></i>
+            </button>
+            <div class="admin-dropdown">
+              <div class="admin-dropdown-head">Account</div>
+              <a href="profile.html" class="admin-dropdown-item"><i class="fa-solid fa-user"></i><div>My profile</div></a>
+              <a href="settings.html" class="admin-dropdown-item"><i class="fa-solid fa-gear"></i><div>Settings</div></a>
+              <a href="../index.html" class="admin-dropdown-item"><i class="fa-solid fa-house"></i><div>Exit to site</div></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="admin-content">
+        <header class="admin-page-head">
+          <nav class="admin-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Admin</a>
+            <i class="fa-solid fa-chevron-right" style="font-size:9px"></i>
+            <span>Settings</span>
+          </nav>
+          <h1>Settings</h1>
+          <p>Configure platform defaults, security policies, and integrations.</p>
+        </header>
+
+        <div data-tabs>
+        <div class="admin-tabs" role="tablist">
+          <button type="button" class="admin-tab is-active" data-tab="general" role="tab" aria-selected="true">General</button>
+          <button type="button" class="admin-tab" data-tab="security" role="tab">Security</button>
+          <button type="button" class="admin-tab" data-tab="platform" role="tab">Platform</button>
+        </div>
+        <section class="admin-panel admin-tab-panel is-active" data-tab-panel="general" role="tabpanel">
+          <div class="admin-panel-body">
+            <div class="admin-form-grid">
+              <div class="admin-form-group">
+                <label for="set-site-name">Site name</label>
+                <input id="set-site-name" type="text" value="ERIBSBETS" />
+              </div>
+              <div class="admin-form-group">
+                <label for="set-currency">Default currency</label>
+                <select id="set-currency"><option>NGN (₦)</option><option>USD ($)</option></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="set-timezone">Timezone</label>
+                <select id="set-timezone"><option>Africa/Lagos</option><option>UTC</option></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="set-support">Support email</label>
+                <input id="set-support" type="email" value="support@eribsbets.demo" />
+              </div>
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" data-demo-action="save" style="margin-top:20px">Save general</button>
+          </div>
+        </section>
+        <section class="admin-panel admin-tab-panel" data-tab-panel="security" role="tabpanel" hidden>
+          <div class="admin-panel-body">
+            <div class="admin-form-grid">
+              <div class="admin-form-group">
+                <label for="set-2fa">Require 2FA for admins</label>
+                <select id="set-2fa"><option>Enabled</option><option>Disabled</option></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="set-session">Session timeout (minutes)</label>
+                <input id="set-session" type="number" value="30" />
+              </div>
+              <div class="admin-form-group">
+                <label for="set-ip">IP allowlist</label>
+                <textarea id="set-ip" rows="3" placeholder="One IP per line…"></textarea>
+              </div>
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" data-demo-action="save" style="margin-top:20px">Save security</button>
+          </div>
+        </section>
+        <section class="admin-panel admin-tab-panel" data-tab-panel="platform" role="tabpanel" hidden>
+          <div class="admin-panel-body">
+            <div class="admin-form-grid">
+              <div class="admin-form-group">
+                <label for="set-min-bet">Minimum bet (₦)</label>
+                <input id="set-min-bet" type="number" value="100" />
+              </div>
+              <div class="admin-form-group">
+                <label for="set-max-payout">Max payout (₦)</label>
+                <input id="set-max-payout" type="number" value="50000000" />
+              </div>
+              <div class="admin-form-group">
+                <label for="set-maintenance">Maintenance mode</label>
+                <select id="set-maintenance"><option>Off</option><option>On</option></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="set-api">Odds API endpoint</label>
+                <input id="set-api" type="url" placeholder="https://api.example.com/odds" />
+              </div>
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" data-demo-action="save" style="margin-top:20px">Save platform</button>
+          </div>
+        </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div id="admin-toast-root" class="admin-toast-root" aria-live="polite"></div>
+  <div id="confirm-modal" class="admin-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+    <div class="admin-modal">
+      <div class="admin-modal-head">
+        <h3 id="confirm-modal-title">Confirm action</h3>
+      </div>
+      <div class="admin-modal-body">
+        Are you sure you want to proceed? This demo action cannot be undone on a live backend.
+      </div>
+      <div class="admin-modal-foot">
+        <button type="button" class="admin-btn admin-btn-ghost" data-modal-close>Cancel</button>
+        <button type="button" class="admin-btn admin-btn-primary" id="confirm-delete-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
