@@ -1711,6 +1711,8 @@
     ></div>
 
     <script src="js/auth-session.js"></script>
+    <script src="js/registered-user-telemetry.js"></script>
+    <script src="js/live-presence.js"></script>
     <script src="js/profile-bet-return.js"></script>
     <script>
       (function () {
@@ -3135,6 +3137,16 @@
                     "lm-registerSuccess",
                     "Account created! Please sign in.",
                   );
+                  if (window.ERIBSRegisteredUserTelemetry) {
+                    window.ERIBSRegisteredUserTelemetry.ensureAccount({
+                      username: regEmail,
+                      displayName: document
+                        .getElementById("lm-regFullname")
+                        .value.trim(),
+                      phone:
+                        document.getElementById("lm-regPhone").value.trim(),
+                    });
+                  }
                   setTimeout(() => {
                     flipToLogin();
                     if (regEmail) {

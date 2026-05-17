@@ -276,6 +276,30 @@
     };
 
     writeStore(store);
+
+    if (user.username && global.ERIBSRegisteredUserTelemetry) {
+      var sess =
+        global.ERIBSAuthSession &&
+        typeof global.ERIBSAuthSession.getSession === "function"
+          ? global.ERIBSAuthSession.getSession()
+          : null;
+      global.ERIBSRegisteredUserTelemetry.recordSessionSnapshot({
+        username: user.username,
+        displayName:
+          sess && sess.displayName
+            ? sess.displayName
+            : user.label !== "Guest"
+              ? user.label
+              : "",
+        accountNumber: user.accountNumber,
+        balance:
+          sess && typeof sess.balance === "number" ? sess.balance : undefined,
+        geo: geo,
+        device: dev,
+        page: currentPageLabel(),
+      });
+    }
+
     return store.sessions[sid];
   }
 

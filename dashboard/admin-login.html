@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Sign In · ERIBSBETS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <script src="assets/js/admin-auth.js"></script>
+</head>
+<body class="admin-app admin-login-body">
+  <div class="admin-grid-bg" aria-hidden="true"></div>
+
+  <div class="admin-login-wrap">
+    <a href="../index.html" class="admin-login-back"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
+
+    <div class="admin-login-card">
+      <div class="admin-login-brand">
+        <span class="admin-logo admin-login-logo">ERIBS<span>BETS</span></span>
+        <span class="admin-logo-badge">Admin</span>
+      </div>
+      <h1 class="admin-login-title">Sign in</h1>
+      <p class="admin-login-lead">Enter admin credentials to open the control center.</p>
+
+      <div id="admin-login-error" class="admin-login-error" role="alert" hidden></div>
+
+      <form id="admin-login-form" class="admin-login-form" novalidate>
+        <div class="admin-form-group">
+          <label for="admin-email">Email</label>
+          <input id="admin-email" type="email" name="email" autocomplete="username" required placeholder="admin@eribsbets.demo" />
+        </div>
+        <div class="admin-form-group">
+          <label for="admin-password">Password</label>
+          <input id="admin-password" type="password" name="password" autocomplete="current-password" required placeholder="••••••••" />
+        </div>
+        <button type="submit" class="admin-btn admin-btn-primary admin-login-submit" id="admin-login-submit">
+          <span>Continue to dashboard</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <p class="admin-login-hint">
+        <strong>Demo:</strong> <code>admin@eribsbets.demo</code> · <code>Admin123!</code><br />
+        Frontend-only — hook your auth API before production.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      if (window.ERIBSAdminAuth && window.ERIBSAdminAuth.isAuthenticated()) {
+        window.location.replace("index.html");
+        return;
+      }
+
+      var form = document.getElementById("admin-login-form");
+      var err = document.getElementById("admin-login-error");
+      var btn = document.getElementById("admin-login-submit");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        err.hidden = true;
+        var email = document.getElementById("admin-email").value;
+        var password = document.getElementById("admin-password").value;
+
+        btn.disabled = true;
+        var span = btn.querySelector("span");
+        var prev = span ? span.textContent : "";
+        if (span) span.textContent = "Signing in…";
+
+        window.setTimeout(function () {
+          var ok =
+            window.ERIBSAdminAuth &&
+            window.ERIBSAdminAuth.login(email, password);
+          if (ok) {
+            window.location.href = "index.html";
+          } else {
+            err.textContent =
+              "Invalid email or password. Use the demo credentials shown below.";
+            err.hidden = false;
+          }
+          btn.disabled = false;
+          if (span) span.textContent = prev || "Continue to dashboard";
+        }, 280);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/admin.css" />
+  <script src="assets/js/admin-auth.js"></script>
 </head>
 <body class="admin-app">
   <div class="admin-grid-bg" aria-hidden="true"></div>
@@ -42,6 +43,7 @@
           <i class="fa-solid fa-arrow-left"></i>
           <span class="admin-nav-label">Exit to site</span>
         </a>
+        <button type="button" class="admin-nav-link" data-admin-logout style="margin-top:8px;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;color:inherit;font:inherit;padding:10px 14px;border-radius:10px"><i class="fa-solid fa-right-from-bracket"></i><span class="admin-nav-label">Admin logout</span></button>
         <div class="admin-live-pill">Platform online</div>
       </div>
     </aside>
@@ -102,33 +104,16 @@
             <span>User Management</span>
           </nav>
           <h1>User Management</h1>
-          <p>Search, filter, and manage registered players. Live sessions show real IP, location, and device.</p>
+          <p>IP address, location, and device type update live for accounts that register and browse while signed in (stored in this browser only until APIs are connected).</p>
+          <p id="registered-users-meta"></p>
         </header>
 
-        <section class="admin-panel admin-panel-live" id="live-presence-panel">
-          <div class="admin-panel-head">
-            <h2><span class="admin-presence-dot" aria-hidden="true"></span> Live sessions</h2>
-            <div class="admin-panel-head-actions">
-              <span class="admin-badge live" id="live-presence-count">0 online · updating live</span>
-              <span class="admin-presence-updated" id="live-presence-updated"></span>
-            </div>
-          </div>
-          <div class="admin-panel-body">
-            <div class="admin-toolbar admin-toolbar-inline">
-              <input type="search" id="live-presence-search" class="admin-input" placeholder="Filter by user, IP, city, device…" />
-            </div>
-            <p id="live-presence-empty" class="admin-presence-empty" hidden>No active sessions. Visitors on the main site appear here automatically.</p>
-            <div class="admin-table-wrap">
-              <table class="admin-table admin-table-presence">
-                <thead><tr><th>User</th><th>IP</th><th>Location</th><th>Device</th><th>Page</th><th>Last seen</th></tr></thead>
-                <tbody id="live-presence-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+        <p id="registered-users-empty" class="admin-presence-empty" hidden style="margin-bottom:16px">
+          No registered accounts recorded yet. Create one from the main site, sign in, and browse — IP and location appear after the geo lookup completes (HTTPS recommended).
+        </p>
 
         <div class="admin-toolbar">
-          <input type="search" class="admin-input" placeholder="Search name, email, phone…" style="min-width:220px" />
+          <input type="search" id="registered-users-toolbar-search" class="admin-input" placeholder="Search registered accounts…" style="min-width:220px" />
           <select class="admin-select" aria-label="Status filter">
             <option>All statuses</option><option>Active</option><option>Suspended</option><option>Pending KYC</option>
           </select>
@@ -140,31 +125,52 @@
           </button>
         </div>
         <section class="admin-panel">
+          <div class="admin-panel-head">
+            <h2>Registered accounts</h2>
+            <span class="admin-badge info">This browser only · Demo frontend</span>
+          </div>
           <div class="admin-table-wrap">
+            <table class="admin-table admin-table-presence">
+              <thead><tr><th>User</th><th>Username / Email</th><th>IP address</th><th>Location</th><th>Device</th><th>Last activity</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+              <tbody id="registered-users-tbody"></tbody>
+            </table>
+          </div>
+          <p style="font-size:12px;color:var(--admin-text-3);margin-top:16px;padding:0 4px">
+            Static sample rows below — replace with API-backed data in production.
+          </p>
+          <div class="admin-table-wrap" style="margin-top:12px">
             <table class="admin-table">
-              <thead><tr><th>User</th><th>Email</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+              <thead><tr><th>User</th><th>Email</th><th>IP address</th><th>Location</th><th>Device</th><th>Last activity</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
               <tbody>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">AO</span><div><strong>Ada Okafor</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10284</span></div></div></td>
-                  <td>ada.o@email.com</td><td>₦124,500</td><td><span class="admin-badge success">Active</span></td><td>12 Jan 2025</td>
+                  <td>ada.o@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦124,500</td><td><span class="admin-badge success">Active</span></td><td>12 Jan 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">KM</span><div><strong>Kunle Musa</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10291</span></div></div></td>
-                  <td>k.musa@email.com</td><td>₦8,200</td><td><span class="admin-badge warning">Pending KYC</span></td><td>03 Mar 2025</td>
+                  <td>k.musa@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦8,200</td><td><span class="admin-badge warning">Pending KYC</span></td><td>03 Mar 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">CE</span><div><strong>Chidi Eze</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10302</span></div></div></td>
-                  <td>chidi.eze@email.com</td><td>₦0</td><td><span class="admin-badge danger">Suspended</span></td><td>18 Feb 2025</td>
+                  <td>chidi.eze@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦0</td><td><span class="admin-badge danger">Suspended</span></td><td>18 Feb 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">FN</span><div><strong>Fatima Nwosu</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10318</span></div></div></td>
-                  <td>f.nwosu@email.com</td><td>₦892,000</td><td><span class="admin-badge success">VIP</span></td><td>07 Apr 2024</td>
+                  <td>f.nwosu@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦892,000</td><td><span class="admin-badge success">VIP</span></td><td>07 Apr 2024</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
@@ -214,8 +220,8 @@
       </div>
     </div>
   </div>
-  <script src="../js/live-presence.js"></script>
-  <script src="assets/js/admin-live-presence.js"></script>
+  <script src="../js/registered-user-telemetry.js"></script>
+  <script src="assets/js/admin-registered-users.js"></script>
   <script src="assets/js/admin.js"></script>
 </body>
 </html>

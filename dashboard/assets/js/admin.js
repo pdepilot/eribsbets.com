@@ -192,6 +192,20 @@
     });
   }
 
+  function initLogout() {
+    $$("[data-admin-logout]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (
+          window.ERIBSAdminAuth &&
+          typeof window.ERIBSAdminAuth.logout === "function"
+        ) {
+          window.ERIBSAdminAuth.logout();
+        }
+      });
+    });
+  }
+
   function boot() {
     initSidebar();
     initDropdowns();
@@ -200,6 +214,7 @@
     initTableActions();
     initSearchDemo();
     initSkeletonDemo();
+    initLogout();
     animateCounters();
     document.body.classList.add("admin-ready");
   }

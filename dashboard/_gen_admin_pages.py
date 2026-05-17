@@ -55,6 +55,7 @@ def head_block(active: str, title: str, description: str) -> str:
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/admin.css" />
+  <script src="assets/js/admin-auth.js"></script>
 </head>
 <body class="admin-app">
   <div class="admin-grid-bg" aria-hidden="true"></div>
@@ -74,6 +75,10 @@ def head_block(active: str, title: str, description: str) -> str:
           <i class="fa-solid fa-arrow-left"></i>
           <span class="admin-nav-label">Exit to site</span>
         </a>
+        <button type="button" class="admin-nav-link" data-admin-logout style="margin-top:8px;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;color:inherit;font:inherit;padding:10px 14px;border-radius:10px">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span class="admin-nav-label">Admin logout</span>
+        </button>
         <div class="admin-live-pill">Platform online</div>
       </div>
     </aside>
@@ -142,9 +147,13 @@ def head_block(active: str, title: str, description: str) -> str:
 def tail_block(filename: str) -> str:
     extra = ""
     if filename in CHART_PAGES:
-        extra = """
+        extra += """
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="assets/js/admin-charts.js"></script>"""
+    if filename == "users.html":
+        extra += """
+  <script src="../js/registered-user-telemetry.js"></script>
+  <script src="assets/js/admin-registered-users.js"></script>"""
     return f"""      </main>
     </div>
   </div>

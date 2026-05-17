@@ -107,10 +107,14 @@ PAGES = {
     },
     "users.html": {
         "title": "User Management",
-        "description": "Search, filter, and manage registered players. Demo data only.",
+        "description": "IP address, location, and device type update live for accounts that register and browse while signed in (stored in this browser only until APIs are connected).",
         "body": """
+        <p id="registered-users-meta"></p>
+        <p id="registered-users-empty" class="admin-presence-empty" hidden style="margin-bottom:16px">
+          No registered accounts recorded yet. Create one from the main site, sign in, and browse — IP and location appear after the geo lookup completes (HTTPS recommended).
+        </p>
         <div class="admin-toolbar">
-          <input type="search" class="admin-input" placeholder="Search name, email, phone…" style="min-width:220px" />
+          <input type="search" id="registered-users-toolbar-search" class="admin-input" placeholder="Search registered accounts…" style="min-width:220px" />
           <select class="admin-select" aria-label="Status filter">
             <option>All statuses</option><option>Active</option><option>Suspended</option><option>Pending KYC</option>
           </select>
@@ -122,31 +126,52 @@ PAGES = {
           </button>
         </div>
         <section class="admin-panel">
+          <div class="admin-panel-head">
+            <h2>Registered accounts</h2>
+            <span class="admin-badge info">This browser only · Demo frontend</span>
+          </div>
           <div class="admin-table-wrap">
+            <table class="admin-table admin-table-presence">
+              <thead><tr><th>User</th><th>Username / Email</th><th>IP address</th><th>Location</th><th>Device</th><th>Last activity</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+              <tbody id="registered-users-tbody"></tbody>
+            </table>
+          </div>
+          <p style="font-size:12px;color:var(--admin-text-3);margin-top:16px;padding:0 4px">
+            Static sample rows below — replace with API-backed data in production.
+          </p>
+          <div class="admin-table-wrap" style="margin-top:12px">
             <table class="admin-table">
-              <thead><tr><th>User</th><th>Email</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+              <thead><tr><th>User</th><th>Email</th><th>IP address</th><th>Location</th><th>Device</th><th>Last activity</th><th>Balance</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
               <tbody>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">AO</span><div><strong>Ada Okafor</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10284</span></div></div></td>
-                  <td>ada.o@email.com</td><td>₦124,500</td><td><span class="admin-badge success">Active</span></td><td>12 Jan 2025</td>
+                  <td>ada.o@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦124,500</td><td><span class="admin-badge success">Active</span></td><td>12 Jan 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">KM</span><div><strong>Kunle Musa</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10291</span></div></div></td>
-                  <td>k.musa@email.com</td><td>₦8,200</td><td><span class="admin-badge warning">Pending KYC</span></td><td>03 Mar 2025</td>
+                  <td>k.musa@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦8,200</td><td><span class="admin-badge warning">Pending KYC</span></td><td>03 Mar 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">CE</span><div><strong>Chidi Eze</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10302</span></div></div></td>
-                  <td>chidi.eze@email.com</td><td>₦0</td><td><span class="admin-badge danger">Suspended</span></td><td>18 Feb 2025</td>
+                  <td>chidi.eze@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦0</td><td><span class="admin-badge danger">Suspended</span></td><td>18 Feb 2025</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
                 <tr>
                   <td><div class="admin-user-cell"><span class="mini-avatar">FN</span><div><strong>Fatima Nwosu</strong><br /><span style="color:var(--admin-text-3);font-size:12px">#10318</span></div></div></td>
-                  <td>f.nwosu@email.com</td><td>₦892,000</td><td><span class="admin-badge success">VIP</span></td><td>07 Apr 2024</td>
+                  <td>f.nwosu@email.com</td>
+                  <td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td><td style="color:var(--admin-text-3)">—</td>
+                  <td>₦892,000</td><td><span class="admin-badge success">VIP</span></td><td>07 Apr 2024</td>
                   <td><button type="button" class="admin-btn admin-btn-ghost" data-demo-action="edit">Edit</button>
                   <button type="button" class="admin-btn admin-btn-ghost" data-demo-action="delete">Delete</button></td>
                 </tr>
